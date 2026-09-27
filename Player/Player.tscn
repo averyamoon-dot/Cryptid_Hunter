@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://lryvbxpck1ku"]
+
+[ext_resource type="Script" uid="uid://b0ugk761orcy2" path="res://Player/player.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://dcsqkj2lsv2yb" path="res://Player/States/player_state_machine.gd" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://cfg0abxuggavp" path="res://Player/States/test_state.gd" id="3_ddoul"]
+[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="3_tok1r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vjpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tok1r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite")]
+script = ExtResource("1_3qydi")
+state_machine = NodePath("StateMachine")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("test_state", "starting_state")]
+script = ExtResource("2_q3lat")
+test_state = NodePath("TestState")
+starting_state = NodePath("TestState")
+
+[node name="TestState" type="Node" parent="StateMachine" unique_id=1180058073]
+script = ExtResource("3_ddoul")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588589472]
+sprite_frames = SubResource("SpriteFrames_6vjpb")
