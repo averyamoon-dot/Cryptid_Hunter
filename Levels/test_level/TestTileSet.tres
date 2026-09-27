@@ -70,6 +70,7 @@ texture_region_size = Vector2i(250, 250)
 61:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/terrain_set = 0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -3047,5 +3048,6 @@ texture_region_size = Vector2i(250, 250)
 [resource]
 tile_size = Vector2i(250, 250)
 physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_7is8v")
 sources/1 = SubResource("TileSetAtlasSource_84dbp")
