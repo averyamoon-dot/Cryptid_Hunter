@@ -58,3 +58,6 @@ sprite_frames = SubResource("SpriteFrames_6vjpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745684916]
 shape = SubResource("RectangleShape2D_6vjpb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1426348137]
+zoom = Vector2(0.5, 0.5)
