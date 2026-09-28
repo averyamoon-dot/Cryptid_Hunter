@@ -21,6 +21,8 @@ func process_frame(_delta) -> State:
 func process_input(event : InputEvent) -> State:
 	if event.is_action_released("sprint"):
 		return state_machine.walk_state
+	if event.is_action_pressed("crouch"):
+		return state_machine.crouch_state
 	return
 
 func process_physics(_delta) -> State:

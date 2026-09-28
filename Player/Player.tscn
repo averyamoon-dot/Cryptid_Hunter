@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b0ugk761orcy2" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dcsqkj2lsv2yb" path="res://Player/States/player_state_machine.gd" id="2_q3lat"]
-[ext_resource type="Script" uid="uid://cfg0abxuggavp" path="res://Player/States/test_state.gd" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://b064st04cmyc2" path="res://Player/States/idle_state.gd" id="4_8g4oa"]
 [ext_resource type="Script" uid="uid://cga1tkd6tvwv8" path="res://Player/States/walk_state.gd" id="5_6ysni"]
@@ -29,9 +28,8 @@ script = ExtResource("1_3qydi")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite2D")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("test_state", "idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "starting_state")]
 script = ExtResource("2_q3lat")
-test_state = NodePath("TestState")
 idle_state = NodePath("Idle")
 walk_state = NodePath("Walk")
 sprint_state = NodePath("Sprint")
@@ -39,18 +37,16 @@ crouch_state = NodePath("Crouch")
 tired_state = NodePath("Tired")
 starting_state = NodePath("Idle")
 
-[node name="TestState" type="Node" parent="StateMachine" unique_id=1180058073]
-script = ExtResource("3_ddoul")
-
 [node name="Idle" type="Node" parent="StateMachine" unique_id=574236878]
 script = ExtResource("4_8g4oa")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=273488229]
 script = ExtResource("5_6ysni")
+speed = 350.0
 
 [node name="Sprint" type="Node" parent="StateMachine" unique_id=710891960 node_paths=PackedStringArray("sprint_timer")]
 script = ExtResource("6_vlldt")
-sprint_speed = 650.0
+sprint_speed = 550.0
 sprint_timer = NodePath("SprintTimer")
 
 [node name="SprintTimer" type="Timer" parent="StateMachine/Sprint" unique_id=640211361]
