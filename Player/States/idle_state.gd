@@ -1,7 +1,5 @@
 extends State
 
-
-
 func activate():
 	super()
 	
