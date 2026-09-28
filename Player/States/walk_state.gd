@@ -4,6 +4,8 @@ extends State
 
 func activate():
 	super()
+	if Input.is_action_pressed("sprint"):
+		state_machine.change_state(state_machine.sprint_state)
 	
 func process_frame(_delta) -> State:
 	return
