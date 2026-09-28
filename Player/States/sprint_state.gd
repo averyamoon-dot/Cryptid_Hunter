@@ -11,7 +11,7 @@ var is_sprinting: bool = false
 func activate():
 	super()
 	is_sprinting = true
-	sprint_timer.start()
+	sprint_timer.start(parent.remaining_sprint_time)
 	
 func process_frame(_delta) -> State:
 	if sprint_timer.is_stopped():
@@ -32,4 +32,5 @@ func process_physics(_delta) -> State:
 func deactivate():
 	super()
 	is_sprinting = false
+	parent.remaining_sprint_time = sprint_timer.time_left
 	sprint_timer.stop()
