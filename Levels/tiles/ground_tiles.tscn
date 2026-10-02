@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxfbhqgx80xrx"]
+
+[ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/TestTileSet.tres" id="1_difug"]
+
+[node name="GroundTiles" type="TileMapLayer" unique_id=140691186]
+tile_set = ExtResource("1_difug")

@@ -24,9 +24,12 @@ texture = ExtResource("2_hw6mv")
 texture_region_size = Vector2i(250, 250)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+0:0/0/custom_data_0 = true
 
 [resource]
 tile_size = Vector2i(250, 250)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "obstacle"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_a4i7m")
 sources/3 = SubResource("TileSetAtlasSource_hw6mv")
