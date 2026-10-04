@@ -19,8 +19,7 @@ func process_physics(_delta) -> State:
 		return state_machine.chase_state
 	
 	if parent.path_finished():
-		#return state_machine.idle_state
-		return state_machine.wander_state
+		return state_machine.idle_state
 	
 	parent.velocity = parent.get_move_direction() * speed
 	parent.move_and_slide()

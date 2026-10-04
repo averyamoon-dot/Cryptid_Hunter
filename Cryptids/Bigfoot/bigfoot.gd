@@ -59,7 +59,6 @@ func set_path(target: Vector2) -> void:
 	path = pathfinder.get_global_path(global_position, target)
 	path_index = 1
 
-# For the wander state
 func pick_random_target() -> void:
 	set_path(pathfinder.random_point_near(global_position, 6))
 	
