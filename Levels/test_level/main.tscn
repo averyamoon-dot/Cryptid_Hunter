@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="2_34oi5"]
 [ext_resource type="Shader" uid="uid://b0fgecbfcspaj" path="res://Levels/test_level/grayScale.gdshader" id="2_bqkso"]
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="3_34oi5"]
+[ext_resource type="Shader" uid="uid://dflj4faulgvxh" path="res://Levels/test_level/hidden.gdshader" id="5_udv81"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
 shader = ExtResource("2_bqkso")
@@ -14,7 +15,7 @@ shader = ExtResource("2_bqkso")
 shader_parameter/saturation = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_osvey"]
-shader = ExtResource("2_bqkso")
+shader = ExtResource("5_udv81")
 shader_parameter/saturation = 0.0
 
 [node name="main" type="Node2D" unique_id=1834457945]
@@ -38,6 +39,7 @@ tile_set = ExtResource("2_34oi5")
 
 [node name="CharacterBody2D" parent="." unique_id=1270243922 instance=ExtResource("3_34oi5")]
 z_index = 1
+collision_layer = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1176876338]
 color = Color(0.53436106, 0.5343611, 0.5343609, 1)
