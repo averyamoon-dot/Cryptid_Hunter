@@ -18,7 +18,10 @@ tile_set = ExtResource("1_thjdc")
 position = Vector2(0, 1)
 
 [node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "floor_layer", "wall_layer") instance=ExtResource("3_38ub3")]
-position = Vector2(176, 464)
+position = Vector2(-980, -160)
 player = NodePath("../CharacterBody2D")
 floor_layer = NodePath("../GroundLayer")
 wall_layer = NodePath("../CollidableLayer")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1999665800]
+position = Vector2(4664, 617)

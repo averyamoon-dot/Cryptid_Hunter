@@ -14,10 +14,12 @@ extends CharacterBody2D
 @export var sprite: AnimatedSprite2D
 @export var vision_cone: Area2D
 @export var ray_cast: RayCast2D
+#@export var marker: Marker2D
 
 var pathfinder: PathFinder
 var path: PackedVector2Array = PackedVector2Array()
 var path_index: int = 0
+var starting_position: Vector2
 
 var path_line: Line2D = Line2D.new()
 var facing: Vector2 = Vector2.RIGHT
@@ -26,6 +28,8 @@ var can_see_player: bool = false
 
 var vision_angle: float = 0.0            
 var sight_extension: float = 0.0
+
+const DISTANCE_FROM_START: float = 10 # Distance in tiles
 
 func _ready() -> void:
 	pathfinder = PathFinder.new()
@@ -37,6 +41,9 @@ func _ready() -> void:
 	add_child(path_line)
 	
 	vision_angle = facing.angle()
+	
+	#starting_position = marker.global_position
+	starting_position = global_position
 	
 	state_machine.parent = self
 	state_machine.sprite = sprite
@@ -60,7 +67,10 @@ func set_path(target: Vector2) -> void:
 	path_index = 1
 
 func pick_random_target() -> void:
-	set_path(pathfinder.random_point_near(global_position, 6))
+	if pathfinder.check_distance(global_position, starting_position, DISTANCE_FROM_START):
+		set_path(pathfinder.random_point_near(global_position, 6))
+	else:
+		set_path(starting_position)
 	
 func clear_path() -> void:
 	path = PackedVector2Array()

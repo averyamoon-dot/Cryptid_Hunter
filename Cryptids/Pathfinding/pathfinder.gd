@@ -38,3 +38,11 @@ func random_point_near(world_pos: Vector2, radius: int) -> Vector2:
 	var cell: Vector2i = layer.local_to_map(layer.to_local(world_pos))
 	cell += Vector2i(randi_range(-radius, radius), randi_range(-radius, radius))
 	return layer.to_global(layer.map_to_local(cell))
+	
+func check_distance(from: Vector2, to: Vector2, distance: float) -> bool:
+	var from_cell: Vector2i = layer.local_to_map(layer.to_local(from))
+	var to_cell: Vector2i = layer.local_to_map(layer.to_local(to))
+	
+	var calc_distance = Vector2(from_cell).distance_to(Vector2(to_cell))
+	print(calc_distance)
+	return true if calc_distance < distance else false
