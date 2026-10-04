@@ -40,7 +40,6 @@ func random_point_near(world_pos: Vector2, min_radius: int, max_radius: int) -> 
 	var offset_x = randi_range(min_radius, max_radius) * [1, -1].pick_random()
 	var offset_y = randi_range(min_radius, max_radius) * [1, -1].pick_random()
 	cell += Vector2i(offset_x, offset_y)
-	print(Vector2i(offset_x, offset_y))
 	return layer.to_global(layer.map_to_local(cell))
 	
 func check_distance(from: Vector2, to: Vector2, distance: float) -> bool:
@@ -48,5 +47,4 @@ func check_distance(from: Vector2, to: Vector2, distance: float) -> bool:
 	var to_cell: Vector2i = layer.local_to_map(layer.to_local(to))
 	
 	var calc_distance = Vector2(from_cell).distance_to(Vector2(to_cell))
-	print(calc_distance)
 	return true if calc_distance < distance else false

@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var sprite: AnimatedSprite2D
 @export var vision_cone: Area2D
 @export var ray_cast: RayCast2D
-#@export var marker: Marker2D
+@export var collision: CollisionShape2D
 
 var pathfinder: PathFinder
 var path: PackedVector2Array = PackedVector2Array()
@@ -29,7 +29,7 @@ var can_see_player: bool = false
 var vision_angle: float = 0.0            
 var sight_extension: float = 0.0
 
-const DISTANCE_FROM_START: float = 10 # Distance in tiles
+const DISTANCE_FROM_START: float = 20 # Distance in tiles
 const MIN_RADIUS: int = 1
 const MAX_RADIUS: int = 6
 
@@ -44,7 +44,6 @@ func _ready() -> void:
 	
 	vision_angle = facing.angle()
 	
-	#starting_position = marker.global_position
 	starting_position = global_position
 	
 	state_machine.parent = self
@@ -129,7 +128,8 @@ func update_facing(delta: float) -> void:
 	var diff: float = angle_difference(vision_angle, target_angle)
 	var max_step: float = turn_speed * delta
 	vision_angle += clampf(diff, -max_step, max_step)
-
+	
+	collision.rotation = vision_angle
 	vision_cone.rotation = vision_angle
 	sprite.rotation = vision_angle
  

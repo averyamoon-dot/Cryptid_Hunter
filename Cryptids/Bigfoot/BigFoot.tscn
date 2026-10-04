@@ -22,12 +22,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(176, 176)
 
-[node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast")]
+[node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision")]
 script = ExtResource("1_gkcht")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("Sprite2D")
 vision_cone = NodePath("VisionCone")
 ray_cast = NodePath("RayCast2D")
+collision = NodePath("CollisionShape2D")
 
 [node name="StateMachine" type="Node" parent="." unique_id=425256338 node_paths=PackedStringArray("idle_state", "wander_state", "search_state", "chase_state", "starting_state")]
 script = ExtResource("3_pnwrb")
@@ -61,7 +62,7 @@ player_tracking_timer = NodePath("PlayerTrackingTimer")
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=1757146408]
-wait_time = 1.5
+one_shot = true
 
 [node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
 script = ExtResource("7_3qy6n")

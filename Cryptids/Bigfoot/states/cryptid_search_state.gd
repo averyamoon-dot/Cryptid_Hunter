@@ -25,6 +25,7 @@ func process_physics(_delta) -> State:
 	
 	if not player_tracking_timer.is_stopped():
 		parent.set_path(parent.player.global_position)
+		print(player_tracking_timer.time_left)
 	
 	parent.velocity = parent.get_move_direction() * speed
 	parent.move_and_slide()
