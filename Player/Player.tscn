@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dbhlx1tlkt6v" path="res://Player/States/sprint_state.gd" id="6_vlldt"]
 [ext_resource type="Script" uid="uid://dqdw12kodaiyl" path="res://Player/States/crouch_state.gd" id="7_s1rgi"]
 [ext_resource type="Script" uid="uid://bp3rk77wibemt" path="res://Player/States/tired.gd" id="8_j23h2"]
+[ext_resource type="PackedScene" uid="uid://trpd5hiopreh" path="res://Light/playerLight.tscn" id="9_j23h2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vjpb"]
 animations = [{
@@ -73,3 +74,5 @@ shape = SubResource("RectangleShape2D_6vjpb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1426348137]
 zoom = Vector2(0.5, 0.5)
+
+[node name="playerLight" parent="." unique_id=28684225 instance=ExtResource("9_j23h2")]

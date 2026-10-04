@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" format=3 uid="uid://dyv82mjclh13e"]
 
-[ext_resource type="Texture2D" uid="uid://rf1iyjtfohd3" path="res://Levels/test_level/assets/TestTiles.png" id="1_a4i7m"]
-[ext_resource type="Texture2D" uid="uid://bu53mk0a05vfd" path="res://Levels/test_level/assets/TestTree.png" id="2_hw6mv"]
+[ext_resource type="Texture2D" uid="uid://rf1iyjtfohd3" path="res://Levels/test_level/assets/TestTiles.png" id="1_c3ika"]
+[ext_resource type="Texture2D" uid="uid://bu53mk0a05vfd" path="res://Levels/test_level/assets/TestTree.png" id="2_agspj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4i7m"]
-texture = ExtResource("1_a4i7m")
+texture = ExtResource("1_c3ika")
 texture_region_size = Vector2i(250, 250)
 0:0/0 = 0
 1:0/0 = 0
@@ -19,14 +19,20 @@ texture_region_size = Vector2i(250, 250)
 1:2/0 = 0
 0:2/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c3ika"]
+polygon = PackedVector2Array(-125, -117.128006, 125, -125, 125, 125, -125, 125)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hw6mv"]
-texture = ExtResource("2_hw6mv")
+texture = ExtResource("2_agspj")
 texture_region_size = Vector2i(250, 250)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_c3ika")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 
 [resource]
 tile_size = Vector2i(250, 250)
+occlusion_layer_0/light_mask = 1
+occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_a4i7m")
 sources/3 = SubResource("TileSetAtlasSource_hw6mv")
