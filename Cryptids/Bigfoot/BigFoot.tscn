@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://boyc6ujpdmmtp"]
+
+[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="1_fmnq8"]
+[ext_resource type="Script" uid="uid://bstgi7py65r3h" path="res://Cryptids/Bigfoot/bigfoot.gd" id="1_gkcht"]
+[ext_resource type="Script" uid="uid://dh3ybqr5daqcn" path="res://Cryptids/Bigfoot/states/bigfoot_state_machine.gd" id="3_pnwrb"]
+[ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="4_ad32j"]
+[ext_resource type="Script" uid="uid://cv18faoxesuer" path="res://Cryptids/Bigfoot/states/cryptid_wander_state.gd" id="5_ad32j"]
+[ext_resource type="Script" uid="uid://dbp0474kca51g" path="res://Cryptids/Bigfoot/states/cryptid_search_state.gd" id="6_jvtqe"]
+[ext_resource type="Script" uid="uid://dtuhuid6kfgdm" path="res://Cryptids/Bigfoot/states/cryptid_chase_state.gd" id="7_3qy6n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1lth"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fmnq8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
+size = Vector2(176, 176)
+
+[node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast")]
+script = ExtResource("1_gkcht")
+state_machine = NodePath("StateMachine")
+sprite = NodePath("Sprite2D")
+vision_cone = NodePath("VisionCone")
+ray_cast = NodePath("RayCast2D")
+
+[node name="StateMachine" type="Node" parent="." unique_id=425256338 node_paths=PackedStringArray("idle_state", "wander_state", "search_state", "chase_state", "starting_state")]
+script = ExtResource("3_pnwrb")
+idle_state = NodePath("Idle")
+wander_state = NodePath("Wander")
+search_state = NodePath("Search")
+chase_state = NodePath("Chase")
+starting_state = NodePath("Wander")
+metadata/_custom_type_script = "uid://b6mvqlder4a5c"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1006464371 node_paths=PackedStringArray("idle_timer")]
+script = ExtResource("4_ad32j")
+idle_timer = NodePath("IdleTimer")
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=286227654]
+wait_time = 4.0
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="StateMachine/Idle" unique_id=1506955637]
+
+[node name="Wander" type="Node" parent="StateMachine" unique_id=996532403]
+script = ExtResource("5_ad32j")
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Search" type="Node" parent="StateMachine" unique_id=1823182078]
+script = ExtResource("6_jvtqe")
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
+script = ExtResource("7_3qy6n")
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_b1lth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297037235]
+shape = SubResource("RectangleShape2D_6vjpb")
+
+[node name="VisionCone" type="Area2D" parent="." unique_id=1745555296]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone" unique_id=2079124698]
+polygon = PackedVector2Array(0, 0, 1088, -448, 1088, 456)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=795151592]
+collision_mask = 3
