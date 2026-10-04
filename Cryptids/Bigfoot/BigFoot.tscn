@@ -54,10 +54,14 @@ script = ExtResource("5_ad32j")
 speed = 250.0
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
-[node name="Search" type="Node" parent="StateMachine" unique_id=1823182078]
+[node name="Search" type="Node" parent="StateMachine" unique_id=1823182078 node_paths=PackedStringArray("player_tracking_timer")]
 script = ExtResource("6_jvtqe")
 speed = 350.0
+player_tracking_timer = NodePath("PlayerTrackingTimer")
 metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=1757146408]
+wait_time = 1.5
 
 [node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
 script = ExtResource("7_3qy6n")

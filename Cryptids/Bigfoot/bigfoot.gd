@@ -94,6 +94,9 @@ func get_move_direction() -> Vector2:
 func passed_point(index: int) -> bool:
 	var part = path[index] - path[index - 1]
 	return (global_position - path[index]).dot(part) >= 0.0
+	
+func get_player_position() -> Vector2:
+	return player.global_position
 
 func update_vision(delta: float) -> void:
 	var seen: bool = false
@@ -130,9 +133,9 @@ func update_facing(delta: float) -> void:
 	vision_cone.rotation = vision_angle
 	sprite.rotation = vision_angle
  
-	if vision_cone.overlaps_body(player):
-		ray_cast.target_position = player.global_position - ray_cast.global_position
-		ray_cast.force_raycast_update()
-		if ray_cast.get_collider() == player:
-			last_known_player_position = player.global_position
-			can_see_player = true
+	#if vision_cone.overlaps_body(player):
+		#ray_cast.target_position = player.global_position - ray_cast.global_position
+		#ray_cast.force_raycast_update()
+		#if ray_cast.get_collider() == player:
+			#last_known_player_position = player.global_position
+			#can_see_player = true

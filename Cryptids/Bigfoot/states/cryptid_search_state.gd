@@ -1,10 +1,12 @@
 extends State
 
 @export var speed: float = 100
+@export var player_tracking_timer: Timer
 
 func activate():
 	super()
 	print("Enter search")
+	player_tracking_timer.start()
 	parent.clear_path()
 	parent.set_path(parent.last_known_player_position)
 	
@@ -20,6 +22,9 @@ func process_physics(_delta) -> State:
 	
 	if parent.path_finished():
 		return state_machine.idle_state
+	
+	if not player_tracking_timer.is_stopped():
+		parent.set_path(parent.player.global_position)
 	
 	parent.velocity = parent.get_move_direction() * speed
 	parent.move_and_slide()
