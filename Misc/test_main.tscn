@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c01kpb4ar1ioi"]
 
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="1_srcgk"]
-[ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/TestTileSet.tres" id="1_thjdc"]
+[ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="1_thjdc"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
 
 [node name="TestMain" type="Node2D" unique_id=515094857]

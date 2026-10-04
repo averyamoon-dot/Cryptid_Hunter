@@ -34,9 +34,13 @@ func get_global_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 		global_path.append(layer.to_global(point))
 	return global_path
 
-func random_point_near(world_pos: Vector2, radius: int) -> Vector2:
+func random_point_near(world_pos: Vector2, min_radius: int, max_radius: int) -> Vector2:
 	var cell: Vector2i = layer.local_to_map(layer.to_local(world_pos))
-	cell += Vector2i(randi_range(-radius, radius), randi_range(-radius, radius))
+	#cell += Vector2i(randi_range(-radius, radius), randi_range(-radius, radius))
+	var offset_x = randi_range(min_radius, max_radius) * [1, -1].pick_random()
+	var offset_y = randi_range(min_radius, max_radius) * [1, -1].pick_random()
+	cell += Vector2i(offset_x, offset_y)
+	print(Vector2i(offset_x, offset_y))
 	return layer.to_global(layer.map_to_local(cell))
 	
 func check_distance(from: Vector2, to: Vector2, distance: float) -> bool:

@@ -30,6 +30,8 @@ var vision_angle: float = 0.0
 var sight_extension: float = 0.0
 
 const DISTANCE_FROM_START: float = 10 # Distance in tiles
+const MIN_RADIUS: int = 1
+const MAX_RADIUS: int = 6
 
 func _ready() -> void:
 	pathfinder = PathFinder.new()
@@ -68,7 +70,7 @@ func set_path(target: Vector2) -> void:
 
 func pick_random_target() -> void:
 	if pathfinder.check_distance(global_position, starting_position, DISTANCE_FROM_START):
-		set_path(pathfinder.random_point_near(global_position, 6))
+		set_path(pathfinder.random_point_near(global_position, MIN_RADIUS, MAX_RADIUS))
 	else:
 		set_path(starting_position)
 	
