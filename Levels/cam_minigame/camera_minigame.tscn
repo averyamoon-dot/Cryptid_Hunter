@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cqpqiquuugwkb"]
+
+[ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="1_c4e18"]
+[ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="2_2pokt"]
+
+[node name="Camera_Minigame" type="Node2D" unique_id=602000344]
+
+[node name="Camera2D_CamGame" type="Camera2D" parent="." unique_id=2019342954]
+script = ExtResource("1_c4e18")
+
+[node name="CanvasLayer_PhotoBG" type="CanvasLayer" parent="." unique_id=67618083]
+script = ExtResource("2_2pokt")
