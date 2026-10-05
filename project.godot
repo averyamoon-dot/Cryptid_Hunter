@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cryptid Hunter"
-run/main_scene="uid://dvimxoj3o6urh"
+run/main_scene="uid://dsvtn5ro5uwbf"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://Misc/icon.svg"
 
