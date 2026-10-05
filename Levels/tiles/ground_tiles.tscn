@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dxfbhqgx80xrx"]
 
-[ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/TestTileSet.tres" id="1_difug"]
+[ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="1_6o0hl"]
+[ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="1_difug"]
 
 [node name="GroundTiles" type="TileMapLayer" unique_id=140691186]
+light_mask = 3
+material = ExtResource("1_6o0hl")
 tile_set = ExtResource("1_difug")

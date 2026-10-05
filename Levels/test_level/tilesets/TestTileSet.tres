@@ -30,14 +30,14 @@ texture_region_size = Vector2i(250, 250)
 1:2/0 = 0
 0:2/0 = 0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c3ika"]
-polygon = PackedVector2Array(-125, -117.128006, 125, -125, 125, 125, -125, 125)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cco78"]
+polygon = PackedVector2Array(-83.94171, -84.917816, 17.569214, -92.72635, 96.630615, -51.731537, 97.60669, 56.611877, -6.8324585, 81.98959, -107.36731, 22.449524)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hw6mv"]
 texture = ExtResource("2_agspj")
 texture_region_size = Vector2i(250, 250)
 0:0/0 = 0
-0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_c3ika")
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_cco78")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 0:0/0/custom_data_0 = true
 
