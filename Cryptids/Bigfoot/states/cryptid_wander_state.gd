@@ -1,6 +1,7 @@
 extends State
 
 @export var speed: float = 75
+@export var turn_flop_chance: float = 0.00005 # Number * 60 = chance per second
 
 func activate():
 	super()
@@ -20,6 +21,11 @@ func process_physics(_delta) -> State:
 	if parent.path_finished():
 		parent.pick_random_target()
 		return
+	
+	if randf() < turn_flop_chance:
+		print("turn")
+		parent.facing = -parent.facing
+		return state_machine.idle_state
 	
 	parent.velocity = parent.get_move_direction() * speed
 	parent.move_and_slide()

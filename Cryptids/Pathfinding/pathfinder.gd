@@ -12,6 +12,8 @@ func setup(floor_layer: TileMapLayer, wall_layer: TileMapLayer) -> void:
 	astar_grid.cell_size = tile_size
 	astar_grid.offset = tile_size / 2.0   # Path points are in the middle of the cells
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	astar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 	astar_grid.update()
 	
 	for cell in wall_layer.get_used_cells():
@@ -36,7 +38,6 @@ func get_global_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 
 func random_point_near(world_pos: Vector2, min_radius: int, max_radius: int) -> Vector2:
 	var cell: Vector2i = layer.local_to_map(layer.to_local(world_pos))
-	#cell += Vector2i(randi_range(-radius, radius), randi_range(-radius, radius))
 	var offset_x = randi_range(min_radius, max_radius) * [1, -1].pick_random()
 	var offset_y = randi_range(min_radius, max_radius) * [1, -1].pick_random()
 	cell += Vector2i(offset_x, offset_y)
