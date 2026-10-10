@@ -136,6 +136,5 @@ func update_facing(delta: float) -> void:
 	sprite.rotation = vision_angle
 	
 func _on_killzone_body_entered(body: Node2D) -> void:
-	print("yes")
 	if body is Player:
 		body.die()

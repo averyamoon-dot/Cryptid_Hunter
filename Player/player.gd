@@ -13,7 +13,6 @@ signal player_died
 @export var state_machine : StateMachine
 @export var sprite: AnimatedSprite2D
 
-
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    
