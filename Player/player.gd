@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal player_died
+
 @export_category("Parameters")
 @export var max_sprint_duration: float = 6.0
 @export var min_sprint_threshold: float = 2.0
@@ -10,6 +12,7 @@ extends CharacterBody2D
 @export_category("References")
 @export var state_machine : StateMachine
 @export var sprite: AnimatedSprite2D
+
 
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
@@ -35,3 +38,6 @@ func update_facing(delta: float) -> void:
 	vision_angle += clampf(diff, -max_step, max_step)
 	
 	rotation = vision_angle
+
+func die():
+	player_died.emit()

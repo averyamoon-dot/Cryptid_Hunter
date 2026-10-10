@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var vision_cone: Area2D
 @export var ray_cast: RayCast2D
 @export var collision: CollisionShape2D
+@export var killzone: Area2D
 
 var pathfinder: PathFinder
 var path: PackedVector2Array = PackedVector2Array()
@@ -34,6 +35,8 @@ const MIN_RADIUS: int = 1
 const MAX_RADIUS: int = 6
 
 func _ready() -> void:
+	killzone.body_entered.connect(_on_killzone_body_entered)
+	
 	pathfinder = PathFinder.new()
 	pathfinder.setup(floor_layer, wall_layer)
 	
@@ -131,3 +134,8 @@ func update_facing(delta: float) -> void:
 	collision.rotation = vision_angle
 	vision_cone.rotation = vision_angle
 	sprite.rotation = vision_angle
+	
+func _on_killzone_body_entered(body: Node2D) -> void:
+	print("yes")
+	if body is Player:
+		body.die()
