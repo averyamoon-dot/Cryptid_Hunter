@@ -53,6 +53,3 @@ texture = ExtResource("1_p41v1")
 [node name="lantern" parent="." unique_id=753403512 node_paths=PackedStringArray("player") instance=ExtResource("6_b74bw")]
 position = Vector2(354, -835)
 player = NodePath("../CharacterBody2D")
-
-[node name="lantern2" parent="." unique_id=1348078193 instance=ExtResource("6_b74bw")]
-position = Vector2(-2338, -1982)
