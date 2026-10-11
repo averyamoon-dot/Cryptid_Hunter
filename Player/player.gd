@@ -24,6 +24,13 @@ func _ready() -> void:
 	await get_tree().process_frame
 	state_machine.initialize_state_machine()
 	
+func play_animation(animation_name: String, animation_speed) -> void: 
+	sprite.speed_scale = animation_speed
+	if animation_name:
+		sprite.play(animation_name)
+	else:
+		sprite.play("idle")
+	
 func _physics_process(delta: float) -> void:
 	update_facing(delta)
 

@@ -15,7 +15,7 @@ animations = [{
 "texture": ExtResource("1_fmnq8")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -76,6 +76,7 @@ metadata/_custom_type_script = "uid://jw87ua1cglde"
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_b1lth")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297037235]
 shape = SubResource("RectangleShape2D_6vjpb")

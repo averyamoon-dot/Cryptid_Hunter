@@ -135,6 +135,13 @@ func update_facing(delta: float) -> void:
 	vision_cone.rotation = vision_angle
 	sprite.rotation = vision_angle
 	
+func play_animation(animation_name: String, animation_speed) -> void: 
+	sprite.speed_scale = animation_speed
+	if animation_name:
+		sprite.play(animation_name)
+	else:
+		sprite.play("idle")
+	
 func _on_killzone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.die()
