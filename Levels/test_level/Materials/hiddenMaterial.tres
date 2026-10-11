@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cem05lj7fpwjp"]
+
+[ext_resource type="Shader" uid="uid://dflj4faulgvxh" path="res://Levels/test_level/Materials/hidden.gdshader" id="1_y6sqc"]
+
+[resource]
+shader = ExtResource("1_y6sqc")
+shader_parameter/saturation = 0.0

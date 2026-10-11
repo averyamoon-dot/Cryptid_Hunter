@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="2_34oi5"]
 [ext_resource type="Shader" uid="uid://b0fgecbfcspaj" path="res://Levels/test_level/Materials/grayScale.gdshader" id="2_bqkso"]
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="3_34oi5"]
-[ext_resource type="Shader" uid="uid://dflj4faulgvxh" path="res://Levels/test_level/Materials/hidden.gdshader" id="5_udv81"]
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="5_udv81"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
 shader = ExtResource("2_bqkso")
@@ -12,10 +12,6 @@ shader_parameter/saturation = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqkso"]
 shader = ExtResource("2_bqkso")
-shader_parameter/saturation = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_osvey"]
-shader = ExtResource("5_udv81")
 shader_parameter/saturation = 0.0
 
 [node name="main" type="Node2D" unique_id=1834457945]
@@ -47,6 +43,6 @@ color = Color(0.53436106, 0.5343611, 0.5343609, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=990025718]
 z_index = 2
-material = SubResource("ShaderMaterial_osvey")
+material = ExtResource("5_udv81")
 position = Vector2(2582, 172)
 texture = ExtResource("1_p41v1")
