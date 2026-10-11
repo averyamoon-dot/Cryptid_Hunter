@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d1lbyc2yys0nx"]
+
+[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="1_u4vbm"]
+[ext_resource type="Script" uid="uid://upshab5cxuew" path="res://Light/lantern.gd" id="1_xs7sd"]
+[ext_resource type="Texture2D" uid="uid://coiark8enggm" path="res://Light/assets/lightCircle.webp" id="3_ugk71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
+size = Vector2(119, 118)
+
+[node name="lantern" type="Area2D" unique_id=753403512]
+script = ExtResource("1_xs7sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1648435518]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_osvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588769134]
+z_index = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_u4vbm")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=678974976]
+scale = Vector2(4, 4)
+texture = ExtResource("3_ugk71")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

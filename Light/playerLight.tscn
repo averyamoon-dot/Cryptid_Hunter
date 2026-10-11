@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://trpd5hiopreh"]
 
 [ext_resource type="Texture2D" uid="uid://c5f6wru7va4b0" path="res://Light/assets/torch_light.png" id="1_0gcpx"]
-[ext_resource type="Texture2D" uid="uid://coiark8enggm" path="res://Light/assets/lightCircle.webp" id="2_0gcpx"]
+[ext_resource type="Script" uid="uid://c3dy1xaia4573" path="res://Light/player_light.gd" id="1_gja4b"]
+[ext_resource type="Texture2D" uid="uid://dn8ro2p076cb1" path="res://Light/assets/lightCircleTest.png" id="2_0gcpx"]
 
 [node name="playerLight" type="Node2D" unique_id=28684225]
+script = ExtResource("1_gja4b")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=776487249]
 z_index = 1
 scale = Vector2(5, 10)
-blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_filter = 2
@@ -17,7 +18,6 @@ offset = Vector2(300, -5)
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1538251021]
 scale = Vector2(2, 2)
-blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_0gcpx")
