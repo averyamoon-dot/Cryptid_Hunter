@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="3_34oi5"]
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="5_udv81"]
 [ext_resource type="PackedScene" uid="uid://d1lbyc2yys0nx" path="res://Light/lantern.tscn" id="6_b74bw"]
+[ext_resource type="PackedScene" uid="uid://cqpqiquuugwkb" path="res://Levels/cam_minigame/camera_minigame.tscn" id="7_2kgi5"]
+[ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="8_umvh5"]
+[ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="9_frfsg"]
+[ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="10_umvh5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
 shader = ExtResource("2_bqkso")
@@ -56,3 +60,18 @@ player = NodePath("../CharacterBody2D")
 
 [node name="lantern2" parent="." unique_id=1348078193 instance=ExtResource("6_b74bw")]
 position = Vector2(-2338, -1982)
+
+[node name="Camera_Minigame" parent="." unique_id=602000344 instance=ExtResource("7_2kgi5")]
+visible = false
+
+[node name="Camera2D_CamGame2" type="Camera2D" parent="Camera_Minigame" unique_id=272088006]
+script = ExtResource("8_umvh5")
+
+[node name="CanvasLayer_PhotoBG2" type="CanvasLayer" parent="Camera_Minigame" unique_id=1218464333]
+layer = -1
+script = ExtResource("9_frfsg")
+
+[node name="TextureRect" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=989059819]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_umvh5")
