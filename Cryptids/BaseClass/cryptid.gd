@@ -104,7 +104,7 @@ func update_vision(delta: float) -> void:
 	var seen: bool = false
 
 	if vision_cone.overlaps_body(player):
-		ray_cast.target_position = player.global_position - ray_cast.global_position
+		ray_cast.target_position = ray_cast.to_local(player.global_position)
 		ray_cast.force_raycast_update()
 		if ray_cast.get_collider() == player:
 			seen = true
@@ -131,9 +131,10 @@ func update_facing(delta: float) -> void:
 	var max_step: float = turn_speed * delta
 	vision_angle += clampf(diff, -max_step, max_step)
 	
-	collision.rotation = vision_angle
-	vision_cone.rotation = vision_angle
-	sprite.rotation = vision_angle
+	#collision.rotation = vision_angle
+	#vision_cone.rotation = vision_angle
+	#sprite.rotation = vision_angle
+	self.rotation = vision_angle
 	
 func play_animation(animation_name: String, animation_speed) -> void: 
 	sprite.speed_scale = animation_speed

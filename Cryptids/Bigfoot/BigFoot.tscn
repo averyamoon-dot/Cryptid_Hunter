@@ -28,7 +28,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
@@ -89,6 +89,7 @@ script = ExtResource("4_ad32j")
 idle_timer = NodePath("IdleTimer")
 max_turn_angle = 180.0
 min_turn_angle = 160.0
+animation_name = "idle"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=286227654]
@@ -105,6 +106,7 @@ metadata/_custom_type_script = "uid://jw87ua1cglde"
 script = ExtResource("6_jvtqe")
 speed = 350.0
 player_tracking_timer = NodePath("PlayerTrackingTimer")
+animation_name = "walk"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=1757146408]
@@ -113,10 +115,11 @@ one_shot = true
 [node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
 script = ExtResource("7_3qy6n")
 speed = 450.0
+animation_name = "walk"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
-rotation = 4.712389
+rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_b1lth")
 animation = &"walk"
