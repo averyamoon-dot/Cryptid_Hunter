@@ -2,24 +2,53 @@
 
 [ext_resource type="Script" uid="uid://b0ugk761orcy2" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dcsqkj2lsv2yb" path="res://Player/States/player_state_machine.gd" id="2_q3lat"]
-[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://b064st04cmyc2" path="res://Player/States/idle_state.gd" id="4_8g4oa"]
 [ext_resource type="Script" uid="uid://cga1tkd6tvwv8" path="res://Player/States/walk_state.gd" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://dbhlx1tlkt6v" path="res://Player/States/sprint_state.gd" id="6_vlldt"]
 [ext_resource type="Script" uid="uid://dqdw12kodaiyl" path="res://Player/States/crouch_state.gd" id="7_s1rgi"]
+[ext_resource type="Texture2D" uid="uid://218ie72x51sn" path="res://Player/Assets/Idle/idle1.png" id="8_3mea3"]
 [ext_resource type="Script" uid="uid://bp3rk77wibemt" path="res://Player/States/tired.gd" id="8_j23h2"]
 [ext_resource type="Script" uid="uid://ppslpisv5kgm" path="res://Player/camera_2d.gd" id="9_0j2ni"]
+[ext_resource type="Texture2D" uid="uid://d3iun6qghklm0" path="res://Player/Assets/Idle/idle2.png" id="9_7v5gs"]
 [ext_resource type="PackedScene" uid="uid://trpd5hiopreh" path="res://Light/playerLight.tscn" id="9_j23h2"]
+[ext_resource type="Texture2D" uid="uid://debprm6or4f6q" path="res://Player/Assets/walking/walk1.png" id="10_3mea3"]
+[ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
+[ext_resource type="Texture2D" uid="uid://crsw0gwohswvp" path="res://Player/Assets/walking/walk3.png" id="12_8sa4y"]
+[ext_resource type="Texture2D" uid="uid://ehj5kgn84m5a" path="res://Player/Assets/walking/walk4.png" id="13_3nb2p"]
+[ext_resource type="Texture2D" uid="uid://bynhmsa4fhgsw" path="res://Player/Assets/walking/walk5.png" id="14_d7xyo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vjpb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tok1r")
+"texture": ExtResource("8_3mea3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7v5gs")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3mea3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7v5gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8sa4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3nb2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_d7xyo")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
@@ -42,15 +71,19 @@ starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=574236878]
 script = ExtResource("4_8g4oa")
+animation_name = "idle"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=273488229]
 script = ExtResource("5_6ysni")
 speed = 350.0
+animation_name = "walk"
 
 [node name="Sprint" type="Node" parent="StateMachine" unique_id=710891960 node_paths=PackedStringArray("sprint_timer")]
 script = ExtResource("6_vlldt")
 sprint_speed = 550.0
 sprint_timer = NodePath("SprintTimer")
+animation_name = "walk"
+animation_speed = 1.5
 
 [node name="SprintTimer" type="Timer" parent="StateMachine/Sprint" unique_id=640211361]
 wait_time = 6.0
@@ -59,17 +92,23 @@ one_shot = true
 [node name="Crouch" type="Node" parent="StateMachine" unique_id=137848176]
 script = ExtResource("7_s1rgi")
 crouch_speed = 250.0
+animation_name = "walk"
+animation_speed = 0.8
 
 [node name="Tired" type="Node" parent="StateMachine" unique_id=630689001 node_paths=PackedStringArray("tired_timer")]
 script = ExtResource("8_j23h2")
 tired_timer = NodePath("TiredTimer")
+animation_name = "walk"
+animation_speed = 0.75
 
 [node name="TiredTimer" type="Timer" parent="StateMachine/Tired" unique_id=1742557597]
 wait_time = 4.0
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588589472]
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_6vjpb")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745684916]
 shape = SubResource("RectangleShape2D_6vjpb")

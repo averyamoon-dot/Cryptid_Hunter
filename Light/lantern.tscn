@@ -21,6 +21,8 @@ texture = ExtResource("1_u4vbm")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=678974976]
 scale = Vector2(4, 4)
+range_item_cull_mask = 3
+shadow_enabled = true
 texture = ExtResource("3_ugk71")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

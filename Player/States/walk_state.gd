@@ -22,10 +22,16 @@ func process_input(event : InputEvent) -> State:
 func process_physics(delta) -> State:
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	parent.velocity = input_direction * speed
-	parent.move_and_slide()
+	
 	if parent.remaining_sprint_time < parent.max_sprint_duration:
 		parent.remaining_sprint_time += delta * parent.sprint_recharge_rate
 		parent.remaining_sprint_time = min(parent.remaining_sprint_time, parent.max_sprint_duration)
+	
+	if parent.velocity == Vector2.ZERO: 
+		return state_machine.idle_state
+	
+	parent.move_and_slide()
+	
 	return
 
 func deactivate():

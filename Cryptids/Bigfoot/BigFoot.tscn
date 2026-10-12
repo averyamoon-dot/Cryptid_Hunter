@@ -1,22 +1,63 @@
 [gd_scene format=3 uid="uid://boyc6ujpdmmtp"]
 
-[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="1_fmnq8"]
 [ext_resource type="Script" uid="uid://bstgi7py65r3h" path="res://Cryptids/Bigfoot/bigfoot.gd" id="1_gkcht"]
 [ext_resource type="Script" uid="uid://dh3ybqr5daqcn" path="res://Cryptids/Bigfoot/states/bigfoot_state_machine.gd" id="3_pnwrb"]
 [ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="4_ad32j"]
 [ext_resource type="Script" uid="uid://cv18faoxesuer" path="res://Cryptids/Bigfoot/states/cryptid_wander_state.gd" id="5_ad32j"]
 [ext_resource type="Script" uid="uid://dbp0474kca51g" path="res://Cryptids/Bigfoot/states/cryptid_search_state.gd" id="6_jvtqe"]
 [ext_resource type="Script" uid="uid://dtuhuid6kfgdm" path="res://Cryptids/Bigfoot/states/cryptid_chase_state.gd" id="7_3qy6n"]
+[ext_resource type="Texture2D" uid="uid://brguwc43htojs" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle1.png" id="7_8b7nu"]
+[ext_resource type="Texture2D" uid="uid://dn64lu2yprimg" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle2.png" id="8_1jwyu"]
+[ext_resource type="Texture2D" uid="uid://dtbtxujnif54h" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk1.png" id="9_qchm0"]
+[ext_resource type="Texture2D" uid="uid://co0l55jge67lo" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk2.png" id="10_kpjq4"]
+[ext_resource type="Texture2D" uid="uid://dq36guhgf7bia" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk3.png" id="11_3q7mf"]
+[ext_resource type="Texture2D" uid="uid://c8uhb4mbla70j" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk4.png" id="12_qbnf7"]
+[ext_resource type="Texture2D" uid="uid://d30d10embuwft" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk5.png" id="13_acjbv"]
+[ext_resource type="Texture2D" uid="uid://2whxjwhu0kda" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk6.png" id="14_5mpya"]
+[ext_resource type="Texture2D" uid="uid://bxwy8sae1al60" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk7.png" id="15_0ofex"]
+[ext_resource type="Texture2D" uid="uid://dt5sjivj7yug8" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk8.png" id="16_nqvj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1lth"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fmnq8")
+"texture": ExtResource("7_8b7nu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1jwyu")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_qchm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kpjq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3q7mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qbnf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_acjbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5mpya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0ofex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nqvj2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
@@ -48,6 +89,7 @@ script = ExtResource("4_ad32j")
 idle_timer = NodePath("IdleTimer")
 max_turn_angle = 180.0
 min_turn_angle = 160.0
+animation_name = "idle"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=286227654]
@@ -57,12 +99,14 @@ one_shot = true
 [node name="Wander" type="Node" parent="StateMachine" unique_id=996532403]
 script = ExtResource("5_ad32j")
 speed = 250.0
+animation_name = "walk"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Search" type="Node" parent="StateMachine" unique_id=1823182078 node_paths=PackedStringArray("player_tracking_timer")]
 script = ExtResource("6_jvtqe")
 speed = 350.0
 player_tracking_timer = NodePath("PlayerTrackingTimer")
+animation_name = "walk"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=1757146408]
@@ -71,11 +115,14 @@ one_shot = true
 [node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
 script = ExtResource("7_3qy6n")
 speed = 450.0
+animation_name = "walk"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
+rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_b1lth")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297037235]
 shape = SubResource("RectangleShape2D_6vjpb")
