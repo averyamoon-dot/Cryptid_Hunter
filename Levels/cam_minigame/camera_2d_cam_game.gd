@@ -47,7 +47,7 @@ func _input(event):
 			if(event.keycode == KEY_Z):
 				take_photo()
 				photoMode = false
-			print(zoom)
+			##print(zoom)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
