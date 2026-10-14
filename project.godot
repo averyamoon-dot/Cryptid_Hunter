@@ -15,6 +15,10 @@ run/main_scene="uid://dsvtn5ro5uwbf"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://Misc/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b2iqfomgudxu6"
+
 [input]
 
 move_left={

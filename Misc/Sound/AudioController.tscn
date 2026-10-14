@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfuc1sprbg31w"]
+
+[ext_resource type="Script" uid="uid://cjsq083nmyx8f" path="res://Misc/Sound/audio_controller.gd" id="1_hyqcc"]
+
+[node name="AudioController" type="Node2D" unique_id=390093402]
+script = ExtResource("1_hyqcc")
