@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dy355vnvds3b3"]
+
+[ext_resource type="Script" uid="uid://3hojjk7p1gri" path="res://Misc/Sound/NoiseEmitter/noise_emitter.gd" id="1_mofyp"]
+
+[node name="NoiseEmitter" type="Node2D" unique_id=37667085 node_paths=PackedStringArray("repeat_timer")]
+script = ExtResource("1_mofyp")
+repeat_timer = NodePath("RepeatTimer")
+
+[node name="RepeatTimer" type="Timer" parent="." unique_id=2051981383]
