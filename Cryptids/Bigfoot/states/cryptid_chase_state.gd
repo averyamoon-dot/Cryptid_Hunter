@@ -1,4 +1,4 @@
-extends State
+extends CryptidState
 
 @export var speed: float = 100
 

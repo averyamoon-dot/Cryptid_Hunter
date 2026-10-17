@@ -1,4 +1,4 @@
-extends State
+extends CryptidState
 
 @export var speed: float = 100
 @export var player_tracking_timer: Timer

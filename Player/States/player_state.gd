@@ -1,4 +1,4 @@
-class_name Player_State
+class_name PlayerState
 extends State
 
 @export var noise_radius: float = 0.0

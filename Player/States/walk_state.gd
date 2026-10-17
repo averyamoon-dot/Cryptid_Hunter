@@ -1,4 +1,4 @@
-extends State
+extends PlayerState
 
 @export var speed: float = 300
 

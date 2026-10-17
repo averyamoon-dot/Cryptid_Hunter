@@ -1,2 +1,2 @@
-class_name Cryptid_State
+class_name CryptidState
 extends State

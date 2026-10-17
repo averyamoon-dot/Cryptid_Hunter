@@ -1,4 +1,4 @@
-extends State
+extends PlayerState
 
 @export var crouch_speed: float = 150
 

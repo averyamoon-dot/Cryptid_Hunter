@@ -1,4 +1,4 @@
-extends State
+extends PlayerState
 
 @export_category("Parameters")
 @export var exhausted_speed: float = 200

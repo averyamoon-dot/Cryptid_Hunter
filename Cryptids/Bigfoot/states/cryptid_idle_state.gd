@@ -1,4 +1,4 @@
-extends State
+extends CryptidState
 
 @export var idle_timer: Timer
 @export var turn_count: int = 3

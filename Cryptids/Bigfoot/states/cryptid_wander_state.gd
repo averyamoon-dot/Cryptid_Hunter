@@ -1,4 +1,4 @@
-extends State
+extends CryptidState
 
 @export var speed: float = 75
 @export var turn_flop_chance: float = 0.00005 # Number * 60 = chance per second
