@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://crsw0gwohswvp" path="res://Player/Assets/walking/walk3.png" id="12_8sa4y"]
 [ext_resource type="Texture2D" uid="uid://ehj5kgn84m5a" path="res://Player/Assets/walking/walk4.png" id="13_3nb2p"]
 [ext_resource type="Texture2D" uid="uid://bynhmsa4fhgsw" path="res://Player/Assets/walking/walk5.png" id="14_d7xyo"]
+[ext_resource type="PackedScene" uid="uid://dy355vnvds3b3" path="res://Misc/Sound/NoiseEmitter/NoiseEmitter.tscn" id="17_8sa4y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vjpb"]
 animations = [{
@@ -54,11 +55,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(120, 120)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "audio_listener")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite2D")
+audio_listener = NodePath("AudioListener2D")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "starting_state")]
 script = ExtResource("2_q3lat")
@@ -118,3 +120,7 @@ zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_0j2ni")
 
 [node name="playerLight" parent="." unique_id=28684225 instance=ExtResource("9_j23h2")]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1209968161]
+
+[node name="NoiseEmitter" parent="." unique_id=37667085 instance=ExtResource("17_8sa4y")]

@@ -12,6 +12,8 @@ signal player_died
 @export_category("References")
 @export var state_machine : StateMachine
 @export var sprite: AnimatedSprite2D
+@export var noise_emitter: NoiseEmitter
+@export var audio_listener: AudioListener2D
 
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
@@ -19,6 +21,8 @@ var vision_angle: float = 0.0
 
 func _ready() -> void:
 	remaining_sprint_time = max_sprint_duration
+	vision_angle = facing.angle()
+	audio_listener.make_current()
 	state_machine.parent = self
 	state_machine.sprite = sprite
 	await get_tree().process_frame
