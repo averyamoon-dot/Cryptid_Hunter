@@ -17,13 +17,14 @@ func process_input(_event : InputEvent) -> State:
 func process_physics(_delta) -> State:
 	if parent.can_see_player:
 		return state_machine.chase_state
+	if parent.heard_noise:
+		return state_machine.search_state
 	
 	if parent.path_finished():
 		parent.pick_random_target()
 		return
 	
 	if randf() < turn_flop_chance:
-		print("turn")
 		parent.facing = -parent.facing
 		return state_machine.idle_state
 	

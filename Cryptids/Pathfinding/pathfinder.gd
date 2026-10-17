@@ -1,5 +1,5 @@
 class_name PathFinder
-extends Object
+extends RefCounted
 
 var astar_grid: AStarGrid2D =  AStarGrid2D.new()
 var layer: TileMapLayer
@@ -42,10 +42,21 @@ func random_point_near(world_pos: Vector2, min_radius: int, max_radius: int) -> 
 	var offset_y = randi_range(min_radius, max_radius) * [1, -1].pick_random()
 	cell += Vector2i(offset_x, offset_y)
 	return layer.to_global(layer.map_to_local(cell))
-	
+
 func check_distance(from: Vector2, to: Vector2, distance: float) -> bool:
 	var from_cell: Vector2i = layer.local_to_map(layer.to_local(from))
 	var to_cell: Vector2i = layer.local_to_map(layer.to_local(to))
 	
 	var calc_distance = Vector2(from_cell).distance_to(Vector2(to_cell))
 	return true if calc_distance < distance else false
+	
+func count_walls_between(from: Vector2, to: Vector2) -> int:
+	var from_cell: Vector2i = layer.local_to_map(layer.to_local(from))
+	var to_cell: Vector2i = layer.local_to_map(layer.to_local(to))
+
+	var count: int = 0
+	for cell in Geometry2D.bresenham_line(from_cell, to_cell):
+		if astar_grid.region.has_point(cell) and astar_grid.is_point_solid(cell):
+			count += 1
+	print(count)
+	return count

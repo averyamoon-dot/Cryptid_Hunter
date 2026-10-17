@@ -2,9 +2,17 @@ class_name Cryptid
 extends CharacterBody2D
 
 @export_category("Parameters")
+@export_group("Navigation")
+@export var start_distance: float = 20 # Distance in tiles
+@export var min_radius: int = 1 # In tiles
+@export var max_radius: int = 6 # In tiles
+@export_group("Vision")
 @export var turn_speed_angry: float = 6.0 # In radians 
 @export var turn_speed_passive: float = 4.0 # In radians
 @export var sight_grace: float = 0.3    
+@export_group("Hearing")
+@export var hearing_multiplier: float = 1.0
+@export var muffle_per_wall: float = 0.5 # Percentage
 
 @export_category("References")
 @export var player: Player
@@ -17,6 +25,7 @@ extends CharacterBody2D
 @export var collision: CollisionShape2D
 @export var killzone: Area2D
 
+
 var pathfinder: PathFinder
 var path: PackedVector2Array = PackedVector2Array()
 var path_index: int = 0
@@ -26,16 +35,14 @@ var path_line: Line2D = Line2D.new()
 var facing: Vector2 = Vector2.RIGHT
 var last_known_player_position: Vector2
 var can_see_player: bool = false
+var heard_noise: bool = false
 
 var vision_angle: float = 0.0            
 var sight_extension: float = 0.0
 
-const DISTANCE_FROM_START: float = 20 # Distance in tiles
-const MIN_RADIUS: int = 1
-const MAX_RADIUS: int = 6
-
 func _ready() -> void:
 	killzone.body_entered.connect(_on_killzone_body_entered)
+	SignalController.noise_made.connect(on_noise_heard)
 	
 	pathfinder = PathFinder.new()
 	pathfinder.setup(floor_layer, wall_layer)
@@ -71,8 +78,8 @@ func set_path(target: Vector2) -> void:
 	path_index = 1
 
 func pick_random_target() -> void:
-	if pathfinder.check_distance(global_position, starting_position, DISTANCE_FROM_START):
-		set_path(pathfinder.random_point_near(global_position, MIN_RADIUS, MAX_RADIUS))
+	if pathfinder.check_distance(global_position, starting_position, start_distance):
+		set_path(pathfinder.random_point_near(global_position, min_radius, max_radius))
 	else:
 		set_path(starting_position)
 	
@@ -131,9 +138,6 @@ func update_facing(delta: float) -> void:
 	var max_step: float = turn_speed * delta
 	vision_angle += clampf(diff, -max_step, max_step)
 	
-	#collision.rotation = vision_angle
-	#vision_cone.rotation = vision_angle
-	#sprite.rotation = vision_angle
 	self.rotation = vision_angle
 	
 func play_animation(animation_name: String, animation_speed) -> void: 
@@ -146,3 +150,19 @@ func play_animation(animation_name: String, animation_speed) -> void:
 func _on_killzone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.die()
+		
+func on_noise_heard(pos: Vector2, radius: float, source: Node) -> void:
+	if source == self or can_see_player: 
+		return
+	
+	var max_distance: float = radius * hearing_multiplier
+	if not pathfinder.check_distance(global_position, pos, max_distance):
+		return  
+	
+	# Wall check
+	# Each wall reduces noise range
+	var walls: int = pathfinder.count_walls_between(global_position, pos)
+	var muffled_range: float = max_distance / (1.0 + muffle_per_wall * walls)
+	if pathfinder.check_distance(global_position, pos, muffled_range):
+		last_known_player_position = pos
+		heard_noise = true

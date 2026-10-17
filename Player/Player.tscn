@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0ugk761orcy2" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dcsqkj2lsv2yb" path="res://Player/States/player_state_machine.gd" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://b064st04cmyc2" path="res://Player/States/idle_state.gd" id="4_8g4oa"]
+[ext_resource type="AudioStream" uid="uid://cum1f2kxl8j0k" path="res://Player/Sounds/player_walking_placeholder.wav" id="5_3nb2p"]
 [ext_resource type="Script" uid="uid://cga1tkd6tvwv8" path="res://Player/States/walk_state.gd" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://dbhlx1tlkt6v" path="res://Player/States/sprint_state.gd" id="6_vlldt"]
 [ext_resource type="Script" uid="uid://dqdw12kodaiyl" path="res://Player/States/crouch_state.gd" id="7_s1rgi"]
@@ -55,11 +56,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(120, 120)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "audio_listener")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "noise_emitter", "audio_listener")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite2D")
+noise_emitter = NodePath("NoiseEmitter")
 audio_listener = NodePath("AudioListener2D")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "starting_state")]
@@ -78,14 +80,22 @@ animation_name = "idle"
 [node name="Walk" type="Node" parent="StateMachine" unique_id=273488229]
 script = ExtResource("5_6ysni")
 speed = 350.0
+noise_radius = 5.0
 animation_name = "walk"
+while_in_state_sounds = Array[AudioStream]([ExtResource("5_3nb2p")])
+while_in_state_repeat_sound_after_seconds = 0.6
 
 [node name="Sprint" type="Node" parent="StateMachine" unique_id=710891960 node_paths=PackedStringArray("sprint_timer")]
 script = ExtResource("6_vlldt")
 sprint_speed = 550.0
 sprint_timer = NodePath("SprintTimer")
+noise_radius = 10.0
 animation_name = "walk"
 animation_speed = 1.5
+while_in_state_sounds = Array[AudioStream]([ExtResource("5_3nb2p")])
+while_in_state_sound_low = 1.5
+while_in_state_sound_high = 1.7
+while_in_state_repeat_sound_after_seconds = 0.5
 
 [node name="SprintTimer" type="Timer" parent="StateMachine/Sprint" unique_id=640211361]
 wait_time = 6.0

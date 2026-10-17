@@ -31,10 +31,11 @@ func process_input(_event : InputEvent) -> State:
 
 func process_physics(_delta) -> State:
 	parent.velocity = Vector2.ZERO
-	parent.move_and_slide()
 	
 	if parent.can_see_player:
 		return state_machine.chase_state
+	if parent.heard_noise:
+		return state_machine.search_state
 	
 	if finished:
 		return state_machine.wander_state
@@ -43,7 +44,8 @@ func process_physics(_delta) -> State:
 	var angle_diff: float = absf(angle_difference(parent.vision_angle, target_angle))
 	if angle_diff < deg_to_rad(angle_error) and idle_timer.is_stopped():
 		idle_timer.start()
-	
+		
+	parent.move_and_slide()
 	return
 
 func deactivate():
@@ -58,7 +60,6 @@ func pick_target_angle() -> void:
 	parent.facing = Vector2.from_angle(target_angle)
 
 func _on_idle_timer_timeout():
-	print(turns_completed)
 	turns_completed += 1
 	if turns_completed >= turn_count:
 		finished = true
