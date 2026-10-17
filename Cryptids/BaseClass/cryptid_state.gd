@@ -1,0 +1,2 @@
+class_name Cryptid_State
+extends State
