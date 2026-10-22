@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://17n4ijf12nsb"]
 
+[ext_resource type="Script" uid="uid://c2uyfns1m8ic7" path="res://Title/title.gd" id="1_iliki"]
 [ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="1_riw74"]
 [ext_resource type="Texture2D" uid="uid://dss32wc32uku5" path="res://Title/flashlight.png" id="2_r824j"]
 [ext_resource type="Texture2D" uid="uid://c804ohi05ldfb" path="res://Title/vignette.png" id="3_toehp"]
 [ext_resource type="Texture2D" uid="uid://beggq7hpfmepc" path="res://Title/title.png" id="4_iliki"]
+[ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="5_r824j"]
+[ext_resource type="PackedScene" uid="uid://ciwiy2qt8aplq" path="res://Settings/settings.tscn" id="7_n1pb7"]
 
 [sub_resource type="Animation" id="Animation_n1pb7"]
 length = 0.001
@@ -290,7 +293,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.4333333, 2, 3.4666667, 4, 5.4666667, 6, 7.4666667, 8),
 "transitions": PackedFloat32Array(1.4142139, 0.70710665, 1.4142139, 0.70710665, 1.6245052, 0.70710665, 1.4142139, 0.70710665, 1),
 "update": 0,
-"values": [-0.15707963267948966, -0.09773843811168285, -0.08726646259971647, -0.14137166941154108, -0.15707964, -0.04188790204786351, -0.026179938779914945, -0.14311699866353483, -0.15707963267948966]
+"values": [-0.15707963267948966, -0.09773843811168284, -0.08726646259971647, -0.14137166941154108, -0.15707964, -0.04188790204786351, -0.02617993877991494, -0.14311699866353483, -0.15707963267948966]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -398,7 +401,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.010000002, 3.5, 4, 7.6, 8),
 "transitions": PackedFloat32Array(1.6817931, 0.55478466, 1.6817931, 0.35355344, 1),
 "update": 0,
-"values": [0.022383055, -0.031103607, -0.038397243543875054, 0.012989926, 0.022383055]
+"values": [0.022383055, -0.031103607, -0.03839724354387505, 0.012989926, 0.022383055]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -410,7 +413,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0.010000002, 3.5, 4, 7.633333, 8),
 "transitions": PackedFloat32Array(1.6817931, 0.55478466, 1.6817931, 0.35355344, 1),
 "update": 0,
-"values": [-0.022324894, 0.008072241, 0.012217304763960109, -0.016986663, -0.022324894]
+"values": [-0.022324894, 0.008072241, 0.0122173047639601, -0.016986663, -0.022324894]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -422,7 +425,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0, 3.5, 4, 7.5666666, 8),
 "transitions": PackedFloat32Array(1.6817931, 0.55478466, 1.6817931, 0.35355344, 1),
 "update": 0,
-"values": [0.02905427, -0.008800605, -0.013962634015954834, 0.022406338, 0.02905427]
+"values": [0.02905427, -0.008800605, -0.01396263401595483, 0.022406338, 0.02905427]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -434,7 +437,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0, 3.5, 4, 7.6, 8, 8.033333),
 "transitions": PackedFloat32Array(1.6817931, 0.55478466, 1.6817931, 0.35355344, 1, 1),
 "update": 0,
-"values": [-0.027730685, 0.010495326, 0.015707963267948568, -0.021017576, -0.027730685, -0.027730685]
+"values": [-0.027730685, 0.010495326, 0.01570796326794856, -0.021017576, -0.027730685, -0.027730685]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eoook"]
@@ -452,13 +455,15 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.54, 0.42984003, 0.1512, 1)
 
-[node name="Title" type="Control" unique_id=2125973666]
+[node name="Title" type="Control" unique_id=2125973666 node_paths=PackedStringArray("settings")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iliki")
+settings = NodePath("Settings")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2075832523]
 z_as_relative = false
@@ -508,12 +513,14 @@ layout_mode = 0
 offset_left = 63.999992
 offset_top = 79.99999
 offset_right = 409.91016
-offset_bottom = 153.00201
+offset_bottom = 163.0043
 rotation = 0.022383055
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("5_r824j")
+theme_override_font_sizes/font_size = 73
 theme_override_styles/normal = SubResource("StyleBoxFlat_nl8pl")
-text = "HUNT"
+text = "Hunt"
+icon_alignment = 1
 
 [node name="settingsButton" type="Button" parent="." unique_id=1431776911]
 z_index = 1
@@ -521,12 +528,13 @@ layout_mode = 0
 offset_left = 79.99999
 offset_top = 223.99998
 offset_right = 464.0
-offset_bottom = 296.9984
+offset_bottom = 296.98682
 rotation = -0.022324894
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("5_r824j")
+theme_override_font_sizes/font_size = 66
 theme_override_styles/normal = SubResource("StyleBoxFlat_nl8pl")
-text = "SETTINGS"
+text = "Settings"
 
 [node name="creditsButton" type="Button" parent="." unique_id=2088051626]
 z_index = 1
@@ -537,9 +545,10 @@ offset_right = 432.0
 offset_bottom = 416.99942
 rotation = 0.02905427
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("5_r824j")
+theme_override_font_sizes/font_size = 66
 theme_override_styles/normal = SubResource("StyleBoxFlat_nl8pl")
-text = "CREDITS"
+text = "Credits"
 
 [node name="quitButton" type="Button" parent="." unique_id=1315525134]
 z_index = 1
@@ -547,9 +556,17 @@ layout_mode = 0
 offset_left = 88.0
 offset_top = 496.00003
 offset_right = 368.0
-offset_bottom = 568.99927
+offset_bottom = 568.9877
 rotation = -0.027730685
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("5_r824j")
+theme_override_font_sizes/font_size = 66
 theme_override_styles/normal = SubResource("StyleBoxFlat_nl8pl")
-text = "QUIT"
+text = "Quit"
+
+[node name="Settings" parent="." unique_id=1908886701 instance=ExtResource("7_n1pb7")]
+z_index = 3
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
