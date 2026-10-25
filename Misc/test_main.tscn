@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="2_h4xb0"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="2_nru02"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
+[ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="7_c221a"]
+[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="8_4grlp"]
 
 [node name="TestMain" type="Node2D" unique_id=515094857 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_38ub3")
@@ -33,3 +35,9 @@ wall_layer = NodePath("../CollidableLayer")
 
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("2_nru02")]
 position = Vector2(18528, -824)
+
+[node name="Leaves" parent="." unique_id=1808298047 instance=ExtResource("7_c221a")]
+position = Vector2(952, -192)
+
+[node name="Stick" parent="." unique_id=138826487 instance=ExtResource("8_4grlp")]
+position = Vector2(1640, 288)
