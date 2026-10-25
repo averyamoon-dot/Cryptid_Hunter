@@ -61,7 +61,7 @@ func die():
 
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
-	if HideableObjects.has(area):
+	if HideableObjects.hideableObjects.has(area):
 		hiding_spot = area
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:

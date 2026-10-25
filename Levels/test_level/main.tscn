@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="8_umvh5"]
 [ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="9_frfsg"]
 [ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="10_umvh5"]
+[ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="11_frfsg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
 shader = ExtResource("2_bqkso")
@@ -75,3 +76,6 @@ script = ExtResource("9_frfsg")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_umvh5")
+
+[node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("11_frfsg")]
+position = Vector2(-726, 377)

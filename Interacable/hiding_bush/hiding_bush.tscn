@@ -7,6 +7,7 @@
 size = Vector2(226, 217)
 
 [node name="hiding_bush" type="Area2D" unique_id=550178141]
+z_index = 1
 script = ExtResource("1_wlj8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713451156]
