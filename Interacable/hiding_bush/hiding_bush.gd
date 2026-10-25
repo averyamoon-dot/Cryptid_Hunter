@@ -4,8 +4,8 @@ extends Area2D
 @onready var hiding = false
 
 
-#func _ready():
-#	HideableObjects.hideableObjects.append(self)
+func _ready():
+	HideableObjects.hideableObjects.append(self)
 
 
 func _input(event: InputEvent) -> void:
@@ -25,7 +25,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 
-
-
 func _on_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body == player:
+		overlapping = false
