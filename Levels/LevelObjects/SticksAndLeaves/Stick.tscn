@@ -13,7 +13,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_7j8qu")
 step_on_sounds = Array[AudioStream]([ExtResource("2_f38eb")])
-noise_radius = 100.0
+noise_radius = 50.0
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056970195]
