@@ -126,13 +126,13 @@ func update_vision(delta: float) -> void:
 func update_facing(delta: float) -> void:
 	var target_angle: float 
 	var turn_speed: float
-	
-	if can_see_player:
-		target_angle = global_position.direction_to(last_known_player_position).angle()
-		turn_speed = turn_speed_angry
-	else:
-		target_angle = facing.angle()
-		turn_speed = turn_speed_passive
+
+	#if can_see_player:
+		#target_angle = global_position.direction_to(last_known_player_position).angle()
+		#turn_speed = turn_speed_angry
+	#else:
+	target_angle = facing.angle()
+	turn_speed = turn_speed_passive
 
 	var diff: float = angle_difference(vision_angle, target_angle)
 	var max_step: float = turn_speed * delta

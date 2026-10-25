@@ -7,7 +7,10 @@
 [ext_resource type="Script" uid="uid://dbp0474kca51g" path="res://Cryptids/Bigfoot/states/cryptid_search_state.gd" id="6_jvtqe"]
 [ext_resource type="Script" uid="uid://dtuhuid6kfgdm" path="res://Cryptids/Bigfoot/states/cryptid_chase_state.gd" id="7_3qy6n"]
 [ext_resource type="Texture2D" uid="uid://brguwc43htojs" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle1.png" id="7_8b7nu"]
+[ext_resource type="Texture2D" uid="uid://dhkgg30slkwjd" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_1.png" id="7_kpjq4"]
 [ext_resource type="Texture2D" uid="uid://dn64lu2yprimg" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle2.png" id="8_1jwyu"]
+[ext_resource type="Texture2D" uid="uid://c4gimrb00vn8f" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_2.png" id="8_3q7mf"]
+[ext_resource type="Texture2D" uid="uid://erse1xk7mlnb" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_3.png" id="9_qbnf7"]
 [ext_resource type="Texture2D" uid="uid://dtbtxujnif54h" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk1.png" id="9_qchm0"]
 [ext_resource type="Texture2D" uid="uid://co0l55jge67lo" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk2.png" id="10_kpjq4"]
 [ext_resource type="Texture2D" uid="uid://dq36guhgf7bia" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk3.png" id="11_3q7mf"]
@@ -19,6 +22,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1lth"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kpjq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3q7mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qbnf7")
+}],
+"loop": 1,
+"name": &"chase",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_8b7nu")
@@ -115,14 +132,15 @@ one_shot = true
 [node name="Chase" type="Node" parent="StateMachine" unique_id=1207154679]
 script = ExtResource("7_3qy6n")
 speed = 450.0
-animation_name = "walk"
+animation_name = "chase"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
 rotation = 1.5707964
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_b1lth")
-animation = &"walk"
+animation = &"chase"
+frame_progress = 0.005485187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297037235]
 shape = SubResource("RectangleShape2D_6vjpb")
