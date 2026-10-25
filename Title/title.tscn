@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c804ohi05ldfb" path="res://Title/vignette.png" id="3_toehp"]
 [ext_resource type="Texture2D" uid="uid://beggq7hpfmepc" path="res://Title/title.png" id="4_iliki"]
 [ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="5_r824j"]
-[ext_resource type="PackedScene" uid="uid://ciwiy2qt8aplq" path="res://Settings/settings.tscn" id="7_n1pb7"]
+[ext_resource type="PackedScene" uid="uid://ciwiy2qt8aplq" path="res://Title/Settings/settings.tscn" id="7_n1pb7"]
+[ext_resource type="PackedScene" uid="uid://dap1lqcd054ug" path="res://Title/credits.tscn" id="8_n1pb7"]
 
 [sub_resource type="Animation" id="Animation_n1pb7"]
 length = 0.001
@@ -455,7 +456,43 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.54, 0.42984003, 0.1512, 1)
 
-[node name="Title" type="Control" unique_id=2125973666 node_paths=PackedStringArray("settings")]
+[sub_resource type="Animation" id="Animation_iliki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eoook"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(0.30778614, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syyxu"]
+_data = {
+&"RESET": SubResource("Animation_iliki"),
+&"exit": SubResource("Animation_eoook")
+}
+
+[node name="Title" type="Control" unique_id=2125973666 node_paths=PackedStringArray("settings", "credits", "title_animations", "transition")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,6 +501,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iliki")
 settings = NodePath("Settings")
+credits = NodePath("Credits")
+title_animations = NodePath("Intro/AnimationPlayer")
+transition = NodePath("Transition")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2075832523]
 z_as_relative = false
@@ -497,23 +537,23 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_eoook")
 autoplay = &"enter"
 next/enter = &"title_loop"
-blend_times = [&"enter", &"title_loop", 1.0]
 
 [node name="ColorRect" type="ColorRect" parent="Intro" unique_id=1658093018]
 z_index = 3
 z_as_relative = false
+offset_left = -400.0
 offset_right = 1153.0
-offset_bottom = 648.0
+offset_bottom = 928.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="playButton" type="Button" parent="." unique_id=723414373]
 z_index = 1
 layout_mode = 0
-offset_left = 63.999992
-offset_top = 79.99999
+offset_left = 64.0
+offset_top = 700.0
 offset_right = 409.91016
-offset_bottom = 163.0043
+offset_bottom = 783.00433
 rotation = 0.022383055
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -525,10 +565,10 @@ icon_alignment = 1
 [node name="settingsButton" type="Button" parent="." unique_id=1431776911]
 z_index = 1
 layout_mode = 0
-offset_left = 79.99999
-offset_top = 223.99998
+offset_left = 80.0
+offset_top = 700.0
 offset_right = 464.0
-offset_bottom = 296.98682
+offset_bottom = 772.9868
 rotation = -0.022324894
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -540,9 +580,9 @@ text = "Settings"
 z_index = 1
 layout_mode = 0
 offset_left = 48.0
-offset_top = 343.99997
+offset_top = 700.0
 offset_right = 432.0
-offset_bottom = 416.99942
+offset_bottom = 772.99945
 rotation = 0.02905427
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -554,9 +594,9 @@ text = "Credits"
 z_index = 1
 layout_mode = 0
 offset_left = 88.0
-offset_top = 496.00003
+offset_top = 700.0
 offset_right = 368.0
-offset_bottom = 568.9877
+offset_bottom = 772.9877
 rotation = -0.027730685
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -569,4 +609,14 @@ z_index = 3
 layout_mode = 1
 mouse_filter = 2
 
+[node name="Credits" parent="." unique_id=1850740133 instance=ExtResource("8_n1pb7")]
+z_index = 3
+layout_mode = 1
+mouse_filter = 2
+
+[node name="Transition" type="AnimationPlayer" parent="." unique_id=1389680550]
+libraries/ = SubResource("AnimationLibrary_syyxu")
+
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="creditsButton" to="." method="_on_credits_button_pressed"]
