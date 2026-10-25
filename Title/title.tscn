@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://beggq7hpfmepc" path="res://Title/title.png" id="4_iliki"]
 [ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="5_r824j"]
 [ext_resource type="PackedScene" uid="uid://ciwiy2qt8aplq" path="res://Title/Settings/settings.tscn" id="7_n1pb7"]
-[ext_resource type="PackedScene" uid="uid://dap1lqcd054ug" path="res://Title/credits.tscn" id="8_n1pb7"]
+[ext_resource type="PackedScene" uid="uid://dap1lqcd054ug" path="res://Title/Credits/credits.tscn" id="8_n1pb7"]
 
 [sub_resource type="Animation" id="Animation_n1pb7"]
 length = 0.001
@@ -550,10 +550,10 @@ color = Color(0, 0, 0, 1)
 [node name="playButton" type="Button" parent="." unique_id=723414373]
 z_index = 1
 layout_mode = 0
-offset_left = 64.0
-offset_top = 700.0
+offset_left = 63.999992
+offset_top = 79.99999
 offset_right = 409.91016
-offset_bottom = 783.00433
+offset_bottom = 163.00433
 rotation = 0.022383055
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -565,10 +565,10 @@ icon_alignment = 1
 [node name="settingsButton" type="Button" parent="." unique_id=1431776911]
 z_index = 1
 layout_mode = 0
-offset_left = 80.0
-offset_top = 700.0
+offset_left = 79.99999
+offset_top = 223.99998
 offset_right = 464.0
-offset_bottom = 772.9868
+offset_bottom = 296.98682
 rotation = -0.022324894
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -580,9 +580,9 @@ text = "Settings"
 z_index = 1
 layout_mode = 0
 offset_left = 48.0
-offset_top = 700.0
+offset_top = 343.99997
 offset_right = 432.0
-offset_bottom = 772.99945
+offset_bottom = 416.99942
 rotation = 0.02905427
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -594,9 +594,9 @@ text = "Credits"
 z_index = 1
 layout_mode = 0
 offset_left = 88.0
-offset_top = 700.0
+offset_top = 496.00003
 offset_right = 368.0
-offset_bottom = 772.9877
+offset_bottom = 568.9877
 rotation = -0.027730685
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_r824j")
@@ -620,3 +620,4 @@ libraries/ = SubResource("AnimationLibrary_syyxu")
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="quitButton" to="." method="_on_quit_button_pressed"]

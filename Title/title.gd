@@ -17,3 +17,9 @@ func _on_credits_button_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and title_animations.current_animation != "title_loop":
 		title_animations.play("title_loop")
+func _on_quit_button_pressed() -> void:
+	if transition.is_playing():
+		return
+	transition.play("exit")
+	await transition.animation_finished
+	get_tree().quit()

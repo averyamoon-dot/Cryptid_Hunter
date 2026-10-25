@@ -138,7 +138,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.23333333),
-"transitions": PackedFloat32Array(3.0314324, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Vector2(2.67, 2.67), Vector2(1, 1)]
 }
@@ -162,7 +162,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(7.450581e-09, 0.23333333),
-"transitions": PackedFloat32Array(3.8637443, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
@@ -460,7 +460,64 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.54, 0.42984003, 0.1512, 1)
 
-[node name="Control" type="Control" unique_id=1908886701 node_paths=PackedStringArray("animation_player")]
+[sub_resource type="Gradient" id="Gradient_jk055"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.804, 0.58000004, 0.21960784)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qnnrn"]
+gradient = SubResource("Gradient_jk055")
+width = 5
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_2lq1c"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.804, 0.58000004, 0.6901961)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2f73h"]
+gradient = SubResource("Gradient_2lq1c")
+width = 5
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_wdag2"]
+offsets = PackedFloat32Array(0, 0.5613208)
+colors = PackedColorArray(0.32, 0.27818665, 0.23040001, 1, 0.57, 0.46512, 0.29639998, 0.03137255)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jk055"]
+gradient = SubResource("Gradient_wdag2")
+width = 17
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_qnnrn"]
+colors = PackedColorArray(0.8, 0.6954667, 0.57600003, 0.10980392, 0.24, 0.19583999, 0.12479999, 0.23529412)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm075"]
+gradient = SubResource("Gradient_qnnrn")
+width = 8
+height = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck0yu"]
+content_margin_left = 4.0
+content_margin_top = 12.0
+content_margin_right = 4.0
+content_margin_bottom = 20.0
+bg_color = Color(0.8, 0.69411767, 0.5764706, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gtb4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.23529412, 0.19215687, 0.12156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nl8pl"]
+font = ExtResource("2_d3rbk")
+font_size = 31
+font_color = Color(0.23529412, 0.19215687, 0.12156863, 1)
+
+[node name="Control" type="Control" unique_id=1908886701 node_paths=PackedStringArray("animation_player", "master_volume_slider", "music_volume_slider", "sound_volume_slider")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -470,6 +527,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d3rbk")
 animation_player = NodePath("AnimationPlayer")
+master_volume_slider = NodePath("Panel/Info/MasterVolumeSlider")
+music_volume_slider = NodePath("Panel/Info/MusicVolumeSlider")
+sound_volume_slider = NodePath("Panel/Info/SoundVolumeSlider")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1827345546]
 libraries/ = SubResource("AnimationLibrary_cfss5")
@@ -560,4 +620,124 @@ theme_override_font_sizes/font_size = 38
 text = "Back"
 flat = true
 
+[node name="MasterVolumeSlider" type="HSlider" parent="Panel/Info" unique_id=1900805352]
+layout_mode = 0
+offset_left = 29.897259
+offset_top = 65.008865
+offset_right = 390.91733
+offset_bottom = 81.008865
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../MusicVolumeSlider")
+focus_next = NodePath("../MusicVolumeSlider")
+focus_previous = NodePath("../SoundVolumeSlider")
+theme_override_icons/grabber = SubResource("GradientTexture2D_qnnrn")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_2f73h")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_jk055")
+theme_override_icons/tick = SubResource("GradientTexture2D_mm075")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ck0yu")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6gtb4")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_6gtb4")
+step = 5.0
+value = 80.0
+tick_count = 21
+ticks_position = 3
+
+[node name="Label" type="Label" parent="Panel/Info/MasterVolumeSlider" unique_id=227581757]
+layout_mode = 0
+offset_left = 1.3035799
+offset_top = -32.52584
+offset_right = 174.30357
+offset_bottom = -7.5258408
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_nl8pl")
+
+[node name="Line2D" type="Line2D" parent="Panel/Info/MasterVolumeSlider" unique_id=1855128902]
+position = Vector2(-4.519165, 4.474167)
+points = PackedVector2Array(3.480835, 28.474167, 363.48083, 28.474167)
+width = 2.0
+default_color = Color(0.5411765, 0.43137255, 0.15294118, 1)
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Panel/Info" unique_id=1714526927]
+layout_mode = 0
+offset_left = 30.378103
+offset_top = 149.48303
+offset_right = 391.3982
+offset_bottom = 181.48303
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../MasterVolumeSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SoundVolumeSlider")
+focus_next = NodePath("../SoundVolumeSlider")
+focus_previous = NodePath("../MasterVolumeSlider")
+theme_override_icons/grabber = SubResource("GradientTexture2D_qnnrn")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_2f73h")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_jk055")
+theme_override_icons/tick = SubResource("GradientTexture2D_mm075")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ck0yu")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6gtb4")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_6gtb4")
+step = 5.0
+value = 80.0
+tick_count = 21
+ticks_position = 3
+
+[node name="Label" type="Label" parent="Panel/Info/MusicVolumeSlider" unique_id=1095848447]
+layout_mode = 0
+offset_left = 1.3035799
+offset_top = -33.999992
+offset_right = 174.30357
+offset_bottom = -8.999992
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_nl8pl")
+
+[node name="Line2D" type="Line2D" parent="Panel/Info/MusicVolumeSlider" unique_id=18419095]
+position = Vector2(-4.519165, 4.474167)
+points = PackedVector2Array(3.480835, 28.474167, 363.48083, 28.474167)
+width = 2.0
+default_color = Color(0.5411765, 0.43137255, 0.15294118, 1)
+
+[node name="SoundVolumeSlider" type="HSlider" parent="Panel/Info" unique_id=1992942300]
+layout_mode = 0
+offset_left = 30.378103
+offset_top = 229.48303
+offset_right = 391.3982
+offset_bottom = 261.48303
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../MusicVolumeSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../MasterVolumeSlider")
+focus_previous = NodePath("../MusicVolumeSlider")
+theme_override_icons/grabber = SubResource("GradientTexture2D_qnnrn")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_2f73h")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_jk055")
+theme_override_icons/tick = SubResource("GradientTexture2D_mm075")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ck0yu")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6gtb4")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_6gtb4")
+step = 5.0
+value = 80.0
+tick_count = 21
+ticks_position = 3
+
+[node name="Label" type="Label" parent="Panel/Info/SoundVolumeSlider" unique_id=1527821547]
+layout_mode = 0
+offset_left = 1.3035799
+offset_top = -32.999992
+offset_right = 174.30357
+offset_bottom = -7.9999924
+text = "Sound Volume"
+label_settings = SubResource("LabelSettings_nl8pl")
+
+[node name="Line2D" type="Line2D" parent="Panel/Info/SoundVolumeSlider" unique_id=691876456]
+position = Vector2(-4.519165, 4.474167)
+points = PackedVector2Array(3.480835, 28.474167, 363.48083, 28.474167)
+width = 2.0
+default_color = Color(0.5411765, 0.43137255, 0.15294118, 1)
+
 [connection signal="pressed" from="Panel/Info/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Panel/Info/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="Panel/Info/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Panel/Info/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]

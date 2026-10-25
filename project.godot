@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://b2iqfomgudxu6"
 [autoload]
 
 SignalController="*uid://dcxnfm7kotu1m"
+SettingsSaveLoadManager="*uid://dd8pmrcj7qeop"
 
 [input]
 

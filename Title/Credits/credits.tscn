@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dap1lqcd054ug"]
 
-[ext_resource type="Script" uid="uid://6sll3h8s2a7k" path="res://Title/Settings/settings.gd" id="1_lj3ht"]
+[ext_resource type="Script" uid="uid://dakq7fvkjvagx" path="res://Title/Credits/credits.gd" id="1_h5eiy"]
 [ext_resource type="Texture2D" uid="uid://dm28a5pqad11d" path="res://Title/dust_particle.png" id="2_h5eiy"]
 [ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="3_dfkkt"]
 
@@ -482,7 +482,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lj3ht")
+script = ExtResource("1_h5eiy")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1827345546]
