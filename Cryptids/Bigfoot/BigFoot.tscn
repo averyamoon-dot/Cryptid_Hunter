@@ -61,10 +61,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
-size = Vector2(176, 176)
+size = Vector2(150, 150)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
-radius = 150.0
+radius = 200.0
 
 [node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision", "killzone")]
 script = ExtResource("1_gkcht")
@@ -120,7 +120,7 @@ metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
 rotation = 1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_b1lth")
 animation = &"walk"
 
