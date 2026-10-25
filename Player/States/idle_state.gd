@@ -6,7 +6,10 @@ func activate():
 func process_frame(_delta) -> State:
 	return
 
-func process_input(_event : InputEvent) -> State:
+func process_input(event : InputEvent) -> State:
+	if event.is_action_pressed("interact"):
+		if parent.hiding_spot != null:
+			return state_machine.hiding_state
 	return
 
 func process_physics(delta) -> State:

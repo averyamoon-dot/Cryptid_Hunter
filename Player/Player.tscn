@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bp3rk77wibemt" path="res://Player/States/tired.gd" id="8_j23h2"]
 [ext_resource type="Script" uid="uid://ppslpisv5kgm" path="res://Player/camera_2d.gd" id="9_0j2ni"]
 [ext_resource type="Texture2D" uid="uid://d3iun6qghklm0" path="res://Player/Assets/Idle/idle2.png" id="9_7v5gs"]
+[ext_resource type="Script" uid="uid://2kr6u2d4saua" path="res://Player/States/hiding.gd" id="9_d7xyo"]
 [ext_resource type="PackedScene" uid="uid://trpd5hiopreh" path="res://Light/playerLight.tscn" id="9_j23h2"]
 [ext_resource type="Texture2D" uid="uid://debprm6or4f6q" path="res://Player/Assets/walking/walk1.png" id="10_3mea3"]
 [ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
@@ -56,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(120, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
+size = Vector2(140, 140)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "noise_emitter", "audio_listener")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
@@ -64,13 +68,14 @@ sprite = NodePath("AnimatedSprite2D")
 noise_emitter = NodePath("NoiseEmitter")
 audio_listener = NodePath("AudioListener2D")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "hiding_state", "starting_state")]
 script = ExtResource("2_q3lat")
 idle_state = NodePath("Idle")
 walk_state = NodePath("Walk")
 sprint_state = NodePath("Sprint")
 crouch_state = NodePath("Crouch")
 tired_state = NodePath("Tired")
+hiding_state = NodePath("Hiding")
 starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=574236878]
@@ -117,6 +122,10 @@ animation_speed = 0.75
 wait_time = 4.0
 one_shot = true
 
+[node name="Hiding" type="Node" parent="StateMachine" unique_id=1130024830]
+script = ExtResource("9_d7xyo")
+metadata/_custom_type_script = "uid://cassrqvrdwror"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588589472]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_6vjpb")
@@ -134,3 +143,11 @@ script = ExtResource("9_0j2ni")
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1209968161]
 
 [node name="NoiseEmitter" parent="." unique_id=37667085 instance=ExtResource("17_8sa4y")]
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=744015816]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=933515838]
+shape = SubResource("RectangleShape2D_osvey")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

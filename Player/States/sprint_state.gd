@@ -23,6 +23,9 @@ func process_input(event : InputEvent) -> State:
 		return state_machine.walk_state
 	if event.is_action_pressed("crouch"):
 		return state_machine.crouch_state
+	if event.is_action_pressed("interact"):
+		if parent.hiding_spot != null:
+			return state_machine.hiding_state
 	return
 
 func process_physics(_delta) -> State:

@@ -15,6 +15,11 @@ signal player_died
 @export var noise_emitter: NoiseEmitter
 @export var audio_listener: AudioListener2D
 
+#Hiding variables
+@onready var interactionArea: Area2D = $InteractionArea
+var hiding_spot = null
+
+
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    
@@ -49,5 +54,16 @@ func update_facing(delta: float) -> void:
 	
 	rotation = vision_angle
 
+
+
 func die():
 	player_died.emit()
+
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if HideableObjects.has(area):
+		hiding_spot = area
+
+func _on_interaction_area_area_exited(area: Area2D) -> void:
+	if hiding_spot == area:
+		hiding_spot = null
