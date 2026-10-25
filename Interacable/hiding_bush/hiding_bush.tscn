@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t2w5yv26tgxn" path="res://Interacable/hiding_bush/berryBushSprite.png" id="1_e28yg"]
 [ext_resource type="Script" uid="uid://b6kaoymupfo72" path="res://Interacable/hiding_bush/hiding_bush.gd" id="1_wlj8t"]
+[ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="2_wov8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
 size = Vector2(226, 217)
@@ -11,6 +12,7 @@ z_index = 1
 script = ExtResource("1_wlj8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713451156]
+material = ExtResource("2_wov8f")
 texture = ExtResource("1_e28yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290607041]

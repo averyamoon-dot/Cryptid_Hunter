@@ -13,12 +13,12 @@ func process_frame(_delta) -> State:
 
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("sprint"):
-		if parent.remaining_sprint_time >= parent.min_sprint_threshold:
+		if parent.remaining_sprint_time >= parent.min_sprint_threshold and parent.holding_lantern == false:
 			return state_machine.sprint_state
 	if event.is_action_pressed("crouch"):
 		return state_machine.crouch_state
 	if event.is_action_pressed("interact"):
-		if parent.hiding_spot != null:
+		if parent.hiding_spot != null and parent.holding_lantern == false:
 			return state_machine.hiding_state
 
 	return

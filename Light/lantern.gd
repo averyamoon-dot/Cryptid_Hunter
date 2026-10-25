@@ -24,3 +24,7 @@ func _physics_process(_delta: float) -> void:
 				held = true
 	if held:
 		position = player.position
+		player.holding_lantern = true
+	else:
+		if player != null:
+			player.holding_lantern = false

@@ -19,6 +19,7 @@ signal player_died
 @onready var interactionArea: Area2D = $InteractionArea
 var hiding_spot = null
 
+@onready var holding_lantern = false
 
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
