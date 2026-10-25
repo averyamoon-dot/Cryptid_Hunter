@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://ddc5rwoqj3g82"]
+
+[ext_resource type="Script" uid="uid://bwn3g68qdq6eo" path="res://Cryptids/Mothman/mothman.gd" id="1_wb6gf"]
+[ext_resource type="Script" uid="uid://cerc04ud12l2w" path="res://Cryptids/Mothman/States/mothman_state_machine.gd" id="2_tten5"]
+[ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="2_wb6gf"]
+[ext_resource type="Script" uid="uid://cv18faoxesuer" path="res://Cryptids/Bigfoot/states/cryptid_wander_state.gd" id="3_tten5"]
+[ext_resource type="Script" uid="uid://dbp0474kca51g" path="res://Cryptids/Bigfoot/states/cryptid_search_state.gd" id="4_oswig"]
+[ext_resource type="Script" uid="uid://dtuhuid6kfgdm" path="res://Cryptids/Bigfoot/states/cryptid_chase_state.gd" id="5_om7eb"]
+[ext_resource type="Texture2D" uid="uid://brguwc43htojs" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle1.png" id="6_aymcq"]
+[ext_resource type="Texture2D" uid="uid://dn64lu2yprimg" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle2.png" id="7_ijk5k"]
+[ext_resource type="Script" uid="uid://diy67wqt17dwo" path="res://Cryptids/Mothman/States/mothman_takeoff.gd" id="7_om7eb"]
+[ext_resource type="Texture2D" uid="uid://dtbtxujnif54h" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk1.png" id="8_aursx"]
+[ext_resource type="Script" uid="uid://1snbt30wkjke" path="res://Cryptids/Mothman/States/mothman_fly.gd" id="8_aymcq"]
+[ext_resource type="Texture2D" uid="uid://co0l55jge67lo" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk2.png" id="9_dna12"]
+[ext_resource type="Script" uid="uid://x7ix27gbwclo" path="res://Cryptids/Mothman/States/mothman_land.gd" id="9_ijk5k"]
+[ext_resource type="Texture2D" uid="uid://dq36guhgf7bia" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk3.png" id="10_ctb6q"]
+[ext_resource type="Texture2D" uid="uid://c8uhb4mbla70j" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk4.png" id="11_r5o62"]
+[ext_resource type="Texture2D" uid="uid://d30d10embuwft" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk5.png" id="12_nq25o"]
+[ext_resource type="Texture2D" uid="uid://2whxjwhu0kda" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk6.png" id="13_a5k1l"]
+[ext_resource type="Texture2D" uid="uid://bxwy8sae1al60" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk7.png" id="14_p2c56"]
+[ext_resource type="Texture2D" uid="uid://dt5sjivj7yug8" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk8.png" id="15_okogy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulv5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_aymcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ijk5k")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_aursx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dna12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ctb6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r5o62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nq25o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a5k1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_p2c56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_okogy")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
+radius = 105.22357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ieha"]
+radius = 150.0
+
+[node name="Mothman" type="CharacterBody2D" unique_id=1852638585]
+script = ExtResource("1_wb6gf")
+
+[node name="StateMachine" type="Node" parent="." unique_id=310394976 node_paths=PackedStringArray("idle_state", "wander_state", "search_state", "chase_state", "starting_state")]
+script = ExtResource("2_tten5")
+idle_state = NodePath("Idle")
+wander_state = NodePath("Wander")
+search_state = NodePath("Search")
+chase_state = NodePath("Chase")
+starting_state = NodePath("Wander")
+metadata/_custom_type_script = "uid://b6mvqlder4a5c"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=499081775 node_paths=PackedStringArray("idle_timer")]
+script = ExtResource("2_wb6gf")
+idle_timer = NodePath("IdleTimer")
+max_turn_angle = 180.0
+min_turn_angle = 160.0
+animation_name = "idle"
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=1690880774]
+wait_time = 1.5
+one_shot = true
+
+[node name="Wander" type="Node" parent="StateMachine" unique_id=1305774981]
+script = ExtResource("3_tten5")
+speed = 250.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Search" type="Node" parent="StateMachine" unique_id=179497851 node_paths=PackedStringArray("player_tracking_timer")]
+script = ExtResource("4_oswig")
+speed = 350.0
+player_tracking_timer = NodePath("PlayerTrackingTimer")
+animation_name = "walk"
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=2133919555]
+one_shot = true
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=361749796]
+script = ExtResource("5_om7eb")
+speed = 450.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Takeoff" type="Node" parent="StateMachine" unique_id=1666098239]
+script = ExtResource("7_om7eb")
+metadata/_custom_type_script = "uid://b87orapy6g1dl"
+
+[node name="Fly" type="Node" parent="StateMachine" unique_id=271146868]
+script = ExtResource("8_aymcq")
+metadata/_custom_type_script = "uid://b87orapy6g1dl"
+
+[node name="Land" type="Node" parent="StateMachine" unique_id=1600422382]
+script = ExtResource("9_ijk5k")
+metadata/_custom_type_script = "uid://b87orapy6g1dl"
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1855582238]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_ulv5g")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1507044792]
+shape = SubResource("CircleShape2D_6vjpb")
+
+[node name="VisionCone" type="Area2D" parent="." unique_id=36607524]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone" unique_id=1304758027]
+polygon = PackedVector2Array(0, 0, 1088, -448, 1088, 456)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=995318874]
+collision_mask = 3
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1327315682]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=26851866]
+shape = SubResource("CircleShape2D_3ieha")
+
+[connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
