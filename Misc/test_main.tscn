@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="7_c221a"]
 [ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="8_4grlp"]
+[ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_4grlp"]
 
 [node name="TestMain" type="Node2D" unique_id=515094857 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_38ub3")
@@ -41,3 +42,6 @@ position = Vector2(952, -192)
 
 [node name="Stick" parent="." unique_id=138826487 instance=ExtResource("8_4grlp")]
 position = Vector2(1640, 288)
+
+[node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("9_4grlp")]
+position = Vector2(384, 552)
