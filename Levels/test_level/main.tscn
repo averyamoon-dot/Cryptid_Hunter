@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dsvtn5ro5uwbf"]
 
+[ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="1_au843"]
 [ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="1_p41v1"]
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="2_34oi5"]
 [ext_resource type="Shader" uid="uid://b0fgecbfcspaj" path="res://Levels/test_level/Materials/grayScale.gdshader" id="2_bqkso"]
@@ -84,3 +85,6 @@ texture = ExtResource("10_umvh5")
 position = Vector2(-726, 377)
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("12_au843")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=712846531]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("1_au843")]
