@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://2kr6u2d4saua" path="res://Player/States/hiding.gd" id="9_d7xyo"]
 [ext_resource type="PackedScene" uid="uid://trpd5hiopreh" path="res://Light/playerLight.tscn" id="9_j23h2"]
 [ext_resource type="Texture2D" uid="uid://debprm6or4f6q" path="res://Player/Assets/walking/walk1.png" id="10_3mea3"]
+[ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="10_evw08"]
 [ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
 [ext_resource type="Texture2D" uid="uid://crsw0gwohswvp" path="res://Player/Assets/walking/walk3.png" id="12_8sa4y"]
 [ext_resource type="Texture2D" uid="uid://ehj5kgn84m5a" path="res://Player/Assets/walking/walk4.png" id="13_3nb2p"]
@@ -132,6 +133,8 @@ one_shot = true
 
 [node name="Hiding" type="Node" parent="StateMachine" unique_id=1130024830]
 script = ExtResource("9_d7xyo")
+enter_sound_sounds = Array[AudioStream]([ExtResource("10_evw08")])
+exit_sound_sounds = Array[AudioStream]([ExtResource("10_evw08")])
 metadata/_custom_type_script = "uid://cassrqvrdwror"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588589472]
