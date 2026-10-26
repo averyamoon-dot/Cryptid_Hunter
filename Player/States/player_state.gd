@@ -22,5 +22,6 @@ func loop_sound() -> void:
 			audio_loop_timer.start()
 		
 func play_exit_sound() -> void:
+	super()
 	if noise_radius > 0.0:
 		parent.noise_emitter.make_noise(noise_radius)
