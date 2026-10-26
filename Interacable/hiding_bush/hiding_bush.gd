@@ -2,7 +2,7 @@ extends Area2D
 @onready var overlapping = false
 @export var player: CharacterBody2D
 @onready var hiding = false
-@export var interact: AudioStreamMP3
+@export var interact: AudioStream
 
 
 func _ready():
