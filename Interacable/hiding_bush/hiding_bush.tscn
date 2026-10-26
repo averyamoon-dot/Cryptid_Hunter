@@ -2,14 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://t2w5yv26tgxn" path="res://Interacable/hiding_bush/berryBushSprite.png" id="1_e28yg"]
 [ext_resource type="Script" uid="uid://b6kaoymupfo72" path="res://Interacable/hiding_bush/hiding_bush.gd" id="1_wlj8t"]
+[ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="2_tl7dj"]
 [ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="2_wov8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
 size = Vector2(226, 217)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uke"]
+size = Vector2(200, 200)
+
 [node name="hiding_bush" type="Area2D" unique_id=550178141]
-z_index = 1
 script = ExtResource("1_wlj8t")
+interact = ExtResource("2_tl7dj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713451156]
 material = ExtResource("2_wov8f")
@@ -18,6 +22,11 @@ texture = ExtResource("1_e28yg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290607041]
 position = Vector2(4, 1.5)
 shape = SubResource("RectangleShape2D_osvey")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=978086469]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=984737363]
+shape = SubResource("RectangleShape2D_m1uke")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

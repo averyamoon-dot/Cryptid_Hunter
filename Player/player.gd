@@ -18,6 +18,7 @@ signal player_died
 #Hiding variables
 @onready var interactionArea: Area2D = $InteractionArea
 var hiding_spot = null
+var is_hidden = false
 
 @onready var holding_lantern = false
 

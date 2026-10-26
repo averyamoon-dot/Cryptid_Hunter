@@ -60,6 +60,14 @@ size = Vector2(120, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
 size = Vector2(140, 140)
 
+[sub_resource type="Animation" id="Animation_d7xyo"]
+resource_name = "enterHiding"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evw08"]
+_data = {
+&"enterHiding": SubResource("Animation_d7xyo")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "noise_emitter", "audio_listener")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
@@ -148,6 +156,9 @@ script = ExtResource("9_0j2ni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=933515838]
 shape = SubResource("RectangleShape2D_osvey")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1041273368]
+libraries/ = SubResource("AnimationLibrary_evw08")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
