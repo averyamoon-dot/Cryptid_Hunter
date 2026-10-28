@@ -109,8 +109,8 @@ func get_player_position() -> Vector2:
 
 func update_vision(delta: float) -> void:
 	var seen: bool = false
-
-	if vision_cone.overlaps_body(player):
+	
+	if vision_cone.overlaps_body(player) and !player.is_hidden:
 		ray_cast.target_position = ray_cast.to_local(player.global_position)
 		ray_cast.force_raycast_update()
 		if ray_cast.get_collider() == player:
@@ -148,7 +148,7 @@ func play_animation(animation_name: String, animation_speed) -> void:
 		sprite.play("idle")
 	
 func _on_killzone_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and !player.is_hidden:
 		body.die()
 		
 func on_noise_heard(pos: Vector2, radius: float, source: Node) -> void:
