@@ -4,12 +4,66 @@
 [ext_resource type="Script" uid="uid://b6kaoymupfo72" path="res://Interacable/hiding_bush/hiding_bush.gd" id="1_wlj8t"]
 [ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="2_tl7dj"]
 [ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="2_wov8f"]
+[ext_resource type="Texture2D" uid="uid://coiark8enggm" path="res://Light/assets/lightCircle.webp" id="5_s474r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
 size = Vector2(226, 217)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uke"]
 size = Vector2(200, 200)
+
+[sub_resource type="Animation" id="Animation_tl7dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_83h5q"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.2617993877991494, 0.17453292519943295, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s474r"]
+resource_name = "hiding"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.33333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.06981317007977318]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83h5q"]
+_data = {
+&"RESET": SubResource("Animation_tl7dj"),
+&"enter": SubResource("Animation_83h5q"),
+&"hiding": SubResource("Animation_s474r")
+}
 
 [node name="hiding_bush" type="Area2D" unique_id=550178141]
 script = ExtResource("1_wlj8t")
@@ -27,6 +81,12 @@ shape = SubResource("RectangleShape2D_osvey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=984737363]
 shape = SubResource("RectangleShape2D_m1uke")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=671567035]
+libraries/ = SubResource("AnimationLibrary_83h5q")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=134898342]
+texture = ExtResource("5_s474r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

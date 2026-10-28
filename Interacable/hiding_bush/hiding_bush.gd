@@ -3,30 +3,26 @@ extends Area2D
 @export var player: CharacterBody2D
 @onready var hiding = false
 @export var interact: AudioStream
+@onready var animation_player = $AnimationPlayer
+@onready var light = $PointLight2D
+@onready var playerInside = false
+
+
 
 
 func _ready():
 	HideableObjects.hideableObjects.append(self)
+	light.visible = false
 
 
-func _input(event: InputEvent) -> void:
-	if overlapping and event.is_action_pressed("interact"):
-		AudioController.instance.play_sound(interact, 0.7, 1.3)
-		if hiding:
-			player.position = position
-			player.visible = true;
-			hiding = false
-		else:
-			player.visible = false;
-			
+func player_entering() -> void:
+	playerInside = true
+	animation_player.play("enter")
+	await animation_player.animation_finished
+	animation_player.play("hiding")
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body == player:
-		overlapping = true
-
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body == player:
-		overlapping = false
+func player_exiting() -> void:
+	playerInside = false
+	animation_player.play("enter")
+	await animation_player.animation_finished
+	animation_player.stop()

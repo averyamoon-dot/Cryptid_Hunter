@@ -85,6 +85,7 @@ texture = ExtResource("10_umvh5")
 position = Vector2(-726, 377)
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("12_au843")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=712846531]
 
 [node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("1_au843")]

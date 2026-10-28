@@ -1,12 +1,23 @@
 extends PlayerState
 
+var hiding_spot = null
+
 func activate():
 	super()
-	await enterBush()
-	parent.is_hidden = true
+	hiding_spot = parent.hiding_spot
+	var targetSpot = hiding_spot.global_position 
+	var direction = parent.global_position.direction_to(targetSpot).angle()
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(parent, "rotation", direction, 0.5)
+	tween.tween_property(parent, "scale", Vector2(0.5, 0.5), 0.5)
+	hiding_spot.player_entering()
+	await tween.finished
+	parent.velocity = Vector2.ZERO
+	parent.visible = false
 
 func enterBush():
-	var targetSpot = parent.hiding_spot.global_position 
+	var targetSpot = hiding_spot.global_position 
 	var direction = parent.global_position.direction_to(targetSpot).angle()
 	var tween = create_tween()
 	tween.tween_property(parent, "rotation", direction, 0.5)
@@ -34,6 +45,7 @@ func process_physics(_delta) -> State:
 
 func deactivate():
 	super()
+	hiding_spot.player_exiting()
 	parent.visible = true
 	parent.is_hidden = false
 	var tween = create_tween()
