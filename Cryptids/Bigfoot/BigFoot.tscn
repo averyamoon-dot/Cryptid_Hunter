@@ -84,6 +84,7 @@ size = Vector2(150, 150)
 radius = 200.0
 
 [node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision", "killzone")]
+collision_layer = 4
 script = ExtResource("1_gkcht")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("Sprite2D")

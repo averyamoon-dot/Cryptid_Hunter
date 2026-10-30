@@ -44,4 +44,13 @@ position = Vector2(952, -192)
 position = Vector2(1640, 288)
 
 [node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("9_4grlp")]
-position = Vector2(384, 552)
+position = Vector2(96, 416)
+
+[node name="hiding_bush2" parent="." unique_id=479171594 instance=ExtResource("9_4grlp")]
+position = Vector2(624, -312)
+
+[node name="hiding_bush3" parent="." unique_id=652524344 instance=ExtResource("9_4grlp")]
+position = Vector2(192, -312)
+
+[node name="hiding_bush4" parent="." unique_id=956829431 instance=ExtResource("9_4grlp")]
+position = Vector2(296, 72)
