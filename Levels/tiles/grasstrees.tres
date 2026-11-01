@@ -12,16 +12,28 @@ texture_region_size = Vector2i(250, 250)
 3:1/0 = 0
 0:1/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j50ip"]
+polygon = PackedVector2Array(-75, -50, 125, -75, 125, 75, -25, 100)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qrdem"]
+polygon = PackedVector2Array(-125, -75, 75, -100, 75, 50, -125, 75)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kfpix"]
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xg14q"]
 texture = ExtResource("2_ipa08")
 texture_region_size = Vector2i(250, 250)
 2:1/0 = 0
 4:1/0 = 0
 2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_j50ip")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -50, 125, -75, 125, 75, -50, 100)
 3:2/0 = 0
+3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qrdem")
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -75, 75, -100, 75, 50, -125, 75)
 4:2/0 = 0
+4:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_kfpix")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ak4bl"]
@@ -83,6 +95,7 @@ tile_size = Vector2i(250, 250)
 occlusion_layer_0/light_mask = 1
 occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
 custom_data_layer_0/name = "obstacle"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_mdeog")
