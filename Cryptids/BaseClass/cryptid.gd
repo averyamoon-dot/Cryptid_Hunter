@@ -44,22 +44,22 @@ func _ready() -> void:
 	killzone.body_entered.connect(_on_killzone_body_entered)
 	SignalController.noise_made.connect(on_noise_heard)
 	
-	pathfinder = PathFinder.new()
-	pathfinder.setup(floor_layer, wall_layer)
-	
 	path_line.top_level = true
 	path_line.width = 4
 	path_line.default_color = Color.RED
 	add_child(path_line)
 	
 	vision_angle = facing.angle()
-	
 	starting_position = global_position
+	
+	pathfinder = PathFinder.new()
+	pathfinder.setup(floor_layer, wall_layer)
 	
 	state_machine.parent = self
 	state_machine.sprite = sprite
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	state_machine.initialize_state_machine()
+	pathfinder.scan_obstacles(get_world_2d().direct_space_state)
 
 func _physics_process(delta: float) -> void:
 	update_vision(delta)
