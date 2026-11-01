@@ -2,11 +2,18 @@
 
 [ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="1_nltsv"]
 [ext_resource type="TileSet" uid="uid://crxkf8k5tarir" path="res://Levels/tiles/grasstrees.tres" id="1_plaab"]
+[ext_resource type="Script" uid="uid://c1y6dv76wuvhv" path="res://Levels/BaseClass/level.gd" id="1_yw37k"]
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="2_onu5b"]
+[ext_resource type="AudioStream" uid="uid://dpuvc8t75jjua" path="res://Misc/Sound/Music/background_ambience.ogg" id="2_tjiyu"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="3_p47qg"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="5_wk2ye"]
+[ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="8_lkw16"]
 
-[node name="level1" type="Node2D" unique_id=1898571740]
+[node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
+script = ExtResource("1_yw37k")
+player = NodePath("CharacterBody2D")
+jumpscare = NodePath("BigfootJumpscare")
+music = ExtResource("2_tjiyu")
 
 [node name="tiles" type="Node" parent="." unique_id=1636571874]
 
@@ -28,5 +35,11 @@ tile_set = ExtResource("1_plaab")
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("3_p47qg")]
 
-[node name="BigFoot" parent="." unique_id=1548413406 instance=ExtResource("5_wk2ye")]
+[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "floor_layer", "wall_layer") instance=ExtResource("5_wk2ye")]
 position = Vector2(5645, -22951)
+player = NodePath("../CharacterBody2D")
+floor_layer = NodePath("../tiles/groundLayer")
+wall_layer = NodePath("../tiles/obstacleLayer")
+
+[node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("8_lkw16")]
+position = Vector2(-21686, 0)
