@@ -4,6 +4,7 @@ var hiding_spot = null
 
 func activate():
 	super()
+	parent.is_hidden = true
 	hiding_spot = parent.hiding_spot
 	var targetSpot = hiding_spot.global_position 
 	var direction = parent.global_position.direction_to(targetSpot).angle()
@@ -15,17 +16,6 @@ func activate():
 	await tween.finished
 	parent.velocity = Vector2.ZERO
 	parent.visible = false
-
-func enterBush():
-	var targetSpot = hiding_spot.global_position 
-	var direction = parent.global_position.direction_to(targetSpot).angle()
-	var tween = create_tween()
-	tween.tween_property(parent, "rotation", direction, 0.5)
-	tween.tween_property(parent, "scale", Vector2(0.5, 0.5), 0.5)
-	await tween.finished
-	parent.velocity = Vector2.ZERO
-	parent.visible = false
-	
 	
 func process_frame(_delta) -> State:
 	return
@@ -45,6 +35,7 @@ func process_physics(_delta) -> State:
 
 func deactivate():
 	super()
+	parent.is_hidden = false
 	hiding_spot.player_exiting()
 	parent.visible = true
 	parent.is_hidden = false

@@ -92,3 +92,20 @@ func count_walls_between(from: Vector2, to: Vector2) -> int:
 		if astar_grid.region.has_point(cell) and astar_grid.is_point_solid(cell):
 			count += 1
 	return count
+	
+func get_path_to_adjacent(from: Vector2, to_solid: Vector2) -> PackedVector2Array:
+	var target_cell: Vector2i = layer.local_to_map(layer.to_local(to_solid))
+	var best_path := PackedVector2Array()
+
+	for direction in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
+		var neighbor: Vector2i = target_cell + direction
+		if not astar_grid.region.has_point(neighbor) or astar_grid.is_point_solid(neighbor):
+			continue
+
+		var neighbor_pos: Vector2 = layer.to_global(astar_grid.get_point_position(neighbor))
+		var possible_path: PackedVector2Array = get_global_path(from, neighbor_pos)
+		if possible_path.is_empty():
+			continue
+		if best_path.is_empty() or possible_path.size() < best_path.size():
+			best_path = possible_path
+	return best_path
