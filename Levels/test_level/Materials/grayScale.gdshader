@@ -33,14 +33,15 @@ void light() {
         dot(originalColor.rgb, vec3(0.299, 0.587, 0.114))
     );
 
-    vec3 lit_color = mix(
-        gray,
-        originalColor.rgb,
-        light_amount
-    );
+    //vec3 lit_color = mix(
+        //gray,
+        //originalColor.rgb,
+        //light_amount
+    //);
 
-    lit_color = gray + (lit_color - gray) * color_boost;
-    lit_color = clamp(lit_color, 0.0, 1.0);
-
-    LIGHT = vec4(lit_color, 1.0) * LIGHT_COLOR;
+    //lit_color = gray + (lit_color - gray) * color_boost;
+    //lit_color = clamp(lit_color, 0.0, 1.0);
+	
+	vec4 maxLight = min(vec4(originalColor.rgb, 1.0) * LIGHT_COLOR * 1.3, 1.0);
+    LIGHT = maxLight;
 }

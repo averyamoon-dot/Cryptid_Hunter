@@ -42,4 +42,4 @@ floor_layer = NodePath("../tiles/groundLayer")
 wall_layer = NodePath("../tiles/obstacleLayer")
 
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("8_lkw16")]
-position = Vector2(-21686, 0)
+position = Vector2(-19815, 0)
