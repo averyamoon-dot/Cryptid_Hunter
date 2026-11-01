@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="1_thjdc"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="2_h4xb0"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="2_nru02"]
+[ext_resource type="AudioStream" uid="uid://dpuvc8t75jjua" path="res://Misc/Sound/Music/background_ambience.ogg" id="2_tsktq"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="7_c221a"]
 [ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="8_4grlp"]
@@ -14,6 +15,7 @@
 script = ExtResource("1_38ub3")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
+music = ExtResource("2_tsktq")
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("2_h4xb0")]
 

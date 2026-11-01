@@ -4,9 +4,14 @@ extends Node2D
 ## Using AudioController.instance, any script can reach the audio controller
 ## as long as the AudioController node is within the same scene
 static var instance: AudioController
+var music_player: AudioStreamPlayer
 
 func _ready() -> void:
 	instance = self
+	
+	music_player = AudioStreamPlayer.new()
+	music_player.bus = "Music"
+	add_child(music_player)
 
 ## Reset instance on exiting scene tree
 func _exit_tree() -> void:
@@ -40,6 +45,18 @@ func play_sound_at(sfx : AudioStream, world_position : Vector2, min_pitch : floa
 	sfx_player.play()
 	await sfx_player.finished
 	sfx_player.queue_free()
+	
+func play_music(music: AudioStream) -> void:
+	if not music:
+		return
+	if music_player.stream == music and music_player.playing:
+		return
+		
+	music_player.stream = music
+	music_player.play()
+
+func stop_music() -> void:
+	music_player.stop()
 
 func change_master_volume_to(value: float):
 	AudioServer.set_bus_volume_linear(0,value)
