@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bub7avoot22vu"]
 
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_3tber"]
 [ext_resource type="Script" uid="uid://bynq2ssiqit7k" path="res://Levels/LevelObjects/SticksAndLeaves/step_on_object.gd" id="1_4et01"]
-[ext_resource type="AudioStream" uid="uid://d1gb80cm0c6jd" path="res://Levels/LevelObjects/SticksAndLeaves/Sounds/leaf_break_placeholder.wav" id="2_3tber"]
+[ext_resource type="AudioStream" uid="uid://c5rfntvaafyn8" path="res://Levels/LevelObjects/SticksAndLeaves/Sounds/leaf_break.wav" id="2_3tber"]
 [ext_resource type="Texture2D" uid="uid://dujoetsrp1fgs" path="res://Levels/LevelObjects/SticksAndLeaves/Assets/leave.png" id="2_ojo84"]
 [ext_resource type="PackedScene" uid="uid://dy355vnvds3b3" path="res://Misc/Sound/NoiseEmitter/NoiseEmitter.tscn" id="3_3tber"]
 
@@ -17,6 +18,7 @@ noise_radius = 20.0
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=546589738]
+material = ExtResource("1_3tber")
 texture = ExtResource("2_ojo84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442045997]

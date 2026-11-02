@@ -5,15 +5,18 @@
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="1_thjdc"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="2_h4xb0"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="2_nru02"]
+[ext_resource type="AudioStream" uid="uid://dpuvc8t75jjua" path="res://Misc/Sound/Music/background_ambience.ogg" id="2_tsktq"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="7_c221a"]
 [ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="8_4grlp"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_4grlp"]
+[ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="11_ybdfv"]
 
 [node name="TestMain" type="Node2D" unique_id=515094857 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_38ub3")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
+music = ExtResource("2_tsktq")
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("2_h4xb0")]
 
@@ -44,4 +47,17 @@ position = Vector2(952, -192)
 position = Vector2(1640, 288)
 
 [node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("9_4grlp")]
-position = Vector2(384, 552)
+position = Vector2(384, -128)
+
+[node name="hiding_bush2" parent="." unique_id=479171594 instance=ExtResource("9_4grlp")]
+position = Vector2(128, -128)
+
+[node name="hiding_bush3" parent="." unique_id=652524344 instance=ExtResource("9_4grlp")]
+position = Vector2(-128, -128)
+
+[node name="hiding_bush4" parent="." unique_id=956829431 instance=ExtResource("9_4grlp")]
+position = Vector2(640, -128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=227976253]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("11_ybdfv")]

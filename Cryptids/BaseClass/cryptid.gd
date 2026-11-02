@@ -3,9 +3,10 @@ extends CharacterBody2D
 
 @export_category("Parameters")
 @export_group("Navigation")
-@export var start_distance: float = 20 # Distance in tiles
+@export var start_distance: float = 20 # In tiles
 @export var min_radius: int = 1 # In tiles
 @export var max_radius: int = 6 # In tiles
+@export var debug_line: bool = false
 @export_group("Vision")
 @export var turn_speed_angry: float = 6.0 # In radians 
 @export var turn_speed_passive: float = 4.0 # In radians
@@ -13,6 +14,9 @@ extends CharacterBody2D
 @export_group("Hearing")
 @export var hearing_multiplier: float = 1.0
 @export var muffle_per_wall: float = 0.5 # Percentage
+@export_group("Hiding")
+@export var catch_distance: float = 1.5 # In tiles
+
 
 @export_category("References")
 @export var player: Player
@@ -40,12 +44,12 @@ var heard_noise: bool = false
 var vision_angle: float = 0.0            
 var sight_extension: float = 0.0
 
+var hiding_target: Node2D = null
+var jumpscare_triggered: bool = false
+
 func _ready() -> void:
 	killzone.body_entered.connect(_on_killzone_body_entered)
 	SignalController.noise_made.connect(on_noise_heard)
-	
-	pathfinder = PathFinder.new()
-	pathfinder.setup(floor_layer, wall_layer)
 	
 	path_line.top_level = true
 	path_line.width = 4
@@ -53,13 +57,16 @@ func _ready() -> void:
 	add_child(path_line)
 	
 	vision_angle = facing.angle()
-	
 	starting_position = global_position
+	
+	pathfinder = PathFinder.new()
+	pathfinder.setup(floor_layer, wall_layer)
 	
 	state_machine.parent = self
 	state_machine.sprite = sprite
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	state_machine.initialize_state_machine()
+	pathfinder.scan_obstacles(get_world_2d().direct_space_state)
 
 func _physics_process(delta: float) -> void:
 	update_vision(delta)
@@ -71,7 +78,8 @@ func _process(_delta: float) -> void:
 	if not path_finished():
 		points.append(global_position)
 		points.append_array(path.slice(path_index))
-	path_line.points = points
+	if debug_line:
+		path_line.points = points
 
 func set_path(target: Vector2) -> void:
 	path = pathfinder.get_global_path(global_position, target)
@@ -109,6 +117,7 @@ func get_player_position() -> Vector2:
 
 func update_vision(delta: float) -> void:
 	var seen: bool = false
+	
 	
 	if vision_cone.overlaps_body(player) and !player.is_hidden:
 		ray_cast.target_position = ray_cast.to_local(player.global_position)
@@ -166,3 +175,31 @@ func on_noise_heard(pos: Vector2, radius: float, source: Node) -> void:
 	if pathfinder.check_distance(global_position, pos, muffled_range):
 		last_known_player_position = pos
 		heard_noise = true
+		
+func pursue_hiding_spot(spot: Node2D) -> void:
+	if jumpscare_triggered:
+		return
+	var new_path: PackedVector2Array = pathfinder.get_path_to_adjacent(global_position, spot.global_position)
+	if new_path.is_empty():
+		return
+	hiding_target = spot
+	path = new_path
+	path_index = 1
+
+func clear_hiding_target() -> void:
+	hiding_target = null
+
+func reached_hiding_spot() -> bool:
+	if hiding_target == null:
+		return false
+	var max_dist: float = pathfinder.astar_grid.cell_size.x * catch_distance
+	return path_finished() or global_position.distance_to(hiding_target.global_position) <= max_dist
+
+func catch_hidden_player() -> void:
+	if jumpscare_triggered:
+		return
+	jumpscare_triggered = true
+	hiding_target = null
+	velocity = Vector2.ZERO
+	clear_path()
+	player.die() 

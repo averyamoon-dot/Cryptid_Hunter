@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d3iun6qghklm0" path="res://Player/Assets/Idle/idle2.png" id="9_7v5gs"]
 [ext_resource type="Script" uid="uid://2kr6u2d4saua" path="res://Player/States/hiding.gd" id="9_d7xyo"]
 [ext_resource type="PackedScene" uid="uid://trpd5hiopreh" path="res://Light/playerLight.tscn" id="9_j23h2"]
+[ext_resource type="Script" uid="uid://b3wbdw5wn6jj5" path="res://Player/States/tired_idle.gd" id="9_roy6y"]
 [ext_resource type="Texture2D" uid="uid://debprm6or4f6q" path="res://Player/Assets/walking/walk1.png" id="10_3mea3"]
 [ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="10_evw08"]
 [ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
@@ -55,8 +56,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
-size = Vector2(120, 120)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ygdov"]
+radius = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
 size = Vector2(140, 140)
@@ -77,13 +78,14 @@ sprite = NodePath("AnimatedSprite2D")
 noise_emitter = NodePath("NoiseEmitter")
 audio_listener = NodePath("AudioListener2D")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "hiding_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "idle_tired_state", "hiding_state", "starting_state")]
 script = ExtResource("2_q3lat")
 idle_state = NodePath("Idle")
 walk_state = NodePath("Walk")
 sprint_state = NodePath("Sprint")
 crouch_state = NodePath("Crouch")
 tired_state = NodePath("Tired")
+idle_tired_state = NodePath("TiredIdle")
 hiding_state = NodePath("Hiding")
 starting_state = NodePath("Idle")
 
@@ -131,6 +133,13 @@ animation_speed = 0.75
 wait_time = 4.0
 one_shot = true
 
+[node name="TiredIdle" type="Node" parent="StateMachine" unique_id=1131163036 node_paths=PackedStringArray("tired_timer")]
+script = ExtResource("9_roy6y")
+tired_timer = NodePath("../Tired/TiredTimer")
+animation_name = "idle"
+animation_speed = 0.75
+metadata/_custom_type_script = "uid://cassrqvrdwror"
+
 [node name="Hiding" type="Node" parent="StateMachine" unique_id=1130024830]
 script = ExtResource("9_d7xyo")
 enter_sound_sounds = Array[AudioStream]([ExtResource("10_evw08")])
@@ -143,7 +152,7 @@ sprite_frames = SubResource("SpriteFrames_6vjpb")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745684916]
-shape = SubResource("RectangleShape2D_6vjpb")
+shape = SubResource("CircleShape2D_ygdov")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1426348137]
 zoom = Vector2(0.5, 0.5)
