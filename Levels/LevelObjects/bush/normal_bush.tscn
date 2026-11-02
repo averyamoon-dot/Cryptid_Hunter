@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://jii27rxvj3qw"]
+
+[ext_resource type="Texture2D" uid="uid://dniofsfyv685s" path="res://Levels/LevelObjects/bush/bush.png" id="1_35ods"]
+[ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="1_eqg62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
+size = Vector2(280, 280)
+
+[node name="normal_bush" type="StaticBody2D" unique_id=309009497]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1541803504]
+material = ExtResource("1_eqg62")
+texture = ExtResource("1_35ods")
+offset = Vector2(-20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1979937200]
+shape = SubResource("RectangleShape2D_osvey")
