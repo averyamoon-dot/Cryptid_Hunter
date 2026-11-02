@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cqpqiquuugwkb" path="res://Levels/cam_minigame/camera_minigame.tscn" id="7_2kgi5"]
 [ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="8_umvh5"]
 [ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="9_frfsg"]
-[ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="10_umvh5"]
+[ext_resource type="Texture2D" uid="uid://boe0ig5rl5nit" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0496.png" id="10_yoo6u"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="11_frfsg"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="12_au843"]
 
@@ -79,12 +79,13 @@ script = ExtResource("9_frfsg")
 [node name="TextureRect" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=989059819]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("10_umvh5")
+texture = ExtResource("10_yoo6u")
 
 [node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("11_frfsg")]
 position = Vector2(-726, 377)
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("12_au843")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=712846531]
 
 [node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("1_au843")]

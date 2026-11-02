@@ -6,6 +6,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 	##Choose background based on which cryptid
 	##the player is capturing
+	##Check the current level and set the background respectively
 
 
 
