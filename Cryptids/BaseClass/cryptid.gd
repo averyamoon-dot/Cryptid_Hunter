@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var start_distance: float = 20 # In tiles
 @export var min_radius: int = 1 # In tiles
 @export var max_radius: int = 6 # In tiles
+@export var debug_line: bool = false
 @export_group("Vision")
 @export var turn_speed_angry: float = 6.0 # In radians 
 @export var turn_speed_passive: float = 4.0 # In radians
@@ -15,6 +16,7 @@ extends CharacterBody2D
 @export var muffle_per_wall: float = 0.5 # Percentage
 @export_group("Hiding")
 @export var catch_distance: float = 1.5 # In tiles
+
 
 @export_category("References")
 @export var player: Player
@@ -76,7 +78,8 @@ func _process(_delta: float) -> void:
 	if not path_finished():
 		points.append(global_position)
 		points.append_array(path.slice(path_index))
-	path_line.points = points
+	if debug_line:
+		path_line.points = points
 
 func set_path(target: Vector2) -> void:
 	path = pathfinder.get_global_path(global_position, target)
