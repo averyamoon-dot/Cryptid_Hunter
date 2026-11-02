@@ -85,7 +85,6 @@ radius = 80.399
 radius = 200.0
 
 [node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision", "killzone")]
-material = ExtResource("1_3q7mf")
 collision_layer = 4
 script = ExtResource("1_gkcht")
 state_machine = NodePath("StateMachine")
@@ -139,6 +138,7 @@ animation_name = "chase"
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
+material = ExtResource("1_3q7mf")
 rotation = 1.5707964
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_b1lth")

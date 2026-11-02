@@ -10,7 +10,6 @@
 size = Vector2(200, 200)
 
 [node name="Stick" type="Area2D" unique_id=138826487 node_paths=PackedStringArray("noise_emitter")]
-material = ExtResource("1_f38eb")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_7j8qu")
@@ -19,6 +18,7 @@ noise_radius = 50.0
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056970195]
+material = ExtResource("1_f38eb")
 texture = ExtResource("2_7i70j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844783671]

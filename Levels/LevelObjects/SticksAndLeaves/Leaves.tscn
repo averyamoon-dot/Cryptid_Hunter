@@ -10,7 +10,6 @@
 size = Vector2(240, 240)
 
 [node name="Leaves" type="Area2D" unique_id=1808298047 node_paths=PackedStringArray("noise_emitter")]
-material = ExtResource("1_3tber")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_4et01")
@@ -19,6 +18,7 @@ noise_radius = 20.0
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=546589738]
+material = ExtResource("1_3tber")
 texture = ExtResource("2_ojo84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442045997]
