@@ -120,8 +120,6 @@ func update_vision(delta: float) -> void:
 	
 	
 	if vision_cone.overlaps_body(player) and !player.is_hidden:
-		print("seen")
-		print(player.is_hidden)
 		ray_cast.target_position = ray_cast.to_local(player.global_position)
 		ray_cast.force_raycast_update()
 		if ray_cast.get_collider() == player:

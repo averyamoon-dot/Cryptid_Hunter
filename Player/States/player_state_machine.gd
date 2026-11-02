@@ -6,5 +6,6 @@ extends StateMachine
 @export var sprint_state : State
 @export var crouch_state : State
 @export var tired_state : State
+@export var idle_tired_state : State
 @export var taking_picture: State
 @export var hiding_state: State
