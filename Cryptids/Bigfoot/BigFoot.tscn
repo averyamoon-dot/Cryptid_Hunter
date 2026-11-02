@@ -78,8 +78,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
-size = Vector2(150, 150)
+[sub_resource type="CircleShape2D" id="CircleShape2D_evw08"]
+radius = 80.399
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
 radius = 200.0
@@ -146,7 +146,7 @@ animation = &"chase"
 frame_progress = 0.005485187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297037235]
-shape = SubResource("RectangleShape2D_6vjpb")
+shape = SubResource("CircleShape2D_evw08")
 
 [node name="VisionCone" type="Area2D" parent="." unique_id=1745555296]
 collision_layer = 0
