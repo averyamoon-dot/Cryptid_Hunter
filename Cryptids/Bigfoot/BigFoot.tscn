@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://boyc6ujpdmmtp"]
 
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_3q7mf"]
 [ext_resource type="Script" uid="uid://bstgi7py65r3h" path="res://Cryptids/Bigfoot/bigfoot.gd" id="1_gkcht"]
 [ext_resource type="Script" uid="uid://dh3ybqr5daqcn" path="res://Cryptids/Bigfoot/states/bigfoot_state_machine.gd" id="3_pnwrb"]
 [ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="4_ad32j"]
@@ -84,6 +85,7 @@ size = Vector2(150, 150)
 radius = 200.0
 
 [node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision", "killzone")]
+material = ExtResource("1_3q7mf")
 collision_layer = 4
 script = ExtResource("1_gkcht")
 state_machine = NodePath("StateMachine")
