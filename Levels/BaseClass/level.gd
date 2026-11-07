@@ -15,4 +15,7 @@ func on_player_death() -> void:
 	jumpscare.set_jumpscare_camera()
 	jumpscare.play_animation()
 	await get_tree().create_timer(2).timeout
-	game_over.visible = true
+	if game_over:
+		game_over.visible = true
+	else:
+		get_tree().call_deferred("reload_current_scene")
