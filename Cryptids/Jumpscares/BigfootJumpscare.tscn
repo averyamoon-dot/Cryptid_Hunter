@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://c31t0okrissst"]
 
 [ext_resource type="Script" uid="uid://dlh83ve3a41sg" path="res://Cryptids/Jumpscares/jumpscare.gd" id="1_jjoe6"]
-[ext_resource type="Texture2D" uid="uid://dyaj2nd82sp7h" path="res://Misc/icon.svg" id="2_4uqfs"]
+[ext_resource type="AudioStream" uid="uid://lxp10vq8qkov" path="res://Cryptids/Bigfoot/Sounds/bigfoot_jumpscare2.wav" id="2_6cayq"]
+[ext_resource type="Texture2D" uid="uid://bve0e23d1psc4" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare1.png" id="2_i4fis"]
+[ext_resource type="Texture2D" uid="uid://4u7ptlddynj6" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare2.png" id="3_6cayq"]
+[ext_resource type="Texture2D" uid="uid://cpdmkri7hgxx7" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare3.png" id="4_rbvbl"]
+[ext_resource type="Texture2D" uid="uid://ci8adwkq3jp2s" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare4.png" id="5_byrm1"]
+[ext_resource type="Texture2D" uid="uid://6po2f4fofgod" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare5.png" id="6_cy2uc"]
+[ext_resource type="Texture2D" uid="uid://j6plexdakpl5" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare6.png" id="7_wachk"]
+[ext_resource type="Texture2D" uid="uid://b7vdjkhu6ipss" path="res://Cryptids/Bigfoot/assets/jumpscare/jumpscare7.png" id="8_1gh8a"]
 
 [sub_resource type="Animation" id="Animation_y66v0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -48,7 +55,7 @@ length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +67,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -72,7 +79,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -88,10 +95,41 @@ _data = {
 &"jumpscare": SubResource("Animation_4uqfs")
 }
 
-[node name="BigfootJumpscare" type="Node2D" unique_id=138911409 node_paths=PackedStringArray("animation_player", "camera")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vjpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i4fis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6cayq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rbvbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_byrm1")
+}, {
+"duration": 1.2,
+"texture": ExtResource("6_cy2uc")
+}, {
+"duration": 1.5,
+"texture": ExtResource("7_wachk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1gh8a")
+}],
+"loop": 0,
+"name": &"jumpscare",
+"speed": 7.0
+}]
+
+[node name="BigfootJumpscare" type="Node2D" unique_id=138911409 node_paths=PackedStringArray("animation_player", "camera", "sprite")]
 script = ExtResource("1_jjoe6")
 animation_player = NodePath("AnimationPlayer")
 camera = NodePath("Camera2D")
+sprite = NodePath("AnimatedSprite2D")
+jumpscare_sound = ExtResource("2_6cayq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2051839264]
 libraries/ = SubResource("AnimationLibrary_y66v0")
@@ -125,9 +163,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1768418468]
-modulate = Color(0.8494922, 0, 0.0161058, 1)
-texture = ExtResource("2_4uqfs")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1290074744]
+sprite_frames = SubResource("SpriteFrames_6vjpb")
+animation = &"jumpscare"
+frame = 6
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1059444903]
 zoom = Vector2(0.5, 0.5)

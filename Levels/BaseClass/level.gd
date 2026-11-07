@@ -10,7 +10,8 @@ func _ready():
 	AudioController.instance.play_music(music)
 	
 func on_player_death() -> void:
+	AudioController.instance.stop_music()
 	jumpscare.set_jumpscare_camera()
 	jumpscare.play_animation()
-	await jumpscare.animation_player.animation_finished
+	await get_tree().create_timer(2).timeout
 	get_tree().call_deferred("reload_current_scene")
