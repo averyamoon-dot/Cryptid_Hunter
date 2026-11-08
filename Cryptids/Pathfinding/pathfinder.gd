@@ -8,11 +8,35 @@ const OBJECT_MASK: int = 1
 const CELL_BOX_SCALE: float = 0.9
 const NO_NEARBY_CELL: = Vector2i(-2147483648, -2147483648)
 
-func setup(floor_layer: TileMapLayer, wall_layer: TileMapLayer) -> void:
-	layer = floor_layer
+#func setup(floor_layer: TileMapLayer, wall_layer: TileMapLayer, objects_layer: TileMapLayer) -> void:
+	#layer = floor_layer
+	#var tile_size: Vector2 = layer.tile_set.tile_size
+	#
+	#astar_grid.region = floor_layer.get_used_rect().merge(wall_layer.get_used_rect())
+	#astar_grid.cell_size = tile_size
+	#astar_grid.offset = tile_size / 2.0   # Path points are in the middle of the cells
+	#astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	#astar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	#astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	#astar_grid.update()
+	#
+	#for cell in wall_layer.get_used_cells():
+		#astar_grid.set_point_solid(cell, true)
+		
+func setup(layers: Array[TileMapLayer]) -> void:
+	if layers.is_empty():
+		return
+		
+	# Use the first layer (floor layer) as the index grid
+	layer = layers[0]
 	var tile_size: Vector2 = layer.tile_set.tile_size
 	
-	astar_grid.region = floor_layer.get_used_rect().merge(wall_layer.get_used_rect())
+	# Dynamically calculate the combined boundaries of all passed layers
+	var full_region := Rect2i()
+	for l in layers:
+		full_region = full_region.merge(l.get_used_rect())
+	
+	astar_grid.region = full_region
 	astar_grid.cell_size = tile_size
 	astar_grid.offset = tile_size / 2.0   # Path points are in the middle of the cells
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
@@ -20,8 +44,11 @@ func setup(floor_layer: TileMapLayer, wall_layer: TileMapLayer) -> void:
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 	astar_grid.update()
 	
-	for cell in wall_layer.get_used_cells():
-		astar_grid.set_point_solid(cell, true)
+	# First layer is the floor layer 
+	for i in range(1, layers.size()):
+		var obstacle_layer: TileMapLayer = layers[i]
+		for cell in obstacle_layer.get_used_cells():
+			astar_grid.set_point_solid(cell, true)
 
 func scan_obstacles(space: PhysicsDirectSpaceState2D, mask: int = OBJECT_MASK) -> void:
 	var cell_box := RectangleShape2D.new()
