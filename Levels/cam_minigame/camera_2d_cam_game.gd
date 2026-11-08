@@ -34,8 +34,8 @@ func _input(event):
 					offset.y = 16100
 			elif(event.keycode == KEY_D):
 				offset.x = offset.x+20
-				if(offset.x > 2580):
-					offset.x = 2580
+				if(offset.x > 11400):
+					offset.x = 11400
 			elif(event.keycode == KEY_S):
 				offset.y = offset.y+20
 				if(offset.y > 18400):

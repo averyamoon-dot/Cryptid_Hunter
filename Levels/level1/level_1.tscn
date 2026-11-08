@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="14_cvoyd"]
 [ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="15_k22up"]
 [ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="16_u85yh"]
-[ext_resource type="Texture2D" uid="uid://23w328vvlo0u" path="res://Levels/cam_minigame/cam_minigame_backgrounds/Photo_minigmae_bg.png" id="17_u85yh"]
-[ext_resource type="Texture2D" uid="uid://dvh1ou4xsuvle" path="res://Levels/cam_minigame/cam_minigame_backgrounds/leaves_sticks_bg.png" id="18_kej7u"]
+[ext_resource type="Texture2D" uid="uid://dqpdbevvwg141" path="res://Levels/cam_minigame/cam_minigame_backgrounds/photo_bg1_large.png" id="17_u85yh"]
+[ext_resource type="Texture2D" uid="uid://dl3cggulp8fvn" path="res://Levels/cam_minigame/cam_minigame_backgrounds/photo_bg2_large.png" id="18_kej7u"]
 [ext_resource type="Texture2D" uid="uid://chh7pgsfparu6" path="res://Levels/cam_minigame/cam_minigame_backgrounds/hidden_bigfoot.png" id="19_q7t8j"]
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "game_over")]
