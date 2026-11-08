@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c5rfntvaafyn8" path="res://Levels/LevelObjects/SticksAndLeaves/Sounds/leaf_break.wav" id="2_3tber"]
 [ext_resource type="Texture2D" uid="uid://dujoetsrp1fgs" path="res://Levels/LevelObjects/SticksAndLeaves/Assets/leave.png" id="2_ojo84"]
 [ext_resource type="PackedScene" uid="uid://dy355vnvds3b3" path="res://Misc/Sound/NoiseEmitter/NoiseEmitter.tscn" id="3_3tber"]
+[ext_resource type="PackedScene" uid="uid://bftth76h5ikjg" path="res://Levels/LevelObjects/SticksAndLeaves/Particles/LeafParticle.tscn" id="3_ygdov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(240, 240)
@@ -15,6 +16,7 @@ collision_mask = 2
 script = ExtResource("1_4et01")
 step_on_sounds = Array[AudioStream]([ExtResource("2_3tber")])
 noise_radius = 20.0
+object_particle = ExtResource("3_ygdov")
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=546589738]
