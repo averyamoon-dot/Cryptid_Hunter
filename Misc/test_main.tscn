@@ -5,10 +5,10 @@
 [ext_resource type="TileSet" uid="uid://dyv82mjclh13e" path="res://Levels/test_level/tilesets/TestTileSet.tres" id="1_thjdc"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="2_h4xb0"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="2_nru02"]
-[ext_resource type="AudioStream" uid="uid://dpuvc8t75jjua" path="res://Misc/Sound/Music/background_ambience.ogg" id="2_tsktq"]
+[ext_resource type="AudioStream" uid="uid://b0web4qh1xqpb" path="res://Misc/Sound/Music/shouldCouldaWoodaDraft1.ogg" id="2_tqdi6"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="3_38ub3"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="7_c221a"]
-[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="8_4grlp"]
+[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/bush/Stick.tscn" id="8_4grlp"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_4grlp"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="11_ybdfv"]
 [ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="12_tqdi6"]
@@ -18,7 +18,7 @@ script = ExtResource("1_38ub3")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
 game_over = NodePath("CanvasLayer/GameOver")
-music = ExtResource("2_tsktq")
+music = ExtResource("2_tqdi6")
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("2_h4xb0")]
 
@@ -38,9 +38,6 @@ position = Vector2(-856, -360)
 player = NodePath("../CharacterBody2D")
 floor_layer = NodePath("../GroundLayer")
 wall_layer = NodePath("../CollidableLayer")
-
-[node name="Sprite2D" parent="BigFoot" index="1" unique_id=955450138]
-material = null
 
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("2_nru02")]
 position = Vector2(18528, -824)
@@ -69,5 +66,3 @@ position = Vector2(640, -128)
 
 [node name="GameOver" parent="CanvasLayer" unique_id=1454070225 instance=ExtResource("12_tqdi6")]
 visible = false
-
-[editable path="BigFoot"]

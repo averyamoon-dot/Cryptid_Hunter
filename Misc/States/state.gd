@@ -51,7 +51,7 @@ func deactivate():
 		play_exit_sound()
 		
 func play_enter_sound() -> void:
-	AudioController.instance.play_sound_at(enter_sound_sounds.pick_random(), parent.global_position, enter_sound_pitch_low, enter_sound_pitch_high)
+	AudioController.play_sound_at(enter_sound_sounds.pick_random(), parent.global_position, enter_sound_pitch_low, enter_sound_pitch_high)
 
 func loop_sound() -> void:
 	audio_loop_timer = Timer.new()
@@ -60,9 +60,9 @@ func loop_sound() -> void:
 	audio_loop_timer.start()
 	while audio_loop_timer:
 		await audio_loop_timer.timeout
-		AudioController.instance.play_sound_at(while_in_state_sounds.pick_random(), parent.global_position, while_in_state_sound_low, while_in_state_sound_high)
+		AudioController.play_sound_at(while_in_state_sounds.pick_random(), parent.global_position, while_in_state_sound_low, while_in_state_sound_high)
 		if audio_loop_timer:
 			audio_loop_timer.start()
 	
 func play_exit_sound() -> void: 
-	AudioController.instance.play_sound_at(exit_sound_sounds.pick_random(), parent.global_position, exit_sound_pitch_low, exit_sound_pitch_high)
+	AudioController.play_sound_at(exit_sound_sounds.pick_random(), parent.global_position, exit_sound_pitch_low, exit_sound_pitch_high)

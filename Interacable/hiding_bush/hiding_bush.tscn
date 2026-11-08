@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://t2w5yv26tgxn" path="res://Interacable/hiding_bush/berryBushSprite.png" id="1_e28yg"]
 [ext_resource type="Script" uid="uid://b6kaoymupfo72" path="res://Interacable/hiding_bush/hiding_bush.gd" id="1_wlj8t"]
 [ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="2_tl7dj"]
-[ext_resource type="Material" uid="uid://dblxv5knx7sc8" path="res://Levels/test_level/Materials/GrayScaleMaterial.tres" id="2_wov8f"]
+[ext_resource type="Material" uid="uid://6ge8m3rv8i7r" path="res://Levels/test_level/Materials/ObjectGrayScaleMateriall.tres" id="3_s474r"]
 [ext_resource type="Texture2D" uid="uid://coiark8enggm" path="res://Light/assets/lightCircle.webp" id="5_s474r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
-size = Vector2(226, 217)
+size = Vector2(280, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uke"]
 size = Vector2(200, 200)
@@ -70,7 +70,7 @@ script = ExtResource("1_wlj8t")
 interact = ExtResource("2_tl7dj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713451156]
-material = ExtResource("2_wov8f")
+material = ExtResource("3_s474r")
 texture = ExtResource("1_e28yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290607041]

@@ -9,7 +9,7 @@ func _on_play_button_pressed() -> void:
 		return
 	transition.play("exit")
 	await transition.animation_finished
-	get_tree().change_scene_to_file("res://Levels/test_level/main.tscn")
+	get_tree().change_scene_to_file("res://Levels/level1/level_1.tscn")
 func _on_settings_button_pressed() -> void:
 	settings.animation_player.play("enter")
 func _on_credits_button_pressed() -> void:

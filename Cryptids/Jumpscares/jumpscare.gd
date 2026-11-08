@@ -10,7 +10,7 @@ func _ready():
 	
 func play_animation() -> void:
 	sprite.play("jumpscare")
-	AudioController.instance.play_sound(jumpscare_sound, 0.8, 0.8)
+	AudioController.play_sound(jumpscare_sound, 0.8, 0.8)
 
 func set_jumpscare_camera() -> void:
 	camera.make_current()

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://6ge8m3rv8i7r"]
+
+[ext_resource type="Shader" uid="uid://khknqvah40s2" path="res://Levels/test_level/Materials/objectGrayScale.gdshader" id="1_7sbj6"]
+
+[resource]
+shader = ExtResource("1_7sbj6")
+shader_parameter/saturation = 0.0
+shader_parameter/color_boost = 1.5

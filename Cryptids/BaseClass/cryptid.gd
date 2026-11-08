@@ -20,8 +20,7 @@ extends CharacterBody2D
 
 @export_category("References")
 @export var player: Player
-@export var floor_layer: TileMapLayer
-@export var wall_layer: TileMapLayer
+@export var tile_layers: Array[TileMapLayer]
 @export var state_machine : StateMachine
 @export var sprite: AnimatedSprite2D
 @export var vision_cone: Area2D
@@ -60,7 +59,7 @@ func _ready() -> void:
 	starting_position = global_position
 	
 	pathfinder = PathFinder.new()
-	pathfinder.setup(floor_layer, wall_layer)
+	pathfinder.setup(tile_layers)
 	
 	state_machine.parent = self
 	state_machine.sprite = sprite

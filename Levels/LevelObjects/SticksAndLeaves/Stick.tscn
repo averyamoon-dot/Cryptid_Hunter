@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://4leksuko6oax"]
+[gd_scene format=3 uid="uid://cxqygqqfolaac"]
 
 [ext_resource type="Script" uid="uid://bynq2ssiqit7k" path="res://Levels/LevelObjects/SticksAndLeaves/step_on_object.gd" id="1_7j8qu"]
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_f38eb"]
 [ext_resource type="Texture2D" uid="uid://c4jp02hbedu46" path="res://Levels/LevelObjects/SticksAndLeaves/Assets/stick.png" id="2_7i70j"]
 [ext_resource type="AudioStream" uid="uid://cokt4h0le0gfx" path="res://Levels/LevelObjects/SticksAndLeaves/Sounds/branch_break.wav" id="2_f38eb"]
+[ext_resource type="PackedScene" uid="uid://batpdf2l456bm" path="res://Levels/LevelObjects/SticksAndLeaves/Particles/StickParticle.tscn" id="3_eb1xf"]
 [ext_resource type="PackedScene" uid="uid://dy355vnvds3b3" path="res://Misc/Sound/NoiseEmitter/NoiseEmitter.tscn" id="3_f38eb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
@@ -15,6 +16,7 @@ collision_mask = 2
 script = ExtResource("1_7j8qu")
 step_on_sounds = Array[AudioStream]([ExtResource("2_f38eb")])
 noise_radius = 50.0
+object_particle = ExtResource("3_eb1xf")
 noise_emitter = NodePath("NoiseEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056970195]
