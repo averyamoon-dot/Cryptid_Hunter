@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d0mmadiijq5bf"]
+
+[ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="1_ny227"]
+[ext_resource type="Script" uid="uid://bta867yo8n40j" path="res://Levels/GameOverScreen/game_over.gd" id="1_yampd"]
+[ext_resource type="PackedScene" uid="uid://17n4ijf12nsb" path="res://Title/title.tscn" id="3_x3dti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yampd"]
+bg_color = Color(0.8, 0.69411767, 0.5764706, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.54, 0.42984003, 0.1512, 1)
+
+[node name="GameOver" type="Control" unique_id=1454070225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yampd")
+main_menu = ExtResource("3_x3dti")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1904734416]
+z_index = -7
+z_as_relative = false
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[node name="RetryButton" type="Button" parent="." unique_id=1508594746]
+z_index = 1
+layout_mode = 0
+offset_left = 399.99997
+offset_top = 176.0
+offset_right = 745.91016
+offset_bottom = 259.0044
+rotation = 0.022383055
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ny227")
+theme_override_font_sizes/font_size = 73
+theme_override_styles/normal = SubResource("StyleBoxFlat_yampd")
+text = "Retry"
+icon_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=171927474]
+z_index = 1
+layout_mode = 0
+offset_left = 399.99997
+offset_top = 383.99997
+offset_right = 745.91016
+offset_bottom = 467.00436
+rotation = 0.022383055
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ny227")
+theme_override_font_sizes/font_size = 73
+theme_override_styles/normal = SubResource("StyleBoxFlat_yampd")
+text = "MainMenu"
+icon_alignment = 1
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

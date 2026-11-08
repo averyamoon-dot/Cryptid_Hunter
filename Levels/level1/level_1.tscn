@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://crxkf8k5tarir" path="res://Levels/tiles/grasstrees.tres" id="1_plaab"]
 [ext_resource type="Script" uid="uid://c1y6dv76wuvhv" path="res://Levels/BaseClass/level.gd" id="1_yw37k"]
 [ext_resource type="PackedScene" uid="uid://lryvbxpck1ku" path="res://Player/Player.tscn" id="2_onu5b"]
-[ext_resource type="AudioStream" uid="uid://dpuvc8t75jjua" path="res://Misc/Sound/Music/background_ambience.ogg" id="2_tjiyu"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="3_p47qg"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="5_wk2ye"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="8_lkw16"]
@@ -15,7 +14,6 @@
 script = ExtResource("1_yw37k")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
-music = ExtResource("2_tjiyu")
 
 [node name="tiles" type="Node" parent="." unique_id=1636571874]
 

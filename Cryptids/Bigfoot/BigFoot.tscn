@@ -3,8 +3,10 @@
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_3q7mf"]
 [ext_resource type="Script" uid="uid://bstgi7py65r3h" path="res://Cryptids/Bigfoot/bigfoot.gd" id="1_gkcht"]
 [ext_resource type="Script" uid="uid://dh3ybqr5daqcn" path="res://Cryptids/Bigfoot/states/bigfoot_state_machine.gd" id="3_pnwrb"]
+[ext_resource type="AudioStream" uid="uid://2to4k6cnal0j" path="res://Cryptids/Bigfoot/Sounds/bigfoot_head_turn.wav" id="4_acjbv"]
 [ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="4_ad32j"]
 [ext_resource type="Script" uid="uid://cv18faoxesuer" path="res://Cryptids/Bigfoot/states/cryptid_wander_state.gd" id="5_ad32j"]
+[ext_resource type="AudioStream" uid="uid://dujky6ohg437a" path="res://Cryptids/Bigfoot/Sounds/bigfoot_footsteps.wav" id="5_qbnf7"]
 [ext_resource type="Script" uid="uid://dbp0474kca51g" path="res://Cryptids/Bigfoot/states/cryptid_search_state.gd" id="6_jvtqe"]
 [ext_resource type="Script" uid="uid://dtuhuid6kfgdm" path="res://Cryptids/Bigfoot/states/cryptid_chase_state.gd" id="7_3qy6n"]
 [ext_resource type="Texture2D" uid="uid://brguwc43htojs" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle1.png" id="7_8b7nu"]
@@ -108,7 +110,11 @@ script = ExtResource("4_ad32j")
 idle_timer = NodePath("IdleTimer")
 max_turn_angle = 180.0
 min_turn_angle = 160.0
+turn_head_sound = ExtResource("4_acjbv")
 animation_name = "idle"
+enter_sound_sounds = Array[AudioStream]([ExtResource("4_acjbv")])
+enter_sound_pitch_low = 0.5
+enter_sound_pitch_high = 0.7
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=286227654]
@@ -119,6 +125,8 @@ one_shot = true
 script = ExtResource("5_ad32j")
 speed = 250.0
 animation_name = "walk"
+while_in_state_sounds = Array[AudioStream]([ExtResource("5_qbnf7")])
+while_in_state_repeat_sound_after_seconds = 0.8
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Search" type="Node" parent="StateMachine" unique_id=1823182078 node_paths=PackedStringArray("player_tracking_timer")]
@@ -126,6 +134,8 @@ script = ExtResource("6_jvtqe")
 speed = 350.0
 player_tracking_timer = NodePath("PlayerTrackingTimer")
 animation_name = "walk"
+while_in_state_sounds = Array[AudioStream]([ExtResource("5_qbnf7")])
+while_in_state_repeat_sound_after_seconds = 0.6
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="PlayerTrackingTimer" type="Timer" parent="StateMachine/Search" unique_id=1757146408]
@@ -135,6 +145,8 @@ one_shot = true
 script = ExtResource("7_3qy6n")
 speed = 450.0
 animation_name = "chase"
+while_in_state_sounds = Array[AudioStream]([ExtResource("5_qbnf7")])
+while_in_state_repeat_sound_after_seconds = 0.4
 metadata/_custom_type_script = "uid://jw87ua1cglde"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]

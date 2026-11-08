@@ -5,6 +5,7 @@ extends CryptidState
 @export var max_turn_angle: float = 120.0
 @export var min_turn_angle: float = 60.0
 @export var angle_error: float = 2.0
+@export var turn_head_sound: AudioStream
 
 #var start_angle: float
 var target_angle: float
@@ -60,6 +61,7 @@ func pick_target_angle() -> void:
 	parent.facing = Vector2.from_angle(target_angle)
 
 func _on_idle_timer_timeout():
+	AudioController.play_sound_at(turn_head_sound, parent.global_position, 0.5, 0.7)
 	turns_completed += 1
 	if turns_completed >= turn_count:
 		finished = true

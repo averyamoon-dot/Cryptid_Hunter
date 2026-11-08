@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="1_00wp8"]
 [ext_resource type="Script" uid="uid://77lw3enokfts" path="res://Levels/pause_screen/pause.gd" id="1_us0qi"]
 [ext_resource type="FontFile" uid="uid://beqjk6b24lk08" path="res://Levels/pause_screen/Biro_Script_reduced.ttf" id="2_gljju"]
+[ext_resource type="Texture2D" uid="uid://cdwbuq06orxbq" path="res://Levels/pause_screen/notebookPaper.jpeg" id="3_ikx3r"]
 [ext_resource type="Script" uid="uid://dww4l1555b0rt" path="res://Levels/pause_screen/pause_settings.gd" id="4_i01js"]
 
 [sub_resource type="Animation" id="Animation_gljju"]
@@ -284,7 +285,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.16666667, 0.36666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.05235987755982989, -0.017453292519943295, 0.0]
+"values": [0.05235987755982989, -0.01745329251994329, 0.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -431,7 +432,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.16666666, 0.33333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -0.017453292519943295, 0.05235987755982989]
+"values": [0.0, -0.01745329251994329, 0.05235987755982989]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -809,11 +810,171 @@ offset_top = 120.0
 offset_right = 608.0
 offset_bottom = 160.0
 
+[node name="Binding17" type="Line2D" parent="Menu/Bindings" unique_id=1837205655]
+position = Vector2(-147.52252, -120.38039)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding18" type="Line2D" parent="Menu/Bindings" unique_id=360229440]
+position = Vector2(-147.52252, -82.38039)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding19" type="Line2D" parent="Menu/Bindings" unique_id=2111894627]
+position = Vector2(-147.52252, -40.380386)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding20" type="Line2D" parent="Menu/Bindings" unique_id=1750540566]
+position = Vector2(-147.52252, -2.3803864)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding21" type="Line2D" parent="Menu/Bindings" unique_id=859924851]
+position = Vector2(-147.52252, 39.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding22" type="Line2D" parent="Menu/Bindings" unique_id=1547190858]
+position = Vector2(-147.52252, 77.61961)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding23" type="Line2D" parent="Menu/Bindings" unique_id=1263787416]
+position = Vector2(-147.52252, 119.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding24" type="Line2D" parent="Menu/Bindings" unique_id=1519455445]
+position = Vector2(-147.52252, 157.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding25" type="Line2D" parent="Menu/Bindings" unique_id=460825732]
+position = Vector2(-147.52252, 199.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding26" type="Line2D" parent="Menu/Bindings" unique_id=297863624]
+position = Vector2(-147.52252, 237.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding27" type="Line2D" parent="Menu/Bindings" unique_id=329632266]
+position = Vector2(-147.52252, 279.6196)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding28" type="Line2D" parent="Menu/Bindings" unique_id=226878591]
+position = Vector2(-147.52252, 317.6196)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding29" type="Line2D" parent="Menu/Bindings" unique_id=919970204]
+position = Vector2(-147.52252, 359.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding30" type="Line2D" parent="Menu/Bindings" unique_id=1071094150]
+position = Vector2(-147.52252, 397.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding31" type="Line2D" parent="Menu/Bindings" unique_id=1580892028]
+position = Vector2(-147.52252, 439.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Binding32" type="Line2D" parent="Menu/Bindings" unique_id=268451707]
+position = Vector2(-147.52252, 477.61963)
+scale = Vector2(1.0000001, 1.0000001)
+points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
+width = 10.515
+default_color = Color(0.33039868, 0.33039862, 0.33039886, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="Binding" type="Line2D" parent="Menu/Bindings" unique_id=2138369399]
 position = Vector2(-147.52254, -120.38039)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -823,7 +984,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, -82.38039)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -833,7 +994,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, -40.380386)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -843,7 +1004,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, -2.3803864)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -853,7 +1014,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 39.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -863,7 +1024,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 77.61961)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -873,7 +1034,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 119.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -883,7 +1044,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 157.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -893,7 +1054,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 199.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -903,7 +1064,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 237.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -913,7 +1074,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 279.6196)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -923,7 +1084,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 317.6196)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -933,7 +1094,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 359.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -943,7 +1104,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 397.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -953,7 +1114,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 439.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -963,7 +1124,7 @@ end_cap_mode = 2
 position = Vector2(-147.52254, 477.61963)
 scale = Vector2(1.0000001, 1.0000001)
 points = PackedVector2Array(139.52252, 156.38037, 171.52252, 156.38037)
-width = 16.175
+width = 7.825
 default_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -978,6 +1139,15 @@ offset_bottom = 672.0
 pivot_offset = Vector2(410.30267, 209.87831)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_us0qi")
+
+[node name="TextureRect" type="TextureRect" parent="Menu/LeftPage" unique_id=1413055139]
+modulate = Color(1, 1, 1, 0.4745098)
+layout_mode = 0
+offset_right = 488.0
+offset_bottom = 552.0
+mouse_filter = 2
+texture = ExtResource("3_ikx3r")
+flip_h = true
 
 [node name="Info" type="Control" parent="Menu/LeftPage" unique_id=1140850878]
 anchors_preset = 0
@@ -1042,10 +1212,19 @@ pivot_offset = Vector2(410.30267, 209.87831)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gljju")
 
+[node name="TextureRect" type="TextureRect" parent="Menu/RightPage2" unique_id=1414341338]
+modulate = Color(1, 1, 1, 0.4745098)
+layout_mode = 0
+offset_right = 488.0
+offset_bottom = 552.0
+mouse_filter = 2
+texture = ExtResource("3_ikx3r")
+
 [node name="Info" type="Control" parent="Menu/RightPage2" unique_id=1315571374 node_paths=PackedStringArray("animation_player", "master_volume_slider", "music_volume_slider", "sound_volume_slider")]
 anchors_preset = 0
+offset_left = 58.0
 offset_top = 8.0
-offset_right = 40.0
+offset_right = 98.0
 offset_bottom = 48.0
 script = ExtResource("4_i01js")
 animation_player = NodePath("../../../AnimationPlayer")
@@ -1179,6 +1358,14 @@ pivot_offset = Vector2(-8, 272)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gljju")
 
+[node name="TextureRect" type="TextureRect" parent="Menu/RightPage" unique_id=148699278]
+modulate = Color(1, 1, 1, 0.4745098)
+layout_mode = 0
+offset_right = 488.0
+offset_bottom = 552.0
+mouse_filter = 2
+texture = ExtResource("3_ikx3r")
+
 [node name="Line2D" type="Line2D" parent="Menu/RightPage" unique_id=1555235928]
 position = Vector2(0, 272)
 points = PackedVector2Array(0, 8, 296, 8)
@@ -1225,6 +1412,25 @@ Capture Bigfoot
 Capture Mothman
 Capture The Twins"
 label_settings = SubResource("LabelSettings_i01js")
+
+[node name="Line2D" type="Line2D" parent="Menu/RightPage/InfoFront" unique_id=645842082]
+position = Vector2(-8, 0)
+points = PackedVector2Array(72, 216, 328, 208)
+width = 3.08
+default_color = Color(0.23529412, 0.19215687, 0.12156863, 1)
+
+[node name="Line2D2" type="Line2D" parent="Menu/RightPage/InfoFront" unique_id=412258809]
+position = Vector2(0, 56)
+points = PackedVector2Array(72, 216, 328, 224)
+width = 3.08
+default_color = Color(0.23529412, 0.19215687, 0.12156863, 1)
+
+[node name="Line2D3" type="Line2D" parent="Menu/RightPage/InfoFront" unique_id=1554858672]
+position = Vector2(18, -1)
+rotation = -0.0139189465
+points = PackedVector2Array(45.074646, 138.64081, 49.18567, 130.69727, 63.295593, 122.89289, 82.34943, 119.15774, 107, 118, 141, 115, 169, 114, 187, 113, 210, 112, 233.43231, 114.26009, 257.34637, 120.59356, 266, 126, 270, 140, 269, 149, 262, 157, 249, 165, 197.68402, 167.76773, 141, 174, 117, 174, 86.583435, 174.22198, 59.669556, 167.84677, 43.796448, 158.62497, 32.978394, 145.47311)
+width = 2.205
+default_color = Color(0.23529412, 0.19215687, 0.12156863, 1)
 
 [node name="Black" type="Panel" parent="." unique_id=1195388349]
 modulate = Color(1, 1, 1, 0)

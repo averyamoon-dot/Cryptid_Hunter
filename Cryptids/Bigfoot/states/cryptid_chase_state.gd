@@ -5,6 +5,7 @@ extends CryptidState
 func activate():
 	super()
 	print("Enter chase")
+	parent.player.enter_chase()
 	parent.clear_path()
 	parent.clear_hiding_target()
 
@@ -37,4 +38,5 @@ func process_physics(_delta) -> State:
 
 func deactivate():
 	super()
+	parent.player.exit_chase()
 	parent.clear_hiding_target()
