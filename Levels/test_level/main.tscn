@@ -10,10 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cqpqiquuugwkb" path="res://Levels/cam_minigame/camera_minigame.tscn" id="7_2kgi5"]
 [ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="8_umvh5"]
 [ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="9_frfsg"]
-[ext_resource type="Texture2D" uid="uid://boe0ig5rl5nit" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0496.png" id="10_yoo6u"]
+[ext_resource type="Texture2D" uid="uid://23w328vvlo0u" path="res://Levels/cam_minigame/cam_minigame_backgrounds/Photo_minigmae_bg.png" id="10_bcy35"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="11_frfsg"]
-[ext_resource type="Texture2D" uid="uid://dsigm2msep4cu" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0498.png" id="11_ns4q4"]
+[ext_resource type="Texture2D" uid="uid://dvh1ou4xsuvle" path="res://Levels/cam_minigame/cam_minigame_backgrounds/leaves_sticks_bg.png" id="11_yrwq4"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="12_au843"]
+[ext_resource type="Texture2D" uid="uid://chh7pgsfparu6" path="res://Levels/cam_minigame/cam_minigame_backgrounds/hidden_bigfoot.png" id="12_bprje"]
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="14_ns4q4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
@@ -122,19 +123,24 @@ layer = 0
 follow_viewport_enabled = true
 script = ExtResource("9_frfsg")
 
+[node name="CamMinigameForeground" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=1817837801]
+offset_right = 1500.0
+offset_bottom = 1500.0
+texture = ExtResource("10_bcy35")
+
 [node name="CamMinigameBG" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=989059819]
 offset_top = 15000.0
 offset_right = 1500.0
 offset_bottom = 16500.0
 scale = Vector2(3, 3)
-texture = ExtResource("10_yoo6u")
+texture = ExtResource("11_yrwq4")
 
 [node name="CamMinigameCryptid" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=1033956676]
 offset_right = 40.0
 offset_bottom = 40.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(2100, 17000)
-texture = ExtResource("11_ns4q4")
+texture = ExtResource("12_bprje")
 
 [node name="hiding_bush" parent="." unique_id=550178141 instance=ExtResource("11_frfsg")]
 position = Vector2(-726, 377)
@@ -158,8 +164,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
 libraries/ = SubResource("AnimationLibrary_0l7or")
 autoplay = &"fade_in"
 
-[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "floor_layer", "wall_layer") instance=ExtResource("14_ns4q4")]
+[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player") instance=ExtResource("14_ns4q4")]
 position = Vector2(1400, -8)
 player = NodePath("../CharacterBody2D")
-floor_layer = NodePath("../TileMap/TileMapLayer")
-wall_layer = NodePath("../TileMap/TileMapLayer2")
