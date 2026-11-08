@@ -12,11 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
+[ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="13_lldro"]
 
-[node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
+[node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "game_over")]
 script = ExtResource("1_yw37k")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
+game_over = NodePath("CanvasLayer/GameOver")
 
 [node name="tiles" type="Node" parent="." unique_id=1636571874]
 
@@ -44,12 +46,11 @@ position = Vector2(5971, -19376)
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("3_p47qg")]
 
-[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "floor_layer", "wall_layer") instance=ExtResource("5_wk2ye")]
+[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "tile_layers") instance=ExtResource("5_wk2ye")]
 position = Vector2(5645, -22951)
 start_distance = 50.0
 player = NodePath("../CharacterBody2D")
-floor_layer = NodePath("../tiles/groundLayer")
-wall_layer = NodePath("../tiles/treeLayer")
+tile_layers = [NodePath("../tiles/groundLayer"), NodePath("../tiles/obstacleLayer"), NodePath("../tiles/treeLayer")]
 
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("8_lkw16")]
 position = Vector2(-19815, 0)
@@ -327,3 +328,6 @@ position = Vector2(22544, -10233)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=261858641]
 
 [node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("12_fg8c2")]
+
+[node name="GameOver" parent="CanvasLayer" unique_id=1454070225 instance=ExtResource("13_lldro")]
+visible = false
