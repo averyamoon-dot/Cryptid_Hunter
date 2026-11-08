@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/bush/Stick.tscn" id="10_2jqaf"]
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
+[ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_yw37k")
@@ -322,3 +323,7 @@ position = Vector2(19478, -6378)
 
 [node name="Leaves17" parent="SticksAndLeaves" unique_id=1041427620 instance=ExtResource("11_fg8c2")]
 position = Vector2(22544, -10233)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=261858641]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("12_fg8c2")]
