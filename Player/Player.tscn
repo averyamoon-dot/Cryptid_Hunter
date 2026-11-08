@@ -161,6 +161,7 @@ animation = &"idle"
 shape = SubResource("CircleShape2D_ygdov")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1426348137]
+process_mode = 3
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_0j2ni")
 
