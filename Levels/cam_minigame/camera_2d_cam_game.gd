@@ -21,7 +21,7 @@ func _input(event):
 				photoMode = true
 				zoom = Vector2(0.3,0.3)
 				offset = Vector2(xOffset,yOffset)
-				get_tree().pause = true
+				get_tree().paused = true
 				
 		if(photoMode):
 			if(event.keycode == KEY_A):
@@ -55,7 +55,7 @@ func _input(event):
 			if(event.keycode == KEY_Z):
 				take_photo()
 				photoMode = false
-				get_tree().pause = false
+				get_tree().paused = false
 				
 			##print(zoom)
 	pass

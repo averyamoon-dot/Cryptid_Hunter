@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="13_lldro"]
+[ext_resource type="PackedScene" uid="uid://cqpqiquuugwkb" path="res://Levels/cam_minigame/camera_minigame.tscn" id="14_3fxgu"]
+[ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="15_k22up"]
+[ext_resource type="Script" uid="uid://65mddbvppal8" path="res://Levels/cam_minigame/canvas_layer_photo_bg.gd" id="16_u85yh"]
+[ext_resource type="Texture2D" uid="uid://boe0ig5rl5nit" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0496.png" id="17_kej7u"]
+[ext_resource type="Texture2D" uid="uid://dsigm2msep4cu" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0498.png" id="18_k22up"]
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "game_over")]
 script = ExtResource("1_yw37k")
@@ -331,3 +336,33 @@ position = Vector2(22544, -10233)
 
 [node name="GameOver" parent="CanvasLayer" unique_id=1454070225 instance=ExtResource("13_lldro")]
 visible = false
+
+[node name="Camera_Minigame" parent="." unique_id=602000344 instance=ExtResource("14_3fxgu")]
+visible = false
+
+[node name="Camera2D_CamGame2" type="Camera2D" parent="Camera_Minigame" unique_id=1254813203]
+process_mode = 3
+offset = Vector2(7500, 15000)
+script = ExtResource("15_k22up")
+
+[node name="Timer" type="Timer" parent="Camera_Minigame/Camera2D_CamGame2" unique_id=827076680]
+wait_time = 0.1
+
+[node name="CanvasLayer_PhotoBG2" type="CanvasLayer" parent="Camera_Minigame" unique_id=1255190201]
+layer = 0
+follow_viewport_enabled = true
+script = ExtResource("16_u85yh")
+
+[node name="CamMinigameBG" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=1963918283]
+offset_top = 15000.0
+offset_right = 1500.0
+offset_bottom = 16500.0
+scale = Vector2(3, 3)
+texture = ExtResource("17_kej7u")
+
+[node name="CamMinigameCryptid" type="TextureRect" parent="Camera_Minigame/CanvasLayer_PhotoBG2" unique_id=525237414]
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(2100, 17000)
+texture = ExtResource("18_k22up")
