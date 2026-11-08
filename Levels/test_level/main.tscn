@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://boe0ig5rl5nit" path="res://Levels/cam_minigame/cam_minigame_backgrounds/IMG_0496.png" id="10_yoo6u"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="11_frfsg"]
 [ext_resource type="PackedScene" uid="uid://dfuc1sprbg31w" path="res://Misc/Sound/AudioController.tscn" id="12_au843"]
+[ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="14_ns4q4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1uke"]
 shader = ExtResource("2_bqkso")
@@ -23,6 +24,45 @@ shader_parameter/color_boost = 1.5
 shader = ExtResource("2_bqkso")
 shader_parameter/saturation = 0.0
 shader_parameter/color_boost = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl8pl"]
+bg_color = Color(5.160841e-06, 5.160843e-06, 5.1608363e-06, 1)
+
+[sub_resource type="Animation" id="Animation_yoo6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ns4q4"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0l7or"]
+_data = {
+&"RESET": SubResource("Animation_yoo6u"),
+&"fade_in": SubResource("Animation_ns4q4")
+}
 
 [node name="main" type="Node2D" unique_id=1834457945]
 
@@ -88,4 +128,23 @@ position = Vector2(-726, 377)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=712846531]
 
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=909458943]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1176.0
+offset_top = -664.0
+offset_right = 1160.0
+offset_bottom = 656.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
+
 [node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("1_au843")]
+
+[node name="SceneEnter" type="AnimationPlayer" parent="." unique_id=344553536]
+libraries/ = SubResource("AnimationLibrary_0l7or")
+autoplay = &"fade_in"
+
+[node name="BigFoot" parent="." unique_id=1548413406 node_paths=PackedStringArray("player", "floor_layer", "wall_layer") instance=ExtResource("14_ns4q4")]
+position = Vector2(1400, -8)
+player = NodePath("../CharacterBody2D")
+floor_layer = NodePath("../TileMap/TileMapLayer")
+wall_layer = NodePath("../TileMap/TileMapLayer2")
