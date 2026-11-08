@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
+[ext_resource type="PackedScene" uid="uid://b8wb04mw2vp2b" path="res://Interacable/levelExit/levelExit.tscn" id="13_lldro"]
+[ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="14_cvoyd"]
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_yw37k")
@@ -327,3 +329,9 @@ position = Vector2(22544, -10233)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=261858641]
 
 [node name="Pause" parent="CanvasLayer" unique_id=1242600322 instance=ExtResource("12_fg8c2")]
+
+[node name="LevelExit" parent="." unique_id=1523690499 node_paths=PackedStringArray("player") instance=ExtResource("13_lldro")]
+position = Vector2(31355, -29221)
+rotation = 1.5430858
+player = NodePath("../CharacterBody2D")
+goToScene = ExtResource("14_cvoyd")
