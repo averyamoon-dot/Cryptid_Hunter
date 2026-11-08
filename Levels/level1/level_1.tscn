@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
+[ext_resource type="PackedScene" uid="uid://b8wb04mw2vp2b" path="res://Interacable/levelExit/levelExit.tscn" id="13_lldro"]
+[ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="14_cvoyd"]
 [ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="13_lldro"]
 [ext_resource type="PackedScene" uid="uid://cqpqiquuugwkb" path="res://Levels/cam_minigame/camera_minigame.tscn" id="14_3fxgu"]
 [ext_resource type="Script" uid="uid://bd771nmjx3klk" path="res://Levels/cam_minigame/camera_2d_cam_game.gd" id="15_k22up"]
