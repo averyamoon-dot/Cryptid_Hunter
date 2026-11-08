@@ -18,5 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		noise_emitter.make_noise(noise_radius)
 		ParticleController.spawn_particle(self, object_particle)
-		AudioController.instance.play_sound_at(step_on_sounds.pick_random(), global_position, min_pitch, max_pitch)
+		AudioController.play_sound_at(step_on_sounds.pick_random(), global_position, min_pitch, max_pitch)
 		queue_free()

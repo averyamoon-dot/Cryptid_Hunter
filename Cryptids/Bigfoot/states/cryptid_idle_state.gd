@@ -61,7 +61,7 @@ func pick_target_angle() -> void:
 	parent.facing = Vector2.from_angle(target_angle)
 
 func _on_idle_timer_timeout():
-	AudioController.instance.play_sound_at(turn_head_sound, parent.global_position, 0.5, 0.7)
+	AudioController.play_sound_at(turn_head_sound, parent.global_position, 0.5, 0.7)
 	turns_completed += 1
 	if turns_completed >= turn_count:
 		finished = true
