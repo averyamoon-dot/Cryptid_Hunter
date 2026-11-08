@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://4leksuko6oax"]
+[gd_scene format=3 uid="uid://cxqygqqfolaac"]
 
 [ext_resource type="Script" uid="uid://bynq2ssiqit7k" path="res://Levels/LevelObjects/SticksAndLeaves/step_on_object.gd" id="1_7j8qu"]
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_f38eb"]
