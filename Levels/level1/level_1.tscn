@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="5_wk2ye"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="8_lkw16"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_lkw16"]
+[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/bush/Stick.tscn" id="10_2jqaf"]
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
+[ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
 script = ExtResource("1_yw37k")
@@ -54,9 +56,269 @@ position = Vector2(-19815, 0)
 [node name="HidingBushes" type="Node" parent="." unique_id=1175249131]
 
 [node name="hiding_bush" parent="HidingBushes" unique_id=550178141 instance=ExtResource("9_lkw16")]
-position = Vector2(7634, -19579)
+position = Vector2(2883, -21370)
+
+[node name="hiding_bush2" parent="HidingBushes" unique_id=927014607 instance=ExtResource("9_lkw16")]
+position = Vector2(562, -21081)
+
+[node name="hiding_bush3" parent="HidingBushes" unique_id=1695396836 instance=ExtResource("9_lkw16")]
+position = Vector2(1355, -25951)
+
+[node name="hiding_bush4" parent="HidingBushes" unique_id=195252184 instance=ExtResource("9_lkw16")]
+position = Vector2(9651, -20298)
+
+[node name="hiding_bush5" parent="HidingBushes" unique_id=1750267805 instance=ExtResource("9_lkw16")]
+position = Vector2(9461, -17008)
+
+[node name="hiding_bush6" parent="HidingBushes" unique_id=917392661 instance=ExtResource("9_lkw16")]
+position = Vector2(-4107, -11076)
+
+[node name="hiding_bush7" parent="HidingBushes" unique_id=2032495891 instance=ExtResource("9_lkw16")]
+position = Vector2(-1622, -18156)
+
+[node name="hiding_bush8" parent="HidingBushes" unique_id=320032047 instance=ExtResource("9_lkw16")]
+position = Vector2(1374, -4347)
+
+[node name="hiding_bush9" parent="HidingBushes" unique_id=2119680219 instance=ExtResource("9_lkw16")]
+position = Vector2(8401, -5908)
+
+[node name="hiding_bush10" parent="HidingBushes" unique_id=1223886811 instance=ExtResource("9_lkw16")]
+position = Vector2(21348, -6651)
+
+[node name="hiding_bush11" parent="HidingBushes" unique_id=94997855 instance=ExtResource("9_lkw16")]
+position = Vector2(26382, -12116)
+
+[node name="hiding_bush12" parent="HidingBushes" unique_id=869906144 instance=ExtResource("9_lkw16")]
+position = Vector2(17640, -4652)
+
+[node name="hiding_bush13" parent="HidingBushes" unique_id=918817945 instance=ExtResource("9_lkw16")]
+position = Vector2(25146, -25360)
+
+[node name="hiding_bush14" parent="HidingBushes" unique_id=2058137768 instance=ExtResource("9_lkw16")]
+position = Vector2(14673, -18668)
+
+[node name="hiding_bush15" parent="HidingBushes" unique_id=1981848852 instance=ExtResource("9_lkw16")]
+position = Vector2(8339, -26601)
+
+[node name="hiding_bush16" parent="HidingBushes" unique_id=213468013 instance=ExtResource("9_lkw16")]
+position = Vector2(16391, -28673)
+
+[node name="hiding_bush17" parent="HidingBushes" unique_id=1907119952 instance=ExtResource("9_lkw16")]
+position = Vector2(15900, -25260)
+
+[node name="hiding_bush18" parent="HidingBushes" unique_id=1975944976 instance=ExtResource("9_lkw16")]
+position = Vector2(10558, -11409)
+
+[node name="hiding_bush19" parent="HidingBushes" unique_id=1057240868 instance=ExtResource("9_lkw16")]
+position = Vector2(18502, -15918)
+
+[node name="hiding_bush20" parent="HidingBushes" unique_id=1160929246 instance=ExtResource("9_lkw16")]
+position = Vector2(5324, -10865)
+
+[node name="hiding_bush21" parent="HidingBushes" unique_id=392259937 instance=ExtResource("9_lkw16")]
+position = Vector2(5604, -12855)
 
 [node name="NormalBushes" type="Node" parent="." unique_id=1032227711]
 
 [node name="normal_bush" parent="NormalBushes" unique_id=309009497 instance=ExtResource("10_tcgy4")]
-position = Vector2(4802, -19171)
+position = Vector2(1633, -4344)
+
+[node name="normal_bush2" parent="NormalBushes" unique_id=1452186743 instance=ExtResource("10_tcgy4")]
+position = Vector2(6636, -20581)
+
+[node name="normal_bush3" parent="NormalBushes" unique_id=258715814 instance=ExtResource("10_tcgy4")]
+position = Vector2(9610, -20089)
+
+[node name="normal_bush4" parent="NormalBushes" unique_id=305604808 instance=ExtResource("10_tcgy4")]
+position = Vector2(-142, -26631)
+
+[node name="normal_bush5" parent="NormalBushes" unique_id=868307313 instance=ExtResource("10_tcgy4")]
+position = Vector2(6402, -30366)
+
+[node name="normal_bush6" parent="NormalBushes" unique_id=640803493 instance=ExtResource("10_tcgy4")]
+position = Vector2(10882, -25134)
+
+[node name="normal_bush7" parent="NormalBushes" unique_id=1831188592 instance=ExtResource("10_tcgy4")]
+position = Vector2(10593, -26395)
+
+[node name="normal_bush8" parent="NormalBushes" unique_id=460883873 instance=ExtResource("10_tcgy4")]
+position = Vector2(9342, -26626)
+
+[node name="normal_bush9" parent="NormalBushes" unique_id=307540825 instance=ExtResource("10_tcgy4")]
+position = Vector2(8369, -22890)
+
+[node name="normal_bush10" parent="NormalBushes" unique_id=156594666 instance=ExtResource("10_tcgy4")]
+position = Vector2(3906, -24358)
+
+[node name="normal_bush11" parent="NormalBushes" unique_id=1581122629 instance=ExtResource("10_tcgy4")]
+position = Vector2(1328, -22865)
+
+[node name="normal_bush12" parent="NormalBushes" unique_id=660015155 instance=ExtResource("10_tcgy4")]
+position = Vector2(-4624, -12168)
+
+[node name="normal_bush13" parent="NormalBushes" unique_id=245192311 instance=ExtResource("10_tcgy4")]
+position = Vector2(-4624, -12168)
+
+[node name="normal_bush14" parent="NormalBushes" unique_id=1598628676 instance=ExtResource("10_tcgy4")]
+position = Vector2(9203, -16991)
+
+[node name="normal_bush15" parent="NormalBushes" unique_id=793190506 instance=ExtResource("10_tcgy4")]
+position = Vector2(6877, -17576)
+
+[node name="normal_bush16" parent="NormalBushes" unique_id=2080801808 instance=ExtResource("10_tcgy4")]
+position = Vector2(7917, -16601)
+
+[node name="normal_bush17" parent="NormalBushes" unique_id=496796203 instance=ExtResource("10_tcgy4")]
+position = Vector2(11143, -11126)
+
+[node name="normal_bush18" parent="NormalBushes" unique_id=102691221 instance=ExtResource("10_tcgy4")]
+position = Vector2(15663, -10377)
+
+[node name="normal_bush19" parent="NormalBushes" unique_id=493031105 instance=ExtResource("10_tcgy4")]
+position = Vector2(15619, -13387)
+
+[node name="normal_bush20" parent="NormalBushes" unique_id=1345875647 instance=ExtResource("10_tcgy4")]
+position = Vector2(19093, -19380)
+
+[node name="normal_bush21" parent="NormalBushes" unique_id=1160627569 instance=ExtResource("10_tcgy4")]
+position = Vector2(21357, -25428)
+
+[node name="normal_bush22" parent="NormalBushes" unique_id=211800885 instance=ExtResource("10_tcgy4")]
+position = Vector2(23590, -23124)
+
+[node name="normal_bush23" parent="NormalBushes" unique_id=1915401195 instance=ExtResource("10_tcgy4")]
+position = Vector2(23602, -22354)
+
+[node name="normal_bush24" parent="NormalBushes" unique_id=646362833 instance=ExtResource("10_tcgy4")]
+position = Vector2(24131, -22844)
+
+[node name="normal_bush25" parent="NormalBushes" unique_id=607672706 instance=ExtResource("10_tcgy4")]
+position = Vector2(25869, -24368)
+
+[node name="normal_bush26" parent="NormalBushes" unique_id=825968720 instance=ExtResource("10_tcgy4")]
+position = Vector2(17311, -11609)
+
+[node name="normal_bush27" parent="NormalBushes" unique_id=1184122493 instance=ExtResource("10_tcgy4")]
+position = Vector2(23126, -8671)
+
+[node name="normal_bush28" parent="NormalBushes" unique_id=1329704339 instance=ExtResource("10_tcgy4")]
+position = Vector2(23635, -10340)
+
+[node name="normal_bush29" parent="NormalBushes" unique_id=877500130 instance=ExtResource("10_tcgy4")]
+position = Vector2(23373, -11405)
+
+[node name="normal_bush30" parent="NormalBushes" unique_id=533120980 instance=ExtResource("10_tcgy4")]
+position = Vector2(24203, -8359)
+
+[node name="normal_bush31" parent="NormalBushes" unique_id=1735293880 instance=ExtResource("10_tcgy4")]
+position = Vector2(18649, -6667)
+
+[node name="normal_bush32" parent="NormalBushes" unique_id=749685892 instance=ExtResource("10_tcgy4")]
+position = Vector2(23623, -15696)
+
+[node name="normal_bush33" parent="NormalBushes" unique_id=928804662 instance=ExtResource("10_tcgy4")]
+position = Vector2(21394, -15434)
+
+[node name="normal_bush34" parent="NormalBushes" unique_id=828778116 instance=ExtResource("10_tcgy4")]
+position = Vector2(20611, -10880)
+
+[node name="normal_bush35" parent="NormalBushes" unique_id=734539879 instance=ExtResource("10_tcgy4")]
+position = Vector2(21374, -28094)
+
+[node name="normal_bush36" parent="NormalBushes" unique_id=449180248 instance=ExtResource("10_tcgy4")]
+position = Vector2(21890, -28920)
+
+[node name="SticksAndLeaves" type="Node" parent="." unique_id=1455028475]
+
+[node name="Stick" parent="SticksAndLeaves" unique_id=138826487 instance=ExtResource("10_2jqaf")]
+position = Vector2(1830, -18850)
+
+[node name="Stick2" parent="SticksAndLeaves" unique_id=1075630251 instance=ExtResource("10_2jqaf")]
+position = Vector2(606, -5232)
+
+[node name="Stick3" parent="SticksAndLeaves" unique_id=1989144129 instance=ExtResource("10_2jqaf")]
+position = Vector2(3702, -10995)
+
+[node name="Stick4" parent="SticksAndLeaves" unique_id=1508085495 instance=ExtResource("10_2jqaf")]
+position = Vector2(9127, -7281)
+
+[node name="Stick5" parent="SticksAndLeaves" unique_id=632656026 instance=ExtResource("10_2jqaf")]
+position = Vector2(22680, -8973)
+
+[node name="Stick6" parent="SticksAndLeaves" unique_id=661864161 instance=ExtResource("10_2jqaf")]
+position = Vector2(20383, -11921)
+
+[node name="Stick7" parent="SticksAndLeaves" unique_id=700718686 instance=ExtResource("10_2jqaf")]
+position = Vector2(26803, -24626)
+
+[node name="Stick8" parent="SticksAndLeaves" unique_id=708402449 instance=ExtResource("10_2jqaf")]
+position = Vector2(25207, -25962)
+
+[node name="Stick9" parent="SticksAndLeaves" unique_id=98965521 instance=ExtResource("10_2jqaf")]
+position = Vector2(25312, -27765)
+
+[node name="Stick10" parent="SticksAndLeaves" unique_id=783206295 instance=ExtResource("10_2jqaf")]
+position = Vector2(18482, -25543)
+
+[node name="Stick11" parent="SticksAndLeaves" unique_id=1644989820 instance=ExtResource("10_2jqaf")]
+position = Vector2(7309, -25434)
+
+[node name="Stick12" parent="SticksAndLeaves" unique_id=1056866505 instance=ExtResource("10_2jqaf")]
+position = Vector2(5204, -23678)
+
+[node name="Stick13" parent="SticksAndLeaves" unique_id=384431516 instance=ExtResource("10_2jqaf")]
+position = Vector2(6367, -21503)
+
+[node name="Stick14" parent="SticksAndLeaves" unique_id=677487554 instance=ExtResource("10_2jqaf")]
+position = Vector2(10613, -21270)
+
+[node name="Leaves" parent="SticksAndLeaves" unique_id=1808298047 instance=ExtResource("11_fg8c2")]
+position = Vector2(-917, -4953)
+
+[node name="Leaves2" parent="SticksAndLeaves" unique_id=1290343376 instance=ExtResource("11_fg8c2")]
+position = Vector2(-2133, -7605)
+
+[node name="Leaves3" parent="SticksAndLeaves" unique_id=1444803239 instance=ExtResource("11_fg8c2")]
+position = Vector2(-4149, -13834)
+
+[node name="Leaves4" parent="SticksAndLeaves" unique_id=254423950 instance=ExtResource("11_fg8c2")]
+position = Vector2(5731, -20570)
+
+[node name="Leaves5" parent="SticksAndLeaves" unique_id=1080050736 instance=ExtResource("11_fg8c2")]
+position = Vector2(5133, -27144)
+
+[node name="Leaves6" parent="SticksAndLeaves" unique_id=580807484 instance=ExtResource("11_fg8c2")]
+position = Vector2(25279, -22188)
+
+[node name="Leaves7" parent="SticksAndLeaves" unique_id=25842464 instance=ExtResource("11_fg8c2")]
+position = Vector2(24193, -19246)
+
+[node name="Leaves8" parent="SticksAndLeaves" unique_id=1809580445 instance=ExtResource("11_fg8c2")]
+position = Vector2(13145, -19542)
+
+[node name="Leaves9" parent="SticksAndLeaves" unique_id=1220620555 instance=ExtResource("11_fg8c2")]
+position = Vector2(17017, -9148)
+
+[node name="Leaves10" parent="SticksAndLeaves" unique_id=1745405887 instance=ExtResource("11_fg8c2")]
+position = Vector2(9284, -4905)
+
+[node name="Leaves11" parent="SticksAndLeaves" unique_id=1741641242 instance=ExtResource("11_fg8c2")]
+position = Vector2(8240, -14142)
+
+[node name="Leaves12" parent="SticksAndLeaves" unique_id=1369053744 instance=ExtResource("11_fg8c2")]
+position = Vector2(2379, -17272)
+
+[node name="Leaves13" parent="SticksAndLeaves" unique_id=229914002 instance=ExtResource("11_fg8c2")]
+position = Vector2(3097, -22887)
+
+[node name="Leaves14" parent="SticksAndLeaves" unique_id=931412917 instance=ExtResource("11_fg8c2")]
+position = Vector2(3412, -19267)
+
+[node name="Leaves15" parent="SticksAndLeaves" unique_id=654342074 instance=ExtResource("11_fg8c2")]
+position = Vector2(-3657, -20524)
+
+[node name="Leaves16" parent="SticksAndLeaves" unique_id=88310571 instance=ExtResource("11_fg8c2")]
+position = Vector2(19478, -6378)
+
+[node name="Leaves17" parent="SticksAndLeaves" unique_id=1041427620 instance=ExtResource("11_fg8c2")]
+position = Vector2(22544, -10233)
