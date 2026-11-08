@@ -9,9 +9,6 @@ func _ready() -> void:
 	music_player.bus = "Music"
 	add_child(music_player)
 
-## Reset instance on exiting scene tree
-
-
 # Non positional
 func play_sound(sfx : AudioStream, min_pitch : float = 0.7, max_pitch : float = 1.3):
 	var sfx_player
