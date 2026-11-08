@@ -75,8 +75,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_2"):
 		exit_chase()
 func enter_chase() -> void:
-	chase_music_player.stream = shouldnt_cant_wont
 	if chase_music_player.volume_db < -50 or !chase_music_player.playing:
+		chase_music_player.stream = shouldnt_cant_wont
 		chase_music_player.play()
 		chase_music_player.volume_db = 0
 		ambient_music_player.volume_db = -1
@@ -87,7 +87,7 @@ func enter_chase() -> void:
 	else:
 		ambient_music_player.volume_db = -80
 		while chase_music_player.volume_db < -10:
-			chase_music_player.volume_db = move_toward(chase_music_player.volume_db, 0.0, 1)
+			chase_music_player.volume_db = move_toward(chase_music_player.volume_db, 0.0, 2)
 			await get_tree().create_timer(0.1).timeout
 		chase_music_player.volume_db = 0
 func exit_chase() -> void:
