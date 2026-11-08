@@ -39,6 +39,9 @@ player = NodePath("../CharacterBody2D")
 floor_layer = NodePath("../GroundLayer")
 wall_layer = NodePath("../CollidableLayer")
 
+[node name="Sprite2D" parent="BigFoot" index="1" unique_id=955450138]
+material = null
+
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("2_nru02")]
 position = Vector2(18528, -824)
 
@@ -66,3 +69,5 @@ position = Vector2(640, -128)
 
 [node name="GameOver" parent="CanvasLayer" unique_id=1454070225 instance=ExtResource("12_tqdi6")]
 visible = false
+
+[editable path="BigFoot"]
