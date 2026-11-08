@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8wb04mw2vp2b"]
+
+[ext_resource type="Script" uid="uid://chxl3vosbp4fk" path="res://levelExit.gd" id="1_obma2"]
+[ext_resource type="Texture2D" uid="uid://bcs6ju7co0wgj" path="res://Interacable/levelExit/levelExit.png" id="2_ui0jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osvey"]
+size = Vector2(428, 744.7322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uke"]
+size = Vector2(1265, 808)
+
+[node name="LevelExit" type="Area2D" unique_id=1523690499]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_obma2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1513062234]
+position = Vector2(167, -405)
+texture = ExtResource("2_ui0jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686858479]
+position = Vector2(58.000004, 268.71124)
+scale = Vector2(1.2313652, -0.66947216)
+shape = SubResource("RectangleShape2D_osvey")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=933890337]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1616201211]
+position = Vector2(94, -95)
+shape = SubResource("RectangleShape2D_m1uke")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
