@@ -1,9 +1,15 @@
 extends Camera2D
 
 var photoMode = false
+var xOffset = 2580
+var yOffset = 18300
+var stars = 0
+##@onready var time = $Timer/WaitTime
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	zoom = Vector2(0.3,0.3)
+	offset = Vector2(xOffset,yOffset)
 	pass # Replace with function body.
 	##Set zoom, and to the middle of the picture
 
@@ -14,24 +20,24 @@ func _input(event):
 				make_current()
 				photoMode = true
 				zoom = Vector2(0.3,0.3)
-				offset = Vector2(0,0)
+				offset = Vector2(xOffset,yOffset)
 		if(photoMode):
 			if(event.keycode == KEY_A):
 				offset.x = offset.x-20
-				if(offset.x < -2000):
-					offset.x = -2000
+				if(offset.x < 1920):
+					offset.x = 1920
 			elif(event.keycode == KEY_W):
 				offset.y = offset.y-20
-				if(offset.y < -2000):
-					offset.y = -2000
+				if(offset.y < 16100):
+					offset.y = 16100
 			elif(event.keycode == KEY_D):
 				offset.x = offset.x+20
-				if(offset.x > 2000):
-					offset.x = 2000
+				if(offset.x > 2580):
+					offset.x = 2580
 			elif(event.keycode == KEY_S):
 				offset.y = offset.y+20
-				if(offset.y > 2000):
-					offset.y = 2000
+				if(offset.y > 18400):
+					offset.y = 18400
 			elif(event.keycode == KEY_Q):
 				##self.property.zoom.set(self.property.get()*1.1)
 				##print(self.propert.getZoom())
@@ -52,7 +58,6 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	pass
 	##Process movement and zoom
 	##Trigger take_photo upon button press
@@ -60,6 +65,9 @@ func _process(delta: float) -> void:
 func take_photo():
 	##Process taking photo, and figure out 
 	##Auto-aggro cryptid, send the player back to the level
+	if(offset.x > 1):
+		stars = 5
+	print(stars)
 	return
 	
 ##func zoom():
