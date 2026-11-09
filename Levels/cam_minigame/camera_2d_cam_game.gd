@@ -1,5 +1,10 @@
 extends Camera2D
 
+const MIN_POS = Vector2(1920, 16100)
+const MAX_POS = Vector2(2580, 18400)
+
+@export var camera_speed: float = 20.0
+
 var photoMode = false
 var xOffset = 2580
 var yOffset = 18300
@@ -12,6 +17,13 @@ func _ready() -> void:
 	offset = Vector2(xOffset,yOffset)
 	pass # Replace with function body.
 	##Set zoom, and to the middle of the picture
+	
+func _physics_process(_delta: float) -> void:
+	if photoMode:
+		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		if input_direction != Vector2.ZERO:
+			offset = offset + (input_direction * camera_speed)
+			offset = offset.clamp(MIN_POS, MAX_POS)
 
 func _input(event):
 	if(!event.as_text().contains("Mouse")):
@@ -24,23 +36,23 @@ func _input(event):
 				get_tree().paused = true
 				
 		if(photoMode):
-			if(event.keycode == KEY_A):
-				offset.x = offset.x-20
-				if(offset.x < 1920):
-					offset.x = 1920
-			elif(event.keycode == KEY_W):
-				offset.y = offset.y-20
-				if(offset.y < 16100):
-					offset.y = 16100
-			elif(event.keycode == KEY_D):
-				offset.x = offset.x+20
-				if(offset.x > 11400):
-					offset.x = 11400
-			elif(event.keycode == KEY_S):
-				offset.y = offset.y+20
-				if(offset.y > 18400):
-					offset.y = 18400
-			elif(event.keycode == KEY_Q):
+			#if(event.keycode == KEY_A):
+				#offset.x = offset.x-20
+				#if(offset.x < 1920):
+					#offset.x = 1920
+			#elif(event.keycode == KEY_W):
+				#offset.y = offset.y-20
+				#if(offset.y < 16100):
+					#offset.y = 16100
+			#elif(event.keycode == KEY_D):
+				#offset.x = offset.x+20
+				#if(offset.x > 2580):
+					#offset.x = 2580
+			#elif(event.keycode == KEY_S):
+				#offset.y = offset.y+20
+				#if(offset.y > 18400):
+					#offset.y = 18400
+			if(event.keycode == KEY_Q):
 				##self.property.zoom.set(self.property.get()*1.1)
 				##print(self.propert.getZoom())
 				zoom = 1.5*zoom
