@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boyc6ujpdmmtp" path="res://Cryptids/Bigfoot/BigFoot.tscn" id="5_wk2ye"]
 [ext_resource type="PackedScene" uid="uid://c31t0okrissst" path="res://Cryptids/Jumpscares/BigfootJumpscare.tscn" id="8_lkw16"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_lkw16"]
-[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/bush/Stick.tscn" id="10_2jqaf"]
+[ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/SticksAndLeaves/Stick.tscn" id="10_2jqaf"]
 [ext_resource type="PackedScene" uid="uid://jii27rxvj3qw" path="res://Levels/LevelObjects/bush/normal_bush.tscn" id="10_tcgy4"]
 [ext_resource type="PackedScene" uid="uid://bub7avoot22vu" path="res://Levels/LevelObjects/SticksAndLeaves/Leaves.tscn" id="11_fg8c2"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="12_fg8c2"]
