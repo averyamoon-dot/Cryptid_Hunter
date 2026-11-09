@@ -1,7 +1,7 @@
 extends Camera2D
 
 const MIN_POS = Vector2(1920, 16100)
-const MAX_POS = Vector2(2580, 18400)
+const MAX_POS = Vector2(11400, 18400)
 
 @export var camera_speed: float = 20.0
 
