@@ -45,6 +45,7 @@ var sight_extension: float = 0.0
 
 var hiding_target: Node2D = null
 var jumpscare_triggered: bool = false
+var roar_available: bool = true
 
 func _ready() -> void:
 	killzone.body_entered.connect(_on_killzone_body_entered)
@@ -202,3 +203,6 @@ func catch_hidden_player() -> void:
 	velocity = Vector2.ZERO
 	clear_path()
 	player.die() 
+
+func _on_roar_cooldown_timer_timeout() -> void:
+	roar_available = true

@@ -19,6 +19,8 @@ func process_input(_event : InputEvent) -> State:
 
 func process_physics(_delta) -> State:
 	if parent.can_see_player:
+		if parent.roar_available:
+			return state_machine.roar_state
 		return state_machine.chase_state
 	if parent.heard_noise:
 		parent.heard_noise = false
