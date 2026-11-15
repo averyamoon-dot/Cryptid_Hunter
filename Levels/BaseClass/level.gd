@@ -5,11 +5,13 @@ extends Node
 @export var jumpscare: Node2D
 #@export var game_over: Control
 @export var game_over: PackedScene
+@export var animation_player: AnimationPlayer
 
 #@export var music: AudioStream
 
 func _ready():
 	player.player_died.connect(on_player_death)
+	animation_player.play("fade_in")
 	#AudioController.play_music(music)
 	
 func on_player_death() -> void:
