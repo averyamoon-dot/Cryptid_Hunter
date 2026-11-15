@@ -9,3 +9,4 @@ extends StateMachine
 @export var idle_tired_state : State
 @export var taking_picture: State
 @export var hiding_state: State
+@export var looking_state: State

@@ -33,8 +33,10 @@ var is_hidden = false
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    
+var roar_position: Vector2
 
 func _ready() -> void:
+	SignalController.bigfoot_roar.connect(on_bigfoot_roar)
 	remaining_sprint_time = max_sprint_duration
 	vision_angle = facing.angle()
 	audio_listener.make_current()
@@ -110,3 +112,7 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if hiding_spot == area:
 		area.light.visible = false
 		hiding_spot = null
+		
+func on_bigfoot_roar(pos: Vector2) -> void:
+	roar_position = pos
+	state_machine.change_state(state_machine.looking_state)

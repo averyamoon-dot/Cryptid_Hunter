@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://boyc6ujpdmmtp"]
 
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="1_3q7mf"]
-[ext_resource type="Script" uid="uid://bstgi7py65r3h" path="res://Cryptids/Bigfoot/bigfoot.gd" id="1_gkcht"]
+[ext_resource type="Script" uid="uid://b6racewi3d5d2" path="res://Cryptids/BaseClass/cryptid.gd" id="1_5mpya"]
 [ext_resource type="Script" uid="uid://dh3ybqr5daqcn" path="res://Cryptids/Bigfoot/states/bigfoot_state_machine.gd" id="3_pnwrb"]
 [ext_resource type="AudioStream" uid="uid://2to4k6cnal0j" path="res://Cryptids/Bigfoot/Sounds/bigfoot_head_turn.wav" id="4_acjbv"]
 [ext_resource type="Script" uid="uid://dri1y4faditwi" path="res://Cryptids/Bigfoot/states/cryptid_idle_state.gd" id="4_ad32j"]
@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dhkgg30slkwjd" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_1.png" id="7_kpjq4"]
 [ext_resource type="Texture2D" uid="uid://dn64lu2yprimg" path="res://Cryptids/Bigfoot/assets/Idle/B_Idle2.png" id="8_1jwyu"]
 [ext_resource type="Texture2D" uid="uid://c4gimrb00vn8f" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_2.png" id="8_3q7mf"]
+[ext_resource type="Script" uid="uid://dcqcgnb0eyql4" path="res://Cryptids/Bigfoot/states/bigfoot_roar_state.gd" id="9_5mpya"]
 [ext_resource type="Texture2D" uid="uid://erse1xk7mlnb" path="res://Cryptids/Bigfoot/assets/Chase/B_chase_3.png" id="9_qbnf7"]
 [ext_resource type="Texture2D" uid="uid://dtbtxujnif54h" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk1.png" id="9_qchm0"]
+[ext_resource type="AudioStream" uid="uid://lxp10vq8qkov" path="res://Cryptids/Bigfoot/Sounds/bigfoot_jumpscare2.wav" id="10_0ofex"]
 [ext_resource type="Texture2D" uid="uid://co0l55jge67lo" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk2.png" id="10_kpjq4"]
 [ext_resource type="Texture2D" uid="uid://dq36guhgf7bia" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk3.png" id="11_3q7mf"]
 [ext_resource type="Texture2D" uid="uid://c8uhb4mbla70j" path="res://Cryptids/Bigfoot/assets/Walk/Bwalk4.png" id="12_qbnf7"]
@@ -88,7 +90,7 @@ radius = 200.0
 
 [node name="BigFoot" type="CharacterBody2D" unique_id=1548413406 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "ray_cast", "collision", "killzone")]
 collision_layer = 4
-script = ExtResource("1_gkcht")
+script = ExtResource("1_5mpya")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("Sprite2D")
 vision_cone = NodePath("VisionCone")
@@ -96,12 +98,13 @@ ray_cast = NodePath("RayCast2D")
 collision = NodePath("CollisionShape2D")
 killzone = NodePath("Killzone")
 
-[node name="StateMachine" type="Node" parent="." unique_id=425256338 node_paths=PackedStringArray("idle_state", "wander_state", "search_state", "chase_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=425256338 node_paths=PackedStringArray("idle_state", "wander_state", "search_state", "chase_state", "roar_state", "starting_state")]
 script = ExtResource("3_pnwrb")
 idle_state = NodePath("Idle")
 wander_state = NodePath("Wander")
 search_state = NodePath("Search")
 chase_state = NodePath("Chase")
+roar_state = NodePath("Roar")
 starting_state = NodePath("Wander")
 metadata/_custom_type_script = "uid://b6mvqlder4a5c"
 
@@ -121,9 +124,10 @@ metadata/_custom_type_script = "uid://jw87ua1cglde"
 wait_time = 1.5
 one_shot = true
 
-[node name="Wander" type="Node" parent="StateMachine" unique_id=996532403]
+[node name="Wander" type="Node" parent="StateMachine" unique_id=996532403 node_paths=PackedStringArray("roar_cooldown_timer")]
 script = ExtResource("5_ad32j")
 speed = 250.0
+roar_cooldown_timer = NodePath("../../RoarCooldownTimer")
 animation_name = "walk"
 while_in_state_sounds = Array[AudioStream]([ExtResource("5_qbnf7")])
 while_in_state_repeat_sound_after_seconds = 0.8
@@ -148,6 +152,16 @@ animation_name = "chase"
 while_in_state_sounds = Array[AudioStream]([ExtResource("5_qbnf7")])
 while_in_state_repeat_sound_after_seconds = 0.4
 metadata/_custom_type_script = "uid://jw87ua1cglde"
+
+[node name="Roar" type="Node" parent="StateMachine" unique_id=1715111128 node_paths=PackedStringArray("roar_timer")]
+script = ExtResource("9_5mpya")
+roar_timer = NodePath("RoarTimer")
+roar_sound = ExtResource("10_0ofex")
+metadata/_custom_type_script = "uid://b87orapy6g1dl"
+
+[node name="RoarTimer" type="Timer" parent="StateMachine/Roar" unique_id=1591412041]
+wait_time = 3.0
+one_shot = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
 material = ExtResource("1_3q7mf")
@@ -177,4 +191,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1420200079]
 shape = SubResource("CircleShape2D_6vjpb")
 
+[node name="RoarCooldownTimer" type="Timer" parent="." unique_id=1378784028]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Roar/RoarTimer" to="StateMachine/Roar" method="_on_roar_timer_timeout"]
+[connection signal="timeout" from="RoarCooldownTimer" to="." method="_on_roar_cooldown_timer_timeout"]

@@ -4,3 +4,4 @@ extends StateMachine
 @export var wander_state : State
 @export var search_state : State
 @export var chase_state : State
+@export var roar_state : State

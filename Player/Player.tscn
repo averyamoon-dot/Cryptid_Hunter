@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
 [ext_resource type="Texture2D" uid="uid://crsw0gwohswvp" path="res://Player/Assets/walking/walk3.png" id="12_8sa4y"]
 [ext_resource type="Texture2D" uid="uid://ehj5kgn84m5a" path="res://Player/Assets/walking/walk4.png" id="13_3nb2p"]
+[ext_resource type="Script" uid="uid://bk8dkw7xsc3ov" path="res://Player/States/looking_state.gd" id="14_7uipr"]
 [ext_resource type="Texture2D" uid="uid://bynhmsa4fhgsw" path="res://Player/Assets/walking/walk5.png" id="14_d7xyo"]
 [ext_resource type="PackedScene" uid="uid://dy355vnvds3b3" path="res://Misc/Sound/NoiseEmitter/NoiseEmitter.tscn" id="17_8sa4y"]
 [ext_resource type="AudioStream" uid="uid://b147mbc6bdkm2" path="res://assets/Music/shouldaCouldaWooda.ogg" id="22_u5tep"]
@@ -84,7 +85,7 @@ chase_music_player = NodePath("ChaseMusicPlayer")
 shoulda_coulda_wooda = ExtResource("22_u5tep")
 shouldnt_cant_wont = ExtResource("3_7uipr")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "idle_tired_state", "hiding_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "idle_tired_state", "hiding_state", "looking_state", "starting_state")]
 script = ExtResource("2_q3lat")
 idle_state = NodePath("Idle")
 walk_state = NodePath("Walk")
@@ -93,6 +94,7 @@ crouch_state = NodePath("Crouch")
 tired_state = NodePath("Tired")
 idle_tired_state = NodePath("TiredIdle")
 hiding_state = NodePath("Hiding")
+looking_state = NodePath("Looking")
 starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=574236878]
@@ -151,6 +153,14 @@ script = ExtResource("9_d7xyo")
 enter_sound_sounds = Array[AudioStream]([ExtResource("10_evw08")])
 exit_sound_sounds = Array[AudioStream]([ExtResource("10_evw08")])
 metadata/_custom_type_script = "uid://cassrqvrdwror"
+
+[node name="Looking" type="Node" parent="StateMachine" unique_id=1512212309 node_paths=PackedStringArray("looking_timer")]
+script = ExtResource("14_7uipr")
+looking_timer = NodePath("LookingTimer")
+metadata/_custom_type_script = "uid://cassrqvrdwror"
+
+[node name="LookingTimer" type="Timer" parent="StateMachine/Looking" unique_id=995170608]
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588589472]
 rotation = 1.5707964
