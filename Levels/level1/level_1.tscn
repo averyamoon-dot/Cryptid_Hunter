@@ -59,11 +59,12 @@ _data = {
 &"fade_in": SubResource("Animation_kej7u")
 }
 
-[node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare")]
+[node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "animation_player")]
 script = ExtResource("1_yw37k")
 player = NodePath("CharacterBody2D")
 jumpscare = NodePath("BigfootJumpscare")
 game_over = ExtResource("14_cvoyd")
+animation_player = NodePath("CanvasLayer/Panel/AnimationPlayer")
 
 [node name="tiles" type="Node" parent="." unique_id=1636571874]
 
