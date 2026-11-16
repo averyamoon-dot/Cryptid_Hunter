@@ -73,11 +73,13 @@ _data = {
 &"enterHiding": SubResource("Animation_d7xyo")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "noise_emitter", "audio_listener", "ambient_music_player", "chase_music_player")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "vision_ray", "noise_emitter", "audio_listener", "ambient_music_player", "chase_music_player")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite2D")
+vision_cone = NodePath("Area2D")
+vision_ray = NodePath("VisionRay")
 noise_emitter = NodePath("NoiseEmitter")
 audio_listener = NodePath("AudioListener2D")
 ambient_music_player = NodePath("AmbientMusicPlayer")
@@ -197,6 +199,16 @@ bus = &"Music"
 [node name="ChaseMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=257115215]
 stream = ExtResource("3_7uipr")
 bus = &"Music"
+
+[node name="VisionRay" type="RayCast2D" parent="." unique_id=1361464679]
+collision_mask = 5
+
+[node name="Area2D" type="Area2D" parent="." unique_id=471465161]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=284375149]
+polygon = PackedVector2Array(0, 0, 1453, -1104, 1453, 1072)
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
