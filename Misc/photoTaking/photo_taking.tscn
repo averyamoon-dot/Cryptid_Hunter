@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b3lsv4o2ld6al" path="res://Misc/photoTaking/photo_taking.gd" id="1_fxoc4"]
 [ext_resource type="Texture2D" uid="uid://dn8ro2p076cb1" path="res://Light/assets/lightCircleTest.png" id="2_d16f3"]
 [ext_resource type="Texture2D" uid="uid://dqpdbevvwg141" path="res://Levels/cam_minigame/cam_minigame_backgrounds/photo_bg1_large.png" id="3_iloa1"]
-[ext_resource type="Texture2D" uid="uid://dl3cggulp8fvn" path="res://Levels/cam_minigame/cam_minigame_backgrounds/photo_bg2_large.png" id="4_q3fix"]
+[ext_resource type="Texture2D" uid="uid://cwkyjvxoch6xi" path="res://Misc/photoTaking/Assets/camera_minigame_foreground.png" id="4_bykxn"]
 [ext_resource type="Texture2D" uid="uid://chh7pgsfparu6" path="res://Levels/cam_minigame/cam_minigame_backgrounds/hidden_bigfoot.png" id="5_q3fix"]
 [ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="6_d16f3"]
 [ext_resource type="Texture2D" uid="uid://pg50auug55bm" path="res://Levels/cam_minigame/cam_minigame_backgrounds/flash_jumpscare.png" id="7_bykxn"]
+[ext_resource type="AudioStream" uid="uid://qfic787rkv5v" path="res://Misc/photoTaking/Assets/Adobe-Express-cameraFlash.mp3" id="8_bykxn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bykxn"]
 
@@ -47,13 +48,14 @@ z_index = 5
 scale = Vector2(18, 18)
 shape = SubResource("CircleShape2D_bykxn")
 
-[node name="backdrop" type="Node" parent="." unique_id=1243779355]
+[node name="backdrop" type="Node2D" parent="." unique_id=361962053]
 
 [node name="background" type="Sprite2D" parent="backdrop" unique_id=2085520136]
 texture = ExtResource("3_iloa1")
 
 [node name="foreground" type="Sprite2D" parent="backdrop" unique_id=1743475224]
-texture = ExtResource("4_q3fix")
+z_index = 1
+texture = ExtResource("4_bykxn")
 
 [node name="BigFoot" type="Node2D" parent="." unique_id=2043696623]
 
@@ -78,6 +80,9 @@ z_index = 5
 position = Vector2(-750, -56)
 scale = Vector2(7, 10)
 shape = SubResource("CapsuleShape2D_bykxn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1423164840]
+stream = ExtResource("8_bykxn")
 
 [connection signal="area_entered" from="BigFoot/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="BigFoot/Area2D" to="." method="_on_area_2d_area_exited"]

@@ -7,18 +7,21 @@ extends Node2D
 @onready var cameraArea = $Camera2D/cameraArea
 @onready var bigFootArea = $BigFoot/Area2D
 
+@onready var sound = $AudioStreamPlayer2D
+
 @export var photoTaken = false
 
-var photoMode = true
+var photoMode = false
 
 var goodFraming = false
 
 func _ready() -> void:
 	flash.modulate.a = 0.0
 	
+
 func _physics_process(delta: float) -> void:
 	if photoMode:
-		get_tree().paused = true
+		camera.make_current()
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		camera.position += input_direction * cameraSpeed * delta
 		if Input.is_action_pressed("takePhoto"):
@@ -29,12 +32,17 @@ func _physics_process(delta: float) -> void:
 func takePhoto():
 	print("takingPhoto")
 	flash.modulate.a = 1.0
+	sound.play()
 	var tween = create_tween()
 	tween.tween_property(flash, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	if goodFraming:
 		photoTaken = true
 	exit()
+
+func enter():
+	photoMode = true
+	get_tree().paused = true
 
 func exit():
 	photoMode = false
