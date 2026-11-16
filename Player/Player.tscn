@@ -172,7 +172,7 @@ shape = SubResource("CircleShape2D_ygdov")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1426348137]
 process_mode = 3
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.3, 0.3)
 script = ExtResource("9_0j2ni")
 
 [node name="playerLight" parent="." unique_id=28684225 instance=ExtResource("9_j23h2")]
