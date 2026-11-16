@@ -9,7 +9,7 @@ extends Node2D
 
 @onready var sound = $AudioStreamPlayer2D
 
-@export var photoTaken = false
+@onready var photoTaken = false
 
 var photoMode = false
 
