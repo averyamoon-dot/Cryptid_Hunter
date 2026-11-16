@@ -1,5 +1,7 @@
 extends Node
 
+const HEARING_DISTANCE: float = 4000 # Default 2000
+
 var music_player: AudioStreamPlayer
 
 func _ready() -> void:
@@ -29,6 +31,7 @@ func play_sound_at(sfx : AudioStream, world_position : Vector2, min_pitch : floa
 		return
 	var sfx_player := AudioStreamPlayer2D.new()
 	add_child(sfx_player)
+	sfx_player.max_distance = HEARING_DISTANCE
 	sfx_player.global_position = world_position
 	sfx_player.bus = "SFX"
 	sfx_player.stream = sfx
