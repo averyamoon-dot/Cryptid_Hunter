@@ -28,7 +28,7 @@ AudioController="*uid://cjsq083nmyx8f"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [input]
 
