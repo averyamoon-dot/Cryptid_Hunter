@@ -3,11 +3,49 @@
 [ext_resource type="Script" uid="uid://c2uyfns1m8ic7" path="res://Title/title.gd" id="1_iliki"]
 [ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="1_riw74"]
 [ext_resource type="Texture2D" uid="uid://dss32wc32uku5" path="res://Title/flashlight.png" id="2_r824j"]
+[ext_resource type="Texture2D" uid="uid://bjtfoltjrbsap" path="res://Title/silhouette.png" id="3_gpixp"]
 [ext_resource type="Texture2D" uid="uid://c804ohi05ldfb" path="res://Title/vignette.png" id="3_toehp"]
 [ext_resource type="Texture2D" uid="uid://beggq7hpfmepc" path="res://Title/title.png" id="4_iliki"]
 [ext_resource type="FontFile" uid="uid://bm08aqrs6er6n" path="res://Misc/Fonts/OldLondon.ttf" id="5_r824j"]
 [ext_resource type="PackedScene" uid="uid://ciwiy2qt8aplq" path="res://Title/Settings/settings.tscn" id="7_n1pb7"]
 [ext_resource type="PackedScene" uid="uid://dap1lqcd054ug" path="res://Title/Credits/credits.tscn" id="8_n1pb7"]
+
+[sub_resource type="Animation" id="Animation_syyxu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(664, 392)]
+}
+
+[sub_resource type="Animation" id="Animation_cvgbi"]
+resource_name = "walkin"
+length = 21.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9.033334, 12.033334, 15.033334, 18, 20.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(664, 392), Vector2(639.498, 381.25), Vector2(614.864, 394.198), Vector2(589.873, 385.55), Vector2(565.176, 396.132), Vector2(540.513, 385.003), Vector2(516.264, 395.951), Vector2(453.585, 408.19)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqurq"]
+_data = {
+&"RESET": SubResource("Animation_syyxu"),
+&"walkin": SubResource("Animation_cvgbi")
+}
 
 [sub_resource type="Animation" id="Animation_n1pb7"]
 length = 0.001
@@ -509,6 +547,15 @@ transition = NodePath("Transition")
 z_as_relative = false
 position = Vector2(575, 323)
 texture = ExtResource("1_riw74")
+
+[node name="silhouette" type="Sprite2D" parent="." unique_id=1640892401]
+position = Vector2(664, 392)
+texture = ExtResource("3_gpixp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="silhouette" unique_id=760549078]
+libraries/ = SubResource("AnimationLibrary_xqurq")
+autoplay = &"walkin"
+speed_scale = 0.279
 
 [node name="Vignette" type="Sprite2D" parent="." unique_id=987654504]
 z_index = 1
