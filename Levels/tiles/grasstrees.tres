@@ -59,7 +59,7 @@ polygon = PackedVector2Array(-75, -50, 125, -75, 125, 75, -25, 100)
 polygon = PackedVector2Array(-125, -75, 75, -100, 75, 50, -125, 75)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kfpix"]
-polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+polygon = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xg14q"]
 texture = ExtResource("2_ipa08")

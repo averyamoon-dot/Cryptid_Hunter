@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dfoih8srgs7gq"]
+
+[ext_resource type="Script" uid="uid://b3lsv4o2ld6al" path="res://Misc/photoTaking/photo_taking.gd" id="1_fxoc4"]
+[ext_resource type="Texture2D" uid="uid://dn8ro2p076cb1" path="res://Light/assets/lightCircleTest.png" id="2_d16f3"]
+[ext_resource type="Texture2D" uid="uid://dqpdbevvwg141" path="res://Levels/cam_minigame/cam_minigame_backgrounds/photo_bg1_large.png" id="3_iloa1"]
+[ext_resource type="Texture2D" uid="uid://cwkyjvxoch6xi" path="res://Misc/photoTaking/Assets/camera_minigame_foreground.png" id="4_bykxn"]
+[ext_resource type="Texture2D" uid="uid://chh7pgsfparu6" path="res://Levels/cam_minigame/cam_minigame_backgrounds/hidden_bigfoot.png" id="5_q3fix"]
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="6_d16f3"]
+[ext_resource type="Texture2D" uid="uid://pg50auug55bm" path="res://Levels/cam_minigame/cam_minigame_backgrounds/flash_jumpscare.png" id="7_bykxn"]
+[ext_resource type="AudioStream" uid="uid://qfic787rkv5v" path="res://Misc/photoTaking/Assets/Adobe-Express-cameraFlash.mp3" id="8_bykxn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bykxn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bykxn"]
+
+[node name="photoTaking" type="Node2D" unique_id=1945300386]
+process_mode = 3
+script = ExtResource("1_fxoc4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1474066022]
+
+[node name="cameraFlash" type="ColorRect" parent="Camera2D" unique_id=950187249]
+modulate = Color(1, 1, 1, 0)
+z_index = 6
+offset_left = -741.0
+offset_top = -532.0
+offset_right = 642.0
+offset_bottom = 597.0
+
+[node name="Lights" type="Node2D" parent="Camera2D" unique_id=1691381133]
+
+[node name="NormalLight" type="PointLight2D" parent="Camera2D/Lights" unique_id=523985773]
+z_index = 5
+energy = 3.0
+texture = ExtResource("2_d16f3")
+texture_scale = 1.5
+
+[node name="BigfootLight" type="PointLight2D" parent="Camera2D/Lights" unique_id=633352683]
+energy = 0.1
+range_item_cull_mask = 2
+texture = ExtResource("2_d16f3")
+texture_scale = 1.5
+
+[node name="cameraArea" type="Area2D" parent="Camera2D" unique_id=1346676172]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/cameraArea" unique_id=566552413]
+scale = Vector2(18, 18)
+shape = SubResource("CircleShape2D_bykxn")
+
+[node name="backdrop" type="Node2D" parent="." unique_id=361962053]
+
+[node name="background" type="Sprite2D" parent="backdrop" unique_id=2085520136]
+texture = ExtResource("3_iloa1")
+
+[node name="foreground" type="Sprite2D" parent="backdrop" unique_id=1743475224]
+z_index = 1
+texture = ExtResource("4_bykxn")
+
+[node name="BigFoot" type="Node2D" parent="." unique_id=2043696623]
+
+[node name="bigFootSpriteHidden" type="Sprite2D" parent="BigFoot" unique_id=1839328231]
+z_index = 3
+position = Vector2(-590, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_q3fix")
+
+[node name="bigFootSpriteVisible" type="Sprite2D" parent="BigFoot" unique_id=921226457]
+light_mask = 2
+z_index = 4
+material = ExtResource("6_d16f3")
+position = Vector2(-590, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_bykxn")
+
+[node name="Area2D" type="Area2D" parent="BigFoot" unique_id=1696056966]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigFoot/Area2D" unique_id=1626716934]
+z_index = 5
+position = Vector2(-750, -56)
+scale = Vector2(7, 10)
+shape = SubResource("CapsuleShape2D_bykxn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1423164840]
+stream = ExtResource("8_bykxn")
+
+[connection signal="area_entered" from="BigFoot/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="BigFoot/Area2D" to="." method="_on_area_2d_area_exited"]

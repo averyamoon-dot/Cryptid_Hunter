@@ -11,7 +11,10 @@ signal player_died
 
 @export_category("References")
 @export var state_machine : StateMachine
+@export var cryptid: Cryptid
 @export var sprite: AnimatedSprite2D
+@export var vision_cone: Area2D
+@export var vision_ray: RayCast2D
 @export var noise_emitter: NoiseEmitter
 @export var audio_listener: AudioListener2D
 @export var ambient_music_player: AudioStreamPlayer2D
@@ -33,8 +36,11 @@ var is_hidden = false
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    
+var roar_position: Vector2
+var cryptid_seen: bool = false
 
 func _ready() -> void:
+	SignalController.bigfoot_roar.connect(on_bigfoot_roar)
 	remaining_sprint_time = max_sprint_duration
 	vision_angle = facing.angle()
 	audio_listener.make_current()
@@ -56,6 +62,15 @@ func _physics_process(delta: float) -> void:
 func update_facing(delta: float) -> void:
 	if velocity.length() > 1.0:
 		facing = velocity.normalized()
+		
+	if vision_cone.overlaps_body(cryptid):
+		vision_ray.target_position = vision_ray.to_local(cryptid.global_position)
+		vision_ray.force_raycast_update()
+		if vision_ray.get_collider() == cryptid:
+			cryptid_seen = true
+		else:
+			cryptid_seen = false
+		
 	
 	var target_angle: float = facing.angle()
 	var diff: float = angle_difference(vision_angle, target_angle)
@@ -110,3 +125,7 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if hiding_spot == area:
 		area.light.visible = false
 		hiding_spot = null
+		
+func on_bigfoot_roar(pos: Vector2) -> void:
+	roar_position = pos
+	state_machine.change_state(state_machine.looking_state)
