@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://batpdf2l456bm"]
 
-[ext_resource type="Texture2D" uid="uid://c4jp02hbedu46" path="res://Levels/LevelObjects/SticksAndLeaves/Assets/stick.png" id="1_ct6s2"]
+[ext_resource type="Texture2D" uid="uid://vc7npbukdot7" path="res://Levels/LevelObjects/SticksAndLeaves/Assets/stick_particles.png" id="1_ct6s2"]
 [ext_resource type="Script" uid="uid://lnw44m7acl8s" path="res://Misc/Particles/particle.gd" id="1_ojrmg"]
 
 [node name="StickParticle" type="CPUParticles2D" unique_id=1190208243]
