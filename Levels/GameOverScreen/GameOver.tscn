@@ -50,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(0.5547847, 2.8284266, 0.39229208, 2.6390157),
 "update": 0,
-"values": [0.0, 0.026179938779914945, 0.0, -0.022689280275926482]
+"values": [0.0, 0.02617993877991494, 0.0, -0.02268928027592648]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kmve6"]

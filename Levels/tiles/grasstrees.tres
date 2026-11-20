@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://i5i5vmik7klo" path="res://assets/level_decorations.png" id="2_ipa08"]
 [ext_resource type="Texture2D" uid="uid://ivteyh2ib0vh" path="res://Levels/test_level/assets/BigFoot_Print.png" id="2_xg14q"]
 [ext_resource type="Texture2D" uid="uid://bplciewuvarul" path="res://Levels/test_level/assets/junkyard_tileset.png" id="3_0sphh"]
+[ext_resource type="Texture2D" uid="uid://cvghim8srtyi6" path="res://Levels/test_level/assets/tunnel.png" id="4_eajim"]
 [ext_resource type="Texture2D" uid="uid://dt7ou50q23sdo" path="res://Levels/test_level/assets/shadow.png" id="6_0sphh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mdeog"]
@@ -51,6 +52,80 @@ texture_region_size = Vector2i(250, 250)
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 4:4/0 = 0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmisr"]
+texture = ExtResource("4_eajim")
+texture_region_size = Vector2i(250, 250)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+7:0/0 = 0
+7:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+8:0/0 = 0
+8:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+9:0/0 = 0
+9:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+10:0/0 = 0
+10:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+11:0/0 = 0
+11:0/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+7:1/0 = 0
+7:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+8:1/0 = 0
+8:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+9:1/0 = 0
+9:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+10:1/0 = 0
+10:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+11:1/0 = 0
+11:1/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:2/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+8:2/0 = 0
+8:2/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+9:2/0 = 0
+9:2/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+10:2/0 = 0
+10:2/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+11:2/0 = 0
+11:2/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+7:3/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+8:3/0 = 0
+8:3/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+9:3/0 = 0
+9:3/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+10:3/0 = 0
+10:3/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
+11:3/0 = 0
+11:3/0/modulate = Color(0.7981628, 0.8433087, 0.8976207, 1)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j50ip"]
 polygon = PackedVector2Array(-75, -50, 125, -75, 125, 75, -25, 100)
@@ -197,3 +272,4 @@ sources/3 = SubResource("TileSetAtlasSource_xg14q")
 sources/1 = SubResource("TileSetAtlasSource_0sphh")
 sources/9 = SubResource("TileSetAtlasSource_eajim")
 sources/10 = SubResource("TileSetAtlasSource_kt6d7")
+sources/11 = SubResource("TileSetAtlasSource_kmisr")

@@ -160,7 +160,7 @@ roar_sound = ExtResource("10_0ofex")
 metadata/_custom_type_script = "uid://b87orapy6g1dl"
 
 [node name="RoarTimer" type="Timer" parent="StateMachine/Roar" unique_id=1591412041]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=955450138]
