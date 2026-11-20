@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2uyfns1m8ic7" path="res://Title/title.gd" id="1_iliki"]
 [ext_resource type="Texture2D" uid="uid://cbtjjjxnu8roh" path="res://Title/background.png" id="1_riw74"]
+[ext_resource type="AudioStream" uid="uid://bkemlyrnv2uxo" path="res://Title/aboutToWill.ogg" id="2_eoook"]
 [ext_resource type="Texture2D" uid="uid://dss32wc32uku5" path="res://Title/flashlight.png" id="2_r824j"]
 [ext_resource type="Texture2D" uid="uid://bjtfoltjrbsap" path="res://Title/silhouette.png" id="3_gpixp"]
 [ext_resource type="Texture2D" uid="uid://c804ohi05ldfb" path="res://Title/vignette.png" id="3_toehp"]
@@ -542,6 +543,10 @@ settings = NodePath("Settings")
 credits = NodePath("Credits")
 title_animations = NodePath("Intro/AnimationPlayer")
 transition = NodePath("Transition")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=804538045]
+stream = ExtResource("2_eoook")
+autoplay = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2075832523]
 z_as_relative = false
