@@ -10,6 +10,8 @@ func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("interact"):
 		if parent.hiding_spot != null and parent.holding_lantern == false:
 			return state_machine.hiding_state
+	if event.is_action_pressed("crouch"):
+		return state_machine.idle_crouch_state
 	return
 
 func process_physics(delta) -> State:
