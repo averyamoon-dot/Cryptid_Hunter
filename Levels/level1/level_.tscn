@@ -230,13 +230,14 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 gradient = SubResource("Gradient_3orx2")
 width = 1000
 
-[sub_resource type="Gradient" id="Gradient_37ldw"]
-offsets = PackedFloat32Array(0.6506024, 1)
+[sub_resource type="Gradient" id="Gradient_pyt0i"]
+offsets = PackedFloat32Array(0, 0.6686747)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u1jck"]
-gradient = SubResource("Gradient_37ldw")
-width = 1000
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ligd2"]
+gradient = SubResource("Gradient_pyt0i")
+fill = 1
+fill_from = Vector2(0.47826087, 0.4826087)
 
 [sub_resource type="Gradient" id="Gradient_1he7p"]
 offsets = PackedFloat32Array(0.56626505, 1)
@@ -621,50 +622,50 @@ texture = SubResource("GradientTexture1D_v8lnh")
 [node name="Sprite2D3" type="Sprite2D" parent="EdgeGradients" unique_id=760313825]
 z_index = 1
 position = Vector2(7664, 55.999832)
-rotation = -1.8678789
+rotation = -1.9156497
 scale = Vector2(2.5876524, 7670.163)
 texture = SubResource("GradientTexture1D_kitf8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="EdgeGradients" unique_id=973644982]
 z_index = 1
-position = Vector2(11514.069, -3804.6936)
+position = Vector2(13549.322, -6153.1665)
 rotation = -2.6248662
-scale = Vector2(4.9301367, 7670.163)
+scale = Vector2(3.7115352, 13764.859)
 texture = SubResource("GradientTexture1D_pyt0i")
 
 [node name="Sprite2D5" type="Sprite2D" parent="EdgeGradients" unique_id=196495665]
 z_index = 1
-position = Vector2(14213.924, -9665.599)
-rotation = -2.979027
-scale = Vector2(3.5746686, 9520.603)
+position = Vector2(13837.081, -12946.897)
+rotation = -3.1383743
+scale = Vector2(3.5746686, 12678.415)
 texture = SubResource("GradientTexture1D_v3rgt")
 
 [node name="Sprite2D6" type="Sprite2D" parent="EdgeGradients" unique_id=101082966]
 z_index = 1
-position = Vector2(12929.637, -15344.089)
+position = Vector2(12475.726, -17790.81)
 rotation = -3.5061917
-scale = Vector2(3.9876657, 9242.714)
+scale = Vector2(3.0909355, 14138.201)
 texture = SubResource("GradientTexture1D_766le")
 
 [node name="Sprite2D7" type="Sprite2D" parent="EdgeGradients" unique_id=976264714]
 z_index = 1
-position = Vector2(6053.834, -17523.307)
-rotation = -4.8545084
-scale = Vector2(4.3004107, 13152.177)
+position = Vector2(8230.076, -18312.818)
+rotation = -4.8601804
+scale = Vector2(3.3290102, 16065.107)
 texture = SubResource("GradientTexture1D_lia7v")
 
 [node name="Sprite2D8" type="Sprite2D" parent="EdgeGradients" unique_id=78724198]
 z_index = 1
-position = Vector2(-26.815033, -15311.39)
-rotation = -5.5808463
-scale = Vector2(5.0322986, 6379.45)
-texture = SubResource("GradientTexture1D_u1jck")
+position = Vector2(176.00095, -14968)
+rotation = -2.4360304
+scale = Vector2(106.449, 151.406)
+texture = SubResource("GradientTexture2D_ligd2")
 
 [node name="Sprite2D9" type="Sprite2D" parent="EdgeGradients" unique_id=329937257]
 z_index = 1
-position = Vector2(-4172.703, -12337.857)
-rotation = -5.118971
-scale = Vector2(4.3855004, 6379.45)
+position = Vector2(-888.67456, -14986.614)
+rotation = -5.4358764
+scale = Vector2(3.9038641, 14792.559)
 texture = SubResource("GradientTexture1D_le3s6")
 
 [node name="Sprite2D10" type="Sprite2D" parent="EdgeGradients" unique_id=1311210118]
