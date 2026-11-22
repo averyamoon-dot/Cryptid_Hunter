@@ -396,9 +396,10 @@ offset_right = 31355.0
 offset_bottom = -29221.0
 rotation = 1.5430858
 
-[node name="photoTaking" parent="." unique_id=1945300386 node_paths=PackedStringArray("player") instance=ExtResource("20_kej7u")]
+[node name="photoTaking" parent="." unique_id=1945300386 node_paths=PackedStringArray("player", "cryptid") instance=ExtResource("20_kej7u")]
 position = Vector2(-14105, 10223)
 player = NodePath("../CharacterBody2D")
+cryptid = NodePath("../BigFoot")
 
 [node name="LevelExit2" parent="." unique_id=1598365660 node_paths=PackedStringArray("player", "photo_taking") instance=ExtResource("15_fdgb0")]
 position = Vector2(11605, -23398)

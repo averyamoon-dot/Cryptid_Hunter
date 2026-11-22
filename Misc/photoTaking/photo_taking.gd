@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		camera.position += input_direction * cameraSpeed * delta
 		if Input.is_action_pressed("takePhoto"):
 			takePhoto()
-	if player.cryptid_seen == true:
+	if player.cryptid_seen == true and cryptid.state_machine.state != cryptid.state_machine.chase_state and cryptid.state_machine.state != cryptid.state_machine.roar_state and player.state_machine.state != player.state_machine.hiding_state:
 		if Input.is_action_just_pressed("open_camera"):
 			if photoMode:
 				exit()
@@ -58,7 +58,6 @@ func exit():
 	player.camera.make_current()
 
 func _on_bigfoot_area_area_entered(area: Area2D) -> void:
-	print("Area call")
 	if area == cameraArea:
 		print("Good Framing")
 		goodFraming = true
