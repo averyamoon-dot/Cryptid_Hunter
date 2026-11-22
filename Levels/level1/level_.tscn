@@ -60,6 +60,15 @@ _data = {
 &"fade_in": SubResource("Animation_kej7u")
 }
 
+[sub_resource type="Gradient" id="Gradient_kitf8"]
+offsets = PackedFloat32Array(0.46385542, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v8lnh"]
+gradient = SubResource("Gradient_kitf8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Animation" id="Animation_ligd2"]
 length = 0.001
 tracks/0/type = "value"
@@ -174,11 +183,91 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_ligd2"]
-offsets = PackedFloat32Array(0.22289157, 1)
+offsets = PackedFloat32Array(0.37951806, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_v8lnh"]
 gradient = SubResource("Gradient_ligd2")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_khbn5"]
+offsets = PackedFloat32Array(0.7108434, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kitf8"]
+gradient = SubResource("Gradient_khbn5")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_fruju"]
+offsets = PackedFloat32Array(0.5903614, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pyt0i"]
+gradient = SubResource("Gradient_fruju")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_vntnk"]
+offsets = PackedFloat32Array(0.57831323, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v3rgt"]
+gradient = SubResource("Gradient_vntnk")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_4uhug"]
+offsets = PackedFloat32Array(0.48795182, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_766le"]
+gradient = SubResource("Gradient_4uhug")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_3orx2"]
+offsets = PackedFloat32Array(0.5180723, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lia7v"]
+gradient = SubResource("Gradient_3orx2")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_37ldw"]
+offsets = PackedFloat32Array(0.6506024, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u1jck"]
+gradient = SubResource("Gradient_37ldw")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_1he7p"]
+offsets = PackedFloat32Array(0.56626505, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_le3s6"]
+gradient = SubResource("Gradient_1he7p")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_fuvtc"]
+offsets = PackedFloat32Array(0.6385542, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_msoy7"]
+gradient = SubResource("Gradient_fuvtc")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_3scs1"]
+offsets = PackedFloat32Array(0.6385542, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iry5w"]
+gradient = SubResource("Gradient_3scs1")
+width = 1000
+
+[sub_resource type="Gradient" id="Gradient_xlatf"]
+offsets = PackedFloat32Array(0.6566265, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_83xjd"]
+gradient = SubResource("Gradient_xlatf")
 width = 1000
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "animation_player")]
@@ -463,6 +552,11 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel" unique_id=2115681001]
 libraries/ = SubResource("AnimationLibrary_q7t8j")
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1546282418]
+position = Vector2(580, 324)
+scale = Vector2(18.125, 10.375)
+texture = SubResource("GradientTexture2D_v8lnh")
+
 [node name="LevelExit" parent="." unique_id=1523690499 instance=ExtResource("2_khbn5")]
 offset_left = 31355.0
 offset_top = -29221.0
@@ -515,11 +609,83 @@ autoplay = &"walk_in"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=253322114]
 zoom = Vector2(0.35, 0.35)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790978256]
+[node name="EdgeGradients" type="Node2D" parent="." unique_id=1882154311]
+
+[node name="Sprite2D" type="Sprite2D" parent="EdgeGradients" unique_id=790978256]
 z_index = 1
-position = Vector2(549.0995, 508.98892)
-rotation = -1.5707964
-scale = Vector2(1.3859779, 7670.163)
+position = Vector2(600.00006, 728)
+rotation = -1.6705639
+scale = Vector2(1.969969, 7670.163)
 texture = SubResource("GradientTexture1D_v8lnh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EdgeGradients" unique_id=760313825]
+z_index = 1
+position = Vector2(7664, 55.999832)
+rotation = -1.8678789
+scale = Vector2(2.5876524, 7670.163)
+texture = SubResource("GradientTexture1D_kitf8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="EdgeGradients" unique_id=973644982]
+z_index = 1
+position = Vector2(11514.069, -3804.6936)
+rotation = -2.6248662
+scale = Vector2(4.9301367, 7670.163)
+texture = SubResource("GradientTexture1D_pyt0i")
+
+[node name="Sprite2D5" type="Sprite2D" parent="EdgeGradients" unique_id=196495665]
+z_index = 1
+position = Vector2(14213.924, -9665.599)
+rotation = -2.979027
+scale = Vector2(3.5746686, 9520.603)
+texture = SubResource("GradientTexture1D_v3rgt")
+
+[node name="Sprite2D6" type="Sprite2D" parent="EdgeGradients" unique_id=101082966]
+z_index = 1
+position = Vector2(12929.637, -15344.089)
+rotation = -3.5061917
+scale = Vector2(3.9876657, 9242.714)
+texture = SubResource("GradientTexture1D_766le")
+
+[node name="Sprite2D7" type="Sprite2D" parent="EdgeGradients" unique_id=976264714]
+z_index = 1
+position = Vector2(6053.834, -17523.307)
+rotation = -4.8545084
+scale = Vector2(4.3004107, 13152.177)
+texture = SubResource("GradientTexture1D_lia7v")
+
+[node name="Sprite2D8" type="Sprite2D" parent="EdgeGradients" unique_id=78724198]
+z_index = 1
+position = Vector2(-26.815033, -15311.39)
+rotation = -5.5808463
+scale = Vector2(5.0322986, 6379.45)
+texture = SubResource("GradientTexture1D_u1jck")
+
+[node name="Sprite2D9" type="Sprite2D" parent="EdgeGradients" unique_id=329937257]
+z_index = 1
+position = Vector2(-4172.703, -12337.857)
+rotation = -5.118971
+scale = Vector2(4.3855004, 6379.45)
+texture = SubResource("GradientTexture1D_le3s6")
+
+[node name="Sprite2D10" type="Sprite2D" parent="EdgeGradients" unique_id=1311210118]
+z_index = 1
+position = Vector2(-5163.3354, -8475.206)
+rotation = -6.371634
+scale = Vector2(4.2394247, 6379.45)
+texture = SubResource("GradientTexture1D_msoy7")
+
+[node name="Sprite2D11" type="Sprite2D" parent="EdgeGradients" unique_id=1411855974]
+z_index = 1
+position = Vector2(-6713.314, -2911.208)
+rotation = -5.9762774
+scale = Vector2(4.61132, 6379.45)
+texture = SubResource("GradientTexture1D_iry5w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EdgeGradients" unique_id=2009091069]
+z_index = 1
+position = Vector2(-4324.7583, -660.9833)
+rotation = -0.7954797
+scale = Vector2(4.508402, 7670.163)
+texture = SubResource("GradientTexture1D_83xjd")
 
 [editable path="CharacterBody2D"]
