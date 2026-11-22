@@ -64,11 +64,11 @@ func _input(event):
 				zoom = 0.75*zoom
 				if (zoom.x < 0.3):
 					zoom = Vector2(0.3,0.3)
-			if(event.keycode == KEY_Z):
-				take_photo()
-				photoMode = false
-				get_tree().paused = false
-				
+			##if(event.keycode == KEY_Z):
+				##take_photo()
+				##photoMode = false
+				##get_tree().paused = false
+				##
 			##print(zoom)
 	pass
 
