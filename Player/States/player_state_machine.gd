@@ -3,6 +3,7 @@ extends StateMachine
 
 @export var idle_state : State
 @export var walk_state : State
+@export var walk_cutscene_state : State
 @export var sprint_state : State
 @export var crouch_state : State
 @export var idle_crouch_state : State

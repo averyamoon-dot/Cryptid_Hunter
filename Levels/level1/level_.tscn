@@ -40,6 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_kej7u"]
 resource_name = "fade_in"
+length = 3.0000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,7 +48,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -58,6 +59,127 @@ _data = {
 &"RESET": SubResource("Animation_u85yh"),
 &"fade_in": SubResource("Animation_kej7u")
 }
+
+[sub_resource type="Animation" id="Animation_ligd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_khbn5"]
+resource_name = "walk_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707964, -1.5707964]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle"],
+"method": &"change_state"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kitf8"]
+_data = {
+&"RESET": SubResource("Animation_ligd2"),
+&"walk_in": SubResource("Animation_khbn5")
+}
+
+[sub_resource type="Gradient" id="Gradient_ligd2"]
+offsets = PackedFloat32Array(0.22289157, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8lnh"]
+gradient = SubResource("Gradient_ligd2")
+width = 1000
 
 [node name="level1" type="Node2D" unique_id=1898571740 node_paths=PackedStringArray("player", "jumpscare", "animation_player")]
 script = ExtResource("1_ligd2")
@@ -95,8 +217,15 @@ tile_map_data = PackedByteArray("AAADAPj/BQACAAQAAAADAPn/BQACAAUAAAAEAPj/BQADAAQ
 tile_set = ExtResource("4_fruju")
 
 [node name="CharacterBody2D" parent="." unique_id=1270243922 node_paths=PackedStringArray("cryptid") instance=ExtResource("5_pyt0i")]
-position = Vector2(10163, -16397)
+rotation = -1.5707964
 cryptid = NodePath("../BigFoot")
+
+[node name="StateMachine" parent="CharacterBody2D" index="0" unique_id=1738993047 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("WalkCutscene")
+
+[node name="WalkCutscene" parent="CharacterBody2D/StateMachine" index="2" unique_id=1292943322]
+animation_name = "walk"
+animation_speed = 0.5
 
 [node name="AudioController" parent="." unique_id=390093402 instance=ExtResource("6_vntnk")]
 
@@ -378,3 +507,19 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(2100, 17000)
 texture = ExtResource("19_iry5w")
 metadata/_edit_use_anchors_ = true
+
+[node name="Cutscene" type="AnimationPlayer" parent="." unique_id=1379295643]
+libraries/ = SubResource("AnimationLibrary_kitf8")
+autoplay = &"walk_in"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=253322114]
+zoom = Vector2(0.35, 0.35)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790978256]
+z_index = 1
+position = Vector2(549.0995, 508.98892)
+rotation = -1.5707964
+scale = Vector2(1.3859779, 7670.163)
+texture = SubResource("GradientTexture1D_v8lnh")
+
+[editable path="CharacterBody2D"]

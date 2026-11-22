@@ -39,7 +39,7 @@ var is_hidden = false
 @onready var holding_lantern = false
 
 var remaining_sprint_time: float
-var facing: Vector2 = Vector2.RIGHT
+var facing: Vector2 = Vector2.UP
 var vision_angle: float = 0.0    
 var roar_position: Vector2
 var cryptid_seen: bool = false
@@ -144,3 +144,10 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 func on_bigfoot_roar(pos: Vector2) -> void:
 	roar_position = pos
 	state_machine.change_state(state_machine.looking_state)
+	
+func change_state(state_name : String):
+	match state_name:
+		"idle":
+			state_machine.call_deferred("change_state",state_machine.idle_state)
+		"walk_cutscene":
+			state_machine.call_deferred("change_state",state_machine.walk_cutscene_state)
