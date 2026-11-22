@@ -4,6 +4,8 @@ extends Control
 
 
 func _input(event: InputEvent) -> void:
+	if animation_player.is_playing():
+		return
 	if event.is_action_pressed("pause"):
 		if get_tree().paused:
 			close_pause()
