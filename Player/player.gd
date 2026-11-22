@@ -38,6 +38,8 @@ var is_hidden = false
 
 @onready var holding_lantern = false
 
+@onready var camera: Camera2D = $Camera2D
+
 var remaining_sprint_time: float
 var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    

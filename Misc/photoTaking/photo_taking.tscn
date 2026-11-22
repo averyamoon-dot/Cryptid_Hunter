@@ -13,9 +13,10 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bykxn"]
 
-[node name="photoTaking" type="Node2D" unique_id=1945300386]
+[node name="photoTaking" type="Node2D" unique_id=1945300386 node_paths=PackedStringArray("cameraArea")]
 process_mode = 3
 script = ExtResource("1_fxoc4")
+cameraArea = NodePath("Camera2D/cameraArea")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1474066022]
 
@@ -73,9 +74,9 @@ position = Vector2(-590, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_bykxn")
 
-[node name="Area2D" type="Area2D" parent="BigFoot" unique_id=1696056966]
+[node name="BigfootArea" type="Area2D" parent="BigFoot" unique_id=1696056966]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigFoot/Area2D" unique_id=1626716934]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigFoot/BigfootArea" unique_id=1626716934]
 z_index = 5
 position = Vector2(-750, -56)
 scale = Vector2(7, 10)
@@ -84,5 +85,5 @@ shape = SubResource("CapsuleShape2D_bykxn")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1423164840]
 stream = ExtResource("8_bykxn")
 
-[connection signal="area_entered" from="BigFoot/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="BigFoot/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="BigFoot/BigfootArea" to="." method="_on_bigfoot_area_area_entered"]
+[connection signal="area_exited" from="BigFoot/BigfootArea" to="." method="_on_bigfoot_area_area_exited"]
