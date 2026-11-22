@@ -8,7 +8,7 @@ const MAX_POS = Vector2(11400, 18400)
 var photoMode = false
 var xOffset = 2580
 var yOffset = 18300
-var stars = 0
+##var stars = 0
 ##@onready var time = $Timer/WaitTime
 
 # Called when the node enters the scene tree for the first time.
@@ -26,16 +26,16 @@ func _physics_process(_delta: float) -> void:
 			offset = offset.clamp(MIN_POS, MAX_POS)
 
 func _input(event):
-	if(!event.as_text().contains("Mouse")):
-		if(event.keycode == KEY_R):
-			if(!photoMode):
-				make_current()
-				photoMode = true
-				zoom = Vector2(0.3,0.3)
-				offset = Vector2(xOffset,yOffset)
-				get_tree().paused = true
-				
-		if(photoMode):
+	##if(!event.as_text().contains("Mouse")):
+		##if(event.keycode == KEY_R):
+			##if(!photoMode):
+				##make_current()
+				##photoMode = true
+				##zoom = Vector2(0.3,0.3)
+				##offset = Vector2(xOffset,yOffset)
+				##get_tree().paused = true
+				##
+		##if(photoMode):
 			#if(event.keycode == KEY_A):
 				#offset.x = offset.x-20
 				#if(offset.x < 1920):
@@ -52,18 +52,18 @@ func _input(event):
 				#offset.y = offset.y+20
 				#if(offset.y > 18400):
 					#offset.y = 18400
-			if(event.keycode == KEY_Q):
+			##if(event.keycode == KEY_Q):
 				##self.property.zoom.set(self.property.get()*1.1)
 				##print(self.propert.getZoom())
-				zoom = 1.5*zoom
-				if(zoom.x > 2.5):
-					zoom = Vector2(2.5,2.5)
-			elif(event.keycode == KEY_E):
+				##zoom = 1.5*zoom
+				##if(zoom.x > 2.5):
+					##zoom = Vector2(2.5,2.5)
+			##elif(event.keycode == KEY_E):
 				##self.property.zoom.set(self.property.get()*0.9)
 				##print(self.property.getZoom())
-				zoom = 0.75*zoom
-				if (zoom.x < 0.3):
-					zoom = Vector2(0.3,0.3)
+				##zoom = 0.75*zoom
+				##if (zoom.x < 0.3):
+					##zoom = Vector2(0.3,0.3)
 			##if(event.keycode == KEY_Z):
 				##take_photo()
 				##photoMode = false
@@ -81,9 +81,9 @@ func _process(delta: float) -> void:
 func take_photo():
 	##Process taking photo, and figure out 
 	##Auto-aggro cryptid, send the player back to the level
-	if(offset.x > 1):
-		stars = 5
-	print(stars)
+	##if(offset.x > 1):
+		##stars = 5
+	##print(stars)
 	return
 	
 ##func zoom():
