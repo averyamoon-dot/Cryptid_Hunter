@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://b3wbdw5wn6jj5" path="res://Player/States/tired_idle.gd" id="9_roy6y"]
 [ext_resource type="Texture2D" uid="uid://debprm6or4f6q" path="res://Player/Assets/walking/walk1.png" id="10_3mea3"]
 [ext_resource type="AudioStream" uid="uid://de8o4c4florkh" path="res://Interacable/hiding_bush/bush_rustle.mp3" id="10_evw08"]
+[ext_resource type="Script" uid="uid://b17ibfonk63ie" path="res://Player/States/crouch_idle.gd" id="10_yifbt"]
 [ext_resource type="Texture2D" uid="uid://semeuhnlpojt" path="res://Player/Assets/walking/walk2.png" id="11_7v5gs"]
 [ext_resource type="Texture2D" uid="uid://crsw0gwohswvp" path="res://Player/Assets/walking/walk3.png" id="12_8sa4y"]
 [ext_resource type="Texture2D" uid="uid://ehj5kgn84m5a" path="res://Player/Assets/walking/walk4.png" id="13_3nb2p"]
@@ -87,12 +88,13 @@ chase_music_player = NodePath("ChaseMusicPlayer")
 shoulda_coulda_wooda = ExtResource("22_u5tep")
 shouldnt_cant_wont = ExtResource("3_7uipr")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "tired_state", "idle_tired_state", "hiding_state", "looking_state", "starting_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1738993047 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "crouch_state", "idle_crouch_state", "tired_state", "idle_tired_state", "hiding_state", "looking_state", "starting_state")]
 script = ExtResource("2_q3lat")
 idle_state = NodePath("Idle")
 walk_state = NodePath("Walk")
 sprint_state = NodePath("Sprint")
 crouch_state = NodePath("Crouch")
+idle_crouch_state = NodePath("CrouchIdle")
 tired_state = NodePath("Tired")
 idle_tired_state = NodePath("TiredIdle")
 hiding_state = NodePath("Hiding")
@@ -132,6 +134,10 @@ script = ExtResource("7_s1rgi")
 crouch_speed = 250.0
 animation_name = "walk"
 animation_speed = 0.8
+
+[node name="CrouchIdle" type="Node" parent="StateMachine" unique_id=297867420]
+script = ExtResource("10_yifbt")
+metadata/_custom_type_script = "uid://cassrqvrdwror"
 
 [node name="Tired" type="Node" parent="StateMachine" unique_id=630689001 node_paths=PackedStringArray("tired_timer")]
 script = ExtResource("8_j23h2")

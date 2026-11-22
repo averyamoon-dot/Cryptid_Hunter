@@ -547,6 +547,7 @@ transition = NodePath("Transition")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=804538045]
 stream = ExtResource("2_eoook")
 autoplay = true
+bus = &"Music"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2075832523]
 z_as_relative = false

@@ -4,10 +4,15 @@ extends CharacterBody2D
 signal player_died
 
 @export_category("Parameters")
+@export_group("Sprinting")
 @export var max_sprint_duration: float = 6.0
 @export var min_sprint_threshold: float = 2.0
 @export var sprint_recharge_rate: float = 1.0
 @export var turn_speed: float = 4.0 # In radians
+@export_group("Crouching")
+@export var crouch_scale_multiplier: float = 0.9
+@export var crouch_tint: Color = Color(0.679, 0.679, 0.679, 1.0)
+@export var crouch_visual_speed: float = 10.0
 
 @export_category("References")
 @export var state_machine : StateMachine
@@ -40,17 +45,27 @@ var facing: Vector2 = Vector2.RIGHT
 var vision_angle: float = 0.0    
 var roar_position: Vector2
 var cryptid_seen: bool = false
+var is_crouching: bool = false
+var sprite_base_scale: Vector2
 
 func _ready() -> void:
 	SignalController.bigfoot_roar.connect(on_bigfoot_roar)
 	remaining_sprint_time = max_sprint_duration
 	vision_angle = facing.angle()
 	audio_listener.make_current()
+	sprite_base_scale = sprite.scale
 	state_machine.parent = self
 	state_machine.sprite = sprite
 	await get_tree().process_frame
 	state_machine.initialize_state_machine()
-	
+
+func _process(delta):
+	var sprite_target_scale = sprite_base_scale * crouch_scale_multiplier if is_crouching else sprite_base_scale
+	var sprite_target_tint = crouch_tint if is_crouching else Color.WHITE
+	var weight = min(crouch_visual_speed * delta, 1.0)
+	sprite.scale = sprite.scale.lerp(sprite_target_scale, weight)
+	sprite.modulate = sprite.modulate.lerp(sprite_target_tint, weight)
+
 func play_animation(animation_name: String, animation_speed) -> void: 
 	sprite.speed_scale = animation_speed
 	if animation_name:
