@@ -11,6 +11,7 @@
 size = Vector2(240, 240)
 
 [node name="Leaves" type="Area2D" unique_id=1808298047 node_paths=PackedStringArray("noise_emitter")]
+z_index = 2
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_4et01")

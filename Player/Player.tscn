@@ -76,6 +76,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270243922 node_paths=PackedStringArray("state_machine", "sprite", "vision_cone", "vision_ray", "noise_emitter", "audio_listener", "ambient_music_player", "chase_music_player")]
+z_index = 10
 collision_layer = 2
 script = ExtResource("1_3qydi")
 state_machine = NodePath("StateMachine")

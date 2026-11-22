@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dixhkg407ayoi"]
+
+[ext_resource type="Script" uid="uid://cpi1kkbrduftg" path="res://Levels/LevelObjects/BearTrap/bear_trap.gd" id="1_84nsv"]
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="2_cjfrk"]
+[ext_resource type="Texture2D" uid="uid://cwt83bkeiewfh" path="res://Levels/LevelObjects/BearTrap/bear_trap.png" id="2_y7n0j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vjpb"]
+radius = 61.518295
+height = 198.63472
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wklse"]
+radius = 44.187946
+height = 147.19208
+
+[node name="BearTrap" type="Area2D" unique_id=130429139]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_84nsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=379121441]
+material = ExtResource("2_cjfrk")
+position = Vector2(-128, 142)
+texture = ExtResource("2_y7n0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2010529800]
+position = Vector2(-1, 2)
+rotation = -0.9407325
+shape = SubResource("CapsuleShape2D_6vjpb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=116308067]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=86767204]
+rotation = -0.9407325
+shape = SubResource("CapsuleShape2D_wklse")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

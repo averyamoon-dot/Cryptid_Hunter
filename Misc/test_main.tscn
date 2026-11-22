@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://4leksuko6oax" path="res://Levels/LevelObjects/bush/Stick.tscn" id="8_4grlp"]
 [ext_resource type="PackedScene" uid="uid://d0556g8tsd030" path="res://Interacable/hiding_bush/hiding_bush.tscn" id="9_4grlp"]
 [ext_resource type="PackedScene" uid="uid://b5n4ogyr04ea1" path="res://Levels/pause_screen/pause.tscn" id="11_ybdfv"]
+[ext_resource type="PackedScene" uid="uid://dqxeqlot6t2gq" path="res://Levels/LevelObjects/Pitfall/Pitfall.tscn" id="12_b2nnc"]
 [ext_resource type="PackedScene" uid="uid://d0mmadiijq5bf" path="res://Levels/GameOverScreen/GameOver.tscn" id="12_tqdi6"]
+[ext_resource type="PackedScene" uid="uid://dixhkg407ayoi" path="res://Levels/LevelObjects/BearTrap/BearTrap.tscn" id="13_nfv6s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsktq"]
 bg_color = Color(0, 0, 0, 1)
@@ -80,7 +82,19 @@ tile_layers = [NodePath("../GroundLayer"), NodePath("../CollidableLayer")]
 [node name="BigfootJumpscare" parent="." unique_id=138911409 instance=ExtResource("2_nru02")]
 position = Vector2(18528, -824)
 
-[node name="Leaves" parent="." unique_id=1808298047 instance=ExtResource("7_c221a")]
+[node name="Leaves4" parent="." unique_id=1808298047 instance=ExtResource("7_c221a")]
+position = Vector2(2586, -135)
+
+[node name="Leaves3" parent="." unique_id=2011506487 instance=ExtResource("7_c221a")]
+position = Vector2(3123, -183)
+
+[node name="Leaves5" parent="." unique_id=911768613 instance=ExtResource("7_c221a")]
+position = Vector2(1392, 165)
+
+[node name="Leaves2" parent="." unique_id=1551190866 instance=ExtResource("7_c221a")]
+position = Vector2(1904, -384)
+
+[node name="Leaves" parent="." unique_id=976241351 instance=ExtResource("7_c221a")]
 position = Vector2(952, -192)
 
 [node name="Stick" parent="." unique_id=138826487 instance=ExtResource("8_4grlp")]
@@ -110,3 +124,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tsktq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel" unique_id=1625103260]
 libraries/ = SubResource("AnimationLibrary_ybdfv")
+
+[node name="Pitfall" parent="." unique_id=1436203083 instance=ExtResource("12_b2nnc")]
+position = Vector2(2584, -126)
+
+[node name="BearTrap" parent="." unique_id=130429139 instance=ExtResource("13_nfv6s")]
+position = Vector2(2918, 254)

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dqxeqlot6t2gq"]
+
+[ext_resource type="Script" uid="uid://dkgoy3cjwqvwh" path="res://Levels/LevelObjects/Pitfall/pitfall.gd" id="1_24c41"]
+[ext_resource type="Material" uid="uid://cem05lj7fpwjp" path="res://Levels/test_level/Materials/hiddenMaterial.tres" id="2_oia2j"]
+[ext_resource type="Texture2D" uid="uid://duyqxclhcj5kh" path="res://Levels/LevelObjects/Pitfall/pit_trap.png" id="2_wklse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1lth"]
+radius = 77.10383
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
+radius = 50.0
+
+[node name="Pitfall" type="Area2D" unique_id=1436203083]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_24c41")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=564793852]
+material = ExtResource("2_oia2j")
+position = Vector2(381, 385)
+texture = ExtResource("2_wklse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1143227627]
+shape = SubResource("CircleShape2D_b1lth")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2118615810]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2119745048]
+shape = SubResource("CircleShape2D_6vjpb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
