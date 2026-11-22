@@ -1,6 +1,6 @@
 extends Node
 
-const HEARING_DISTANCE: float = 4000 # Default 2000
+const HEARING_DISTANCE: float = 5120 # Default 2000
 
 var music_player: AudioStreamPlayer
 
